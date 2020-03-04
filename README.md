@@ -7,7 +7,7 @@
 ##### A (link pages), E (read story)
 ##### G (add variables), C (debug story)
 ##### D (export file)
-##### B (search for node), F (search by tags)
+##### B (search for node), F (search by tags)  .
 ##### ---------------------------------------------
 
 
