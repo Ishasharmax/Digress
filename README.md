@@ -14,5 +14,5 @@ Description: *Software for reading and writing non-linear text-based stories. Pr
 
 ##### Sprint goal 1: Set up the basic structure of the software, including linkable story nodes that can be "read" by the user as well as debugged on the developer's side.
 
-
-
+Link for notes: 
+https://docs.google.com/document/d/1EH4sLyyArtnjK7uotSPA-b0XPGVZNhoAHuVmBQ0QTvY/edit?usp=sharing
