@@ -11,8 +11,8 @@ public class Story extends Node {
         super(idIn, storyContentIn);
         Tittle = titleIn;
         Tags = tagsIn;
-        Map<Integer,Node> stroyNode = new Map<,Node>();
-        
+        Map<Integer,Node> stroy = new Map<,Node>();
+
     }
 
 }
