@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="Updated SDK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,8 +101,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585096361237</updated>
-      <workItem from="1585256095684" duration="251000" />
+      <workItem from="1585256095684" duration="1376000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated SDK">
+      <created>1585256362359</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585256362359</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -123,12 +130,24 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated SDK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated SDK" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="760" y="417" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585256330101">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="760" y="417" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585256330101" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
+    <state x="615" y="135" key="CommitChangelistDialog2" timestamp="1585256361508">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="615" y="135" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585256361508" />
+    <state x="184" y="96" key="DiffContextDialog" timestamp="1585271227118">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="184" y="96" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585271227118" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom" timestamp="1585175074305">
       <screen x="0" y="22" width="1440" height="821" />
     </state>
@@ -149,6 +168,14 @@
       <screen x="0" y="22" width="1440" height="821" />
     </state>
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174501995" />
+    <state x="769" y="458" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585271102726">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="769" y="458" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585271102726" />
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1585271115438">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585271115438" />
   </component>
   <component name="masterDetails">
     <states>
