@@ -26,6 +26,17 @@ public class NodeTest {
     }
 
     @Test
+    //there's no way to test this because the maps are set to null by default
+    void checkConditionExistsTest(){
+        //check if condition does not exist
+
+        //check if condition does not exist when there are multiple conditions
+
+        //check if condition already exists in parent
+
+    }
+
+    @Test
     void getNextTest(){
         //sets a node as a child of the root node
         Node rootNode = new Node(1, "root node");

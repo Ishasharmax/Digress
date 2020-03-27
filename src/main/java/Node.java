@@ -1,10 +1,11 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Node {
     private int id;
     private String storyContent;
     private Node parentNode;
-    private Map<Integer, Node> nextNodes;
+    private HashMap<Integer, Node> nextNodes;
 
     //root node constructor
     //add character limit here?
@@ -17,6 +18,8 @@ public class Node {
         }
         id = idIn;
         storyContent = storyContentIn;
+        parentNode = null;
+        nextNodes = new HashMap<>();
     }
 
     //child node constructor
@@ -34,25 +37,50 @@ public class Node {
         id = idIn;
         storyContent = storyContentIn;
         parentNode = parentNodeIn;
+        nextNodes = new HashMap<>();
+    }
+
+    public boolean checkConditionExists(int conditionIn){
+        if(getNextNodes().isEmpty()){
+            return false;
+        }
+        for (Integer condition: getNextNodes().keySet()){
+            if(condition == conditionIn){
+                return true;
+            }
+        }
+        return false;
     }
 
     //sets map to the new child
     //this should be called whenever addNode is called in story class
     public void setChild(Integer condition, Node childNode) throws IllegalArgumentException{
-
+        if(condition < 1){
+            throw new IllegalArgumentException("Condition must be a positive number");
+        }
+        if(checkConditionExists(condition)){
+            throw new IllegalArgumentException("Condition already exists in the parent");
+        }
+        if(childNode == null){
+            throw new IllegalArgumentException("Child node does not exist");
+        }
+        nextNodes.put(condition, childNode);
     }
 
-    public Node getNext(int choiceValueIn){
-        return null;
+    public Node getNext(int choiceValue){
+        return nextNodes.get(choiceValue);
     }
 
     public String getStoryContent(){
-        return this.storyContent;
+        return storyContent;
     }
 
     public Node getParentNode(){
-        return this.parentNode;
+        return parentNode;
     }
 
+    public HashMap<Integer, Node> getNextNodes(){
+        return nextNodes;
+    }
 
 }
