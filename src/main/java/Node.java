@@ -4,8 +4,7 @@ public class Node {
     private int id;
     private String storyContent;
     private Node parentNode;
-    private int choiceValue;
-    public Map<Integer, Node> nextNodes;
+    private Map<Integer, Node> nextNodes;
 
     //root node constructor
     //add character limit here?
@@ -21,9 +20,8 @@ public class Node {
     }
 
     //child node constructor
-    public Node(int idIn, String storyContentIn, Node parentNodeIn, int choiceValueIn) throws IllegalArgumentException{
-        //should throw invalid argument exceptions higher up:
-        //id must be unique choiceValue must be unique to parent
+    public Node(int idIn, String storyContentIn, Node parentNodeIn) throws IllegalArgumentException{
+        //should throw invalid argument exceptions higher up: id must be unique
 
         if (idIn < 1){
             throw new IllegalArgumentException("ID must be a positive number");
@@ -33,17 +31,28 @@ public class Node {
             throw new IllegalArgumentException("Parent node does not exist");
         }
 
-        if(choiceValueIn < 1){
-            throw new IllegalArgumentException("Choice value must be a positive number");
-        }
-
         id = idIn;
         storyContent = storyContentIn;
         parentNode = parentNodeIn;
-        choiceValue = choiceValueIn;
+    }
+
+    //sets map to the new child
+    //this should be called whenever addNode is called in story class
+    public void setChild(Integer condition, Node childNode) throws IllegalArgumentException{
+
+    }
+
+    public Node getNext(int choiceValueIn){
+        return null;
     }
 
     public String getStoryContent(){
         return this.storyContent;
     }
+
+    public Node getParentNode(){
+        return this.parentNode;
+    }
+
+
 }
