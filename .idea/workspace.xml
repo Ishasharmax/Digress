@@ -37,6 +37,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZdgeDAQHdusWxjjtsZPCYYIsbJ" />
@@ -47,6 +52,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -78,7 +85,6 @@
       </method>
     </configuration>
     <configuration name="Unnamed" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -144,7 +150,18 @@
       <option name="presentableId" value="Default" />
       <updated>1585096361237</updated>
       <workItem from="1585261722766" duration="7714000" />
+      <workItem from="1585271270456" duration="909000" />
+      <workItem from="1585279518691" duration="7001000" />
+      <workItem from="1585335212274" duration="306000" />
     </task>
+    <task id="LOCAL-00001" summary="Story and StoryTests outlined, tests started being written">
+      <created>1585288076034</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585288076034</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -159,6 +176,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Story and StoryTests outlined, tests started being written" />
+    <option name="LAST_COMMIT_MESSAGE" value="Story and StoryTests outlined, tests started being written" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585266826343">
       <screen x="0" y="0" width="1280" height="680" />
@@ -169,6 +190,14 @@
     </state>
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
+    <state x="615" y="135" key="CommitChangelistDialog2" timestamp="1585288074877">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="615" y="135" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585288074877" />
+    <state x="184" y="96" key="DiffContextDialog" timestamp="1585335526802">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="184" y="96" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585335526802" />
     <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585270368423">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -189,10 +218,22 @@
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1585175074304" />
+    <state x="672" y="257" key="MultipleFileMergeDialog" timestamp="1585335441386">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="672" y="257" key="MultipleFileMergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585335441386" />
+    <state x="552" y="274" key="Vcs.Push.Dialog.v2" timestamp="1585288092306">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="274" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585288092306" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
     </state>
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174501995" />
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1585335520089">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585335520089" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585267975345">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
