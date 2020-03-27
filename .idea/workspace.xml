@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/StoryTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/NodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NodeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Node.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZdgeDAQHdusWxjjtsZPCYYIsbJ" />
@@ -47,6 +51,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -78,7 +84,6 @@
       </method>
     </configuration>
     <configuration name="Unnamed" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -144,6 +149,8 @@
       <option name="presentableId" value="Default" />
       <updated>1585096361237</updated>
       <workItem from="1585261722766" duration="7714000" />
+      <workItem from="1585271270456" duration="909000" />
+      <workItem from="1585279518691" duration="6924000" />
     </task>
     <servers />
   </component>
@@ -193,6 +200,10 @@
       <screen x="0" y="22" width="1440" height="821" />
     </state>
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174501995" />
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1585281135501">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585281135501" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585267975345">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
