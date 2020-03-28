@@ -51,8 +51,10 @@ public class Story {
         return storyNodes.get(-1);
     }
 
-    public void printCurrentNode(){
-
+    public void printCurrentNode() {
+        for (HashMap.Entry entry : storyNodes.entrySet()) {
+            System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
+        }
     }
 
     public Node getRoot(){
