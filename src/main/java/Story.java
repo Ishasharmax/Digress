@@ -25,11 +25,12 @@ public class Story {
     }
 
     public void editNode(int nodeID, String editChoice){
-
+        
     }
 
     public void editNodeStoryContent(int nodeID, String newStoryContent){
-
+        Node nodeToChange = findNode(nodeID);
+        nodeToChange.editStoryContent(newStoryContent);
     }
 
     public void editNodeMap(int nodeID, int mapNodeID, int newChoiceValue){
