@@ -40,6 +40,14 @@ public class StoryTests {
 
     @Test
     void findNodeTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(1, "adventure");
+        testTags.add(2, "strategy");
+        Story testStory1 = new Story(1,"Story", "This is test content for the root", testTags);
+        testStory1.addNode("Content for the first child", 1);
+        testStory1.addNode("additional content for another node", 1);
+        testStory1.addNode("additional content for another node", 1);
+        testStory1.findNode(2);
 
     }
 
