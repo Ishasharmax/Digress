@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -36,12 +37,24 @@ public class Story {
 
     }
 
-    public Node findNode(int nodeID){
-        return new Node(0, "dfnsalk");
+    Node findNode(int nodeID) throws IllegalArgumentException{
+        if(storyNodes.size() < 1) {
+            throw new IllegalArgumentException("There has to be at least one story node");
+        }
+        Iterator<Integer> iterator = storyNodes.keySet().iterator();
+        while(iterator.hasNext()) {
+            Integer currKey = iterator.next();
+            if(nodeID == currKey){
+                return storyNodes.get(currKey);
+            }
+        }
+        return storyNodes.get(-1);
     }
 
-    public void printCurrentNode(){
-
+    public void printCurrentNode() {
+        for (HashMap.Entry entry : storyNodes.entrySet()) {
+            System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
+        }
     }
 
     public Node getRoot(){
