@@ -2,8 +2,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class StoryTests {
 
     @Test
@@ -25,7 +23,6 @@ public class StoryTests {
         testStory.addNode("Content for the first child", 1);
         testStory.addNode("additional content for another node", 1);
         testStory.editNode(2);
-
     }
 
     @Test
