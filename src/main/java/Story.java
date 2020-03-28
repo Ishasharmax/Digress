@@ -25,7 +25,7 @@ public class Story {
     }
 
     public void editNode(int nodeID, String editChoice){
-        
+
     }
 
     public void editNodeStoryContent(int nodeID, String newStoryContent){
@@ -33,8 +33,9 @@ public class Story {
         nodeToChange.editStoryContent(newStoryContent);
     }
 
-    public void editNodeMap(int nodeID, int mapNodeID, int newChoiceValue){
-
+    public void editNodeChildren(int nodeID, int mapNodeID, int newChoiceValue){
+        Node nodeToChange = findNode(nodeID);
+        nodeToChange.editChildren(int choiceValueToChange, newChoiceValue);
     }
 
     public void deleteNode(int nodeID){
