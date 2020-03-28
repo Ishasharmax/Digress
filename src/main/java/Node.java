@@ -6,6 +6,7 @@ public class Node {
     private String storyContent;
     private Node parentNode;
     private HashMap<Integer, Node> nextNodes;
+    private HashMap<Integer, String> nextConditions;
 
     //root node constructor
     //add character limit here?
@@ -20,6 +21,7 @@ public class Node {
         storyContent = storyContentIn;
         parentNode = null;
         nextNodes = new HashMap<>();
+        nextConditions = new HashMap<>();
     }
 
     //child node constructor
@@ -38,14 +40,44 @@ public class Node {
         storyContent = storyContentIn;
         parentNode = parentNodeIn;
         nextNodes = new HashMap<>();
+        nextConditions = new HashMap<>();
     }
 
-    public boolean checkConditionExists(int conditionIn){
-        if(getNextNodes().isEmpty()){
+    public boolean checkChoiceValueValid(int choiceValueIn){
+        if(nextNodes.isEmpty()){
+            return true;
+        }
+        //find max and make sure the new choiceValue is max+1
+        int max = 0;
+        for (Integer choiceValue: nextNodes.keySet()){
+            if (choiceValue > max){
+                max = choiceValue;
+            }
+        }
+        if(choiceValueIn != max+1){
             return false;
         }
-        for (Integer condition: getNextNodes().keySet()){
-            if(condition == conditionIn){
+        return true;
+    }
+
+    public boolean checkConditionValid(String conditionIn){
+        conditionIn = conditionIn.toLowerCase();
+        char[] charArray = conditionIn.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
+            if (!(ch >= 'a' && ch <= 'z')) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkConditionExists(String conditionIn){
+        if(nextConditions.isEmpty()){
+            return false;
+        }
+        for(String condition: nextConditions.values()){
+            if(condition.equals(conditionIn)){
                 return true;
             }
         }
@@ -56,15 +88,22 @@ public class Node {
     //this should be called whenever addNode is called in story class
     public void setChild(Integer choiceValue, String condition, Node childNode) throws IllegalArgumentException{
         if(choiceValue < 1){
-            throw new IllegalArgumentException("Condition must be a positive number");
+            throw new IllegalArgumentException("Choice value must be a positive number");
         }
-        if(checkConditionExists(choiceValue)){
-            throw new IllegalArgumentException("Condition already exists in the parent");
+        if(!checkChoiceValueValid(choiceValue)){
+            throw new IllegalArgumentException("Choice value already exists or is too much larger than last choice value");
+        }
+        if(!checkConditionValid(condition)){
+            throw new IllegalArgumentException("Condition must be only letters");
+        }
+        if(checkConditionExists(condition)){
+            throw new IllegalArgumentException("Condition already exists");
         }
         if(childNode == null){
             throw new IllegalArgumentException("Child node does not exist");
         }
         nextNodes.put(choiceValue, childNode);
+        nextConditions.put(choiceValue, condition);
     }
 
     public Node getNext(int choiceValue){
@@ -81,6 +120,10 @@ public class Node {
 
     public HashMap<Integer, Node> getNextNodes(){
         return nextNodes;
+    }
+
+    public HashMap<Integer, String> getNextConditions(){
+        return nextConditions;
     }
 
 }
