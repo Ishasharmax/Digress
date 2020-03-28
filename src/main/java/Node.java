@@ -54,17 +54,17 @@ public class Node {
 
     //sets map to the new child
     //this should be called whenever addNode is called in story class
-    public void setChild(Integer condition, Node childNode) throws IllegalArgumentException{
-        if(condition < 1){
+    public void setChild(Integer choiceValue, String condition, Node childNode) throws IllegalArgumentException{
+        if(choiceValue < 1){
             throw new IllegalArgumentException("Condition must be a positive number");
         }
-        if(checkConditionExists(condition)){
+        if(checkConditionExists(choiceValue)){
             throw new IllegalArgumentException("Condition already exists in the parent");
         }
         if(childNode == null){
             throw new IllegalArgumentException("Child node does not exist");
         }
-        nextNodes.put(condition, childNode);
+        nextNodes.put(choiceValue, childNode);
     }
 
     public Node getNext(int choiceValue){
