@@ -24,7 +24,15 @@ public class Story {
         return root;
     }
 
-    public void editNode(int nodeID){
+    public void editNode(int nodeID, String editChoice){
+
+    }
+
+    public void editNodeStoryContent(int nodeID, String newStoryContent){
+
+    }
+
+    public void editNodeMap(int nodeID, int mapNodeID, int newChoiceValue){
 
     }
 
