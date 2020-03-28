@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Map;
 
 public class Node {
     private int id;
@@ -83,4 +82,7 @@ public class Node {
         return nextNodes;
     }
 
+    public void editStoryContent(String newStoryContent){
+        storyContent = newStoryContent;
+    }
 }

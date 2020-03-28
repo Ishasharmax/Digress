@@ -72,7 +72,23 @@ public class NodeTest {
     }
 
     @Test
-    void editNodeTest(){
+    void editNodeTest() {
+    }
 
+    @Test
+    void editStoryContentTest(){
+        //new node
+        Node testNode = new Node(10, "testing1");
+        //new story content
+        testNode.editStoryContent("newContent1");
+        //check new story content
+        assertEquals("newContent1", testNode.getStoryContent());
+
+        //new node
+        Node testNode2 = new Node(10000, "This is the old content of the story");
+        //new story content
+        testNode2.editStoryContent("This is the new content of the story");
+        //check new story content
+        assertEquals("This is the new content of the story", testNode2.getStoryContent());
     }
 }
