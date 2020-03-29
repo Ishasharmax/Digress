@@ -34,9 +34,8 @@ public class Story {
         nodeToChange.editStoryContent(newStoryContent);
     }
 
-    public void editNodeChildren(int nodeID, int mapNodeID, int newChoiceValue){
-        Node nodeToChange = findNode(nodeID);
-        nodeToChange.editChildren(int choiceValueToChange, newChoiceValue);
+    public void editNodeChildren(int nodeID, int childChoiceValue, int newChoiceValue){
+        
     }
 
     public void deleteNode(int nodeID){

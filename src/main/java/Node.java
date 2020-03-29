@@ -126,4 +126,7 @@ public class Node {
         return nextConditions;
     }
 
+    public void editStoryContent(String newStoryContent){
+        storyContent = newStoryContent;
+    }
 }
