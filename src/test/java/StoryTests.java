@@ -19,8 +19,8 @@ public class StoryTests {
     @Test
     void editNodeStoryContentTest(){
         LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(1, "adventure");
-        testTags.add(2, "strategy");
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
         Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
         testStory.addNode("Content for the first child", 1);
         testStory.addNode("additional content for another node", 1);

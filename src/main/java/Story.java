@@ -35,7 +35,11 @@ public class Story {
     }
 
     public void editNodeChildren(int nodeID, int childChoiceValue, int newChoiceValue){
-        
+//        Node nodeToChange = findNode(nodeID);
+//        HashMap<Integer, Node> nextMap = nodeToChange.getNextNodes();
+//        Node childToChange = nextMap.get(childChoiceValue);
+//        String condition = nodeToChange.getNextConditions().get(childChoiceValue);
+//        nodeToChange.setChild(newChoiceValue, condition, childToChange);
     }
 
     public void deleteNode(int nodeID){
