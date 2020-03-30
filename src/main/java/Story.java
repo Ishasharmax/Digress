@@ -30,7 +30,11 @@ public class Story {
     }
 
     public void deleteNode(int nodeID){
+        if (findNode(nodeID)==null){
 
+        }else{
+
+        }
     }
 
     public void addNode(String storyContent, int parentID){
