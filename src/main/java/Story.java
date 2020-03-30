@@ -47,10 +47,26 @@ public class Story {
     }
 
     public void addNode(String storyContent, int parentID){
-
+        if(storyContent.equals(" ") || parentID < 1) {
+            throw new IllegalArgumentException("There has to be at least one story node");
+        }
+        if(storyNodes.size() == 0) {
+            Node sNode = new Node(1, storyContent);
+            storyNodes.put(1, sNode);
+        }
+        else {
+            int count = 0;
+            Iterator<Integer> iterator = storyNodes.keySet().iterator();
+            while(iterator.hasNext()) {
+                Integer currKey = iterator.next();
+                count++;
+            }
+            Node sNode = new Node(count, storyContent);
+            storyNodes.put(count, sNode);
+        }
     }
 
-    Node findNode(int nodeID) throws IllegalArgumentException{
+    Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {
             throw new IllegalArgumentException("There has to be at least one story node");
         }
@@ -61,10 +77,10 @@ public class Story {
                 return storyNodes.get(currKey);
             }
         }
-        return storyNodes.get(-1);
+        return storyNodes.get(0);
     }
 
-    public void printCurrentNode() {
+    public void printCurrentNode() { //return current node as a string instead of print
         for (HashMap.Entry entry : storyNodes.entrySet()) {
             System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
         }
