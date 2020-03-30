@@ -25,8 +25,21 @@ public class Story {
         return root;
     }
 
-    public void editNode(int nodeID){
+    public void editNode(int nodeID, String editChoice){
 
+    }
+
+    public void editNodeStoryContent(int nodeID, String newStoryContent){
+        Node nodeToChange = findNode(nodeID);
+        nodeToChange.editStoryContent(newStoryContent);
+    }
+
+    public void editNodeChildren(int nodeID, int childChoiceValue, int newChoiceValue){
+//        Node nodeToChange = findNode(nodeID);
+//        HashMap<Integer, Node> nextMap = nodeToChange.getNextNodes();
+//        Node childToChange = nextMap.get(childChoiceValue);
+//        String condition = nodeToChange.getNextConditions().get(childChoiceValue);
+//        nodeToChange.setChild(newChoiceValue, condition, childToChange);
     }
 
     public void deleteNode(int nodeID){
