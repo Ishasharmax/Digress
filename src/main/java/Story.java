@@ -42,11 +42,16 @@ public class Story {
 //        nodeToChange.setChild(newChoiceValue, condition, childToChange);
     }
 
-    public void deleteNode(int nodeID){
+    public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
-
+            throw new IllegalArgumentException("Can't find the nodes");
         }else{
+            if(findNode((nodeID)).getNextNodes()!=null){
+                findNode((nodeID)).getParentNode().setChild(findNode((nodeID)).getNext(),findNode((nodeID)).getNextNodes());
 
+            }else{
+                findNode((nodeID)).getParentNode();
+            }
         }
     }
 
