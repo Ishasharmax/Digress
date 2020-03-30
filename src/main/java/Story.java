@@ -47,7 +47,7 @@ public class Story {
             throw new IllegalArgumentException("Can't find the nodes");
         }else{
             if(findNode((nodeID)).getNextNodes()!=null){
-                findNode((nodeID)).getParentNode().setChild(findNode((nodeID)).getNext(),findNode((nodeID)).getNextNodes());
+//                findNode((nodeID)).getParentNode().setChild(findNode((nodeID)).getNext(),findNode((nodeID)).getNextNodes());
 
             }else{
                 findNode((nodeID)).getParentNode();

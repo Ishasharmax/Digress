@@ -66,8 +66,12 @@ public class StoryTests {
 
         //test delete node without child nodes
         testStory1.deleteNode(5);
+        assertEquals(null,testStory1.findNode(5));
         //test delete parent node
         testStory1.deleteNode(2);
+        assertEquals(null,testStory1.findNode(2));
+        assertEquals(4,testStory1.findNode(4));
+        assertEquals(6,testStory1.findNode(6));
 
         //test delete unkind node
         assertThrows(IllegalArgumentException.class,()-> testStory1.deleteNode(12));
