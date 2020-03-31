@@ -25,12 +25,15 @@ public class Story {
     }
 
     public Node getNext(int choiceValue){
+        if(storyNodes.size()-1 < choiceValue) {
+            throw new IllegalArgumentException("A node with this choice value does not exist");
+        }
         for (HashMap.Entry entry : storyNodes.entrySet()) {
             Integer key = (Integer) entry.getKey();
             Node currentNode = storyNodes.get(key);
             return currentNode.getNext(choiceValue);
         }
-        throw new IllegalArgumentException("A node with this choice value does not exist");
+        return storyNodes.get(1);
     }
 
     public void editNode(int nodeID, String editChoice){
