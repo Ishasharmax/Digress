@@ -8,11 +8,32 @@ public class StoryTests {
 
     @Test
     void constructorTest(){
-
+        LinkedList<String> tags = new LinkedList<>();
+        tags.add("adventure");
+        Story testStory = new Story(0, "Title", "Root content", tags);
+        assertEquals(0, testStory.getID());
+        assertEquals("Title", testStory.getTitle());
+        assertFalse(testStory.getRoot() == null);
+        assertEquals("Root content", testStory.getRoot().getStoryContent());
+        assertEquals("adventure", testStory.getTags().getFirst());
     }
 
     @Test
     void getNextTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        testStory.addNode("Content for the first child", 1, 1, "First choice");
+        testStory.addNode("additional content for another node", 1, 2, "Second choice");
+        testStory.addNode("more content", 1, 3, "Third choice");
+        Node testNode1 = testStory.getNext(1);
+        assertEquals("Content for the first child", testNode1.getStoryContent());
+        Node testNode2 = testStory.getNext(2);
+        assertEquals("additional content for another node", testNode2.getStoryContent());
+        Node testNode3 = testStory.getNext(3);
+        assertEquals("more content", testNode3.getStoryContent());
+        assertThrows(IllegalArgumentException.class, ()-> testStory.getNext(4));
 
     }
 
@@ -29,6 +50,10 @@ public class StoryTests {
         assertEquals("This is test content for the root", testStory.getRoot().getStoryContent());
         assertEquals("Content for the first child", testStory.findNode(2).getStoryContent());
         assertFalse(testStory.findNode(2).getStoryContent().contentEquals("additional content for another node"));
+
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeStoryContent(4, "valid story content"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeStoryContent(2, ""));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeStoryContent(2, " "));
     }
 
     @Test
@@ -44,6 +69,8 @@ public class StoryTests {
         assertEquals("additional content for another node", testStory.getRoot().getNext(3).getStoryContent());
         assertEquals("more content", testStory.getRoot().getNext(2).getStoryContent());
         assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(2,1,2));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 5, 2));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 2, 5));
     }
 
     @Test
@@ -55,7 +82,9 @@ public class StoryTests {
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
 
-        System.out.println();
+        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("test content", 0, 4, "test choice"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("", 1, 4, "test choice"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode(" ", 1, 4, "test choice"));
     }
 
     @Test
@@ -88,13 +117,4 @@ public class StoryTests {
         testStory2.printCurrentNode();
     }
 
-    @Test
-    void getRootTest(){
-
-    }
-
-    @Test
-    void getStoryNodesTest(){
-
-    }
 }

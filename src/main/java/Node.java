@@ -131,4 +131,5 @@ public class Node {
     public void editStoryContent(String newStoryContent){
         storyContent = newStoryContent;
     }
+
 }
