@@ -29,7 +29,6 @@ public class StoryTests {
         assertEquals("This is test content for the root", testStory.getRoot().getStoryContent());
         assertEquals("Content for the first child", testStory.findNode(1).getStoryContent());
         assertFalse(testStory.findNode(2).getStoryContent().contentEquals("additional content for another node"));
-
     }
 
     @Test
