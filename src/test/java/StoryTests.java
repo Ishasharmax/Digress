@@ -49,7 +49,13 @@ public class StoryTests {
 
     @Test
     void addNodeTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(1, "adventure");
+        testTags.add(2, "strategy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        testStory.addNode("Content for the first child", 1);
 
+        System.out.println();
     }
 
     @Test
@@ -86,6 +92,7 @@ public class StoryTests {
         Story testStory1 = new Story(1,"Story", "This is test content for the root", testTags);
         testStory1.addNode("Content for the first child", 1);
         testStory1.addNode("additional content for another node", 1);
+        testStory1.addNode("more content", 1);
         testStory1.findNode(2);
     }
 

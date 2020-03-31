@@ -14,6 +14,8 @@ Description: *Software for reading and writing non-linear text-based stories. Pr
 
 ##### Sprint goal 1: Set up the basic structure of the software, including linkable story nodes that can be "read" by the user as well as debugged on the developer's side.
 
+##### Sprint Review Agenda: https://docs.google.com/document/d/1mNNd1ghWi63V_WbKbNgx2ewLTNMPL0u_NHb1ycSF4fc/edit
+
 ##### UML Diagrams:
 ##### Class Diagram https://drive.google.com/file/d/1C004X-lSrZN2mYhMRb-PZwteFL52HUFE/view?usp=sharing
 ##### State diagram https://drive.google.com/file/d/1XT4qmm5o73_TsW8my4r3Sb9xEKgxPHJ3/view?usp=sharing
