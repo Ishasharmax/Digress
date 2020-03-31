@@ -22,6 +22,13 @@ public class Story {
     }
 
     public Node getNext(int choiceValue){
+        Iterator<Integer> iterator = storyNodes.keySet().iterator();
+        while(iterator.hasNext()) {
+            Integer currKey = iterator.next();
+            if (currKey != null) {
+                return storyNodes.get(currKey);
+            }
+        }
         return root;
     }
 
