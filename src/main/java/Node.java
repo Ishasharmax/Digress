@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Map;
 
 public class Node {
     private int id;
@@ -66,7 +65,9 @@ public class Node {
         for (int i = 0; i < charArray.length; i++) {
             char ch = charArray[i];
             if (!(ch >= 'a' && ch <= 'z')) {
-                return false;
+                if (ch != ' ') {
+                    return false;
+                }
             }
         }
         return true;

@@ -4,6 +4,12 @@
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="fixed minor issues after the merges">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/StoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Story.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Story.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/NodeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/StoryTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/StoryTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +69,9 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.StoryTests">
+  <component name="RunManager" selected="JUnit.NodeTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -99,6 +106,16 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Digress" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NodeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,14 +171,15 @@
       <item itemvalue="Android JUnit.ExampleTest" />
       <item itemvalue="JUnit.StoryTests" />
       <item itemvalue="JUnit.StoryTests.findNodeTest" />
+      <item itemvalue="JUnit.NodeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NodeTest" />
         <item itemvalue="JUnit.StoryTests" />
         <item itemvalue="JUnit.StoryTests.findNodeTest" />
         <item itemvalue="Android JUnit.ExampleTest" />
         <item itemvalue="JUnit.StoryTests" />
-        <item itemvalue="Android JUnit.ExampleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +224,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed minor issues after the merges" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed minor issues after the merges" />
+    <MESSAGE value="edit tests still failing, relying on findNode" />
+    <MESSAGE value="commit before pull" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit before pull" />
   </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585266826343">
@@ -222,54 +242,54 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="135" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585459247215" />
-    <state width="740" height="190" key="GridCell.Tab.0.bottom" timestamp="1585596434991">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1585685606046">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585423799438" />
     <state width="740" height="190" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585596434991" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585516970949" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585685606046" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom/0.22.1440.821@0.22.1440.821" timestamp="1585175074305" />
-    <state width="740" height="190" key="GridCell.Tab.0.center" timestamp="1585596434990">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1585685606046">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585423799437" />
     <state width="740" height="190" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585596434990" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585516970949" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585685606046" />
     <state width="1358" height="198" key="GridCell.Tab.0.center/0.22.1440.821@0.22.1440.821" timestamp="1585175074303" />
-    <state width="740" height="190" key="GridCell.Tab.0.left" timestamp="1585596434990">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1585685606046">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585423799437" />
     <state width="740" height="190" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585596434990" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585516970949" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585685606046" />
     <state width="1358" height="198" key="GridCell.Tab.0.left/0.22.1440.821@0.22.1440.821" timestamp="1585175074302" />
-    <state width="740" height="190" key="GridCell.Tab.0.right" timestamp="1585596434991">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1585685606046">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585423799438" />
     <state width="740" height="190" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585596434991" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585516970949" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585685606046" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1585175074304" />
-    <state width="1344" height="241" key="GridCell.Tab.1.bottom" timestamp="1585579910855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1585685345220">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1344" height="241" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585579910855" />
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585459588590" />
-    <state width="1344" height="241" key="GridCell.Tab.1.center" timestamp="1585579910855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585685345220" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1585685345220">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1344" height="241" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585579910855" />
-    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585459588590" />
-    <state width="1344" height="241" key="GridCell.Tab.1.left" timestamp="1585579910855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585685345220" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1585685345220">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1344" height="241" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585579910855" />
-    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585459588590" />
-    <state width="1344" height="241" key="GridCell.Tab.1.right" timestamp="1585579910855">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585685345220" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1585685345220">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1344" height="241" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585579910855" />
-    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585459588590" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585685345220" />
     <state x="552" y="274" key="Vcs.Push.Dialog.v2" timestamp="1585459257074">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -286,6 +306,20 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1585267975345" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Node.java</url>
+          <line>89</line>
+          <properties class="Node" method="setChild">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

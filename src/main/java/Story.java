@@ -17,17 +17,15 @@ public class Story {
         title = titleIn;
         root = new Node(1, rootContent);
         storyNodes = new HashMap();
-        storyNodes.put(0, root);
+        storyNodes.put(1, root);
         tags = tagsIn;
     }
 
     public Node getNext(int choiceValue){
-        Iterator<Integer> iterator = storyNodes.keySet().iterator();
-        while(iterator.hasNext()) {
-            Integer currKey = iterator.next();
-            if (currKey != null) {
-                return storyNodes.get(currKey);
-            }
+        for (HashMap.Entry entry : storyNodes.entrySet()) {
+            Integer key = (Integer) entry.getKey();
+            Node currentNode = storyNodes.get(key);
+            return currentNode.getNext(choiceValue);
         }
         return root;
     }
@@ -42,49 +40,37 @@ public class Story {
     }
 
     public void editNodeChildren(int nodeID, int childChoiceValue, int newChoiceValue){
-//        Node nodeToChange = findNode(nodeID);
-//        HashMap<Integer, Node> nextMap = nodeToChange.getNextNodes();
-//        Node childToChange = nextMap.get(childChoiceValue);
-//        String condition = nodeToChange.getNextConditions().get(childChoiceValue);
-//        nodeToChange.setChild(newChoiceValue, condition, childToChange);
+        Node nodeToChange = findNode(nodeID);
+        HashMap<Integer, Node> nextMap = nodeToChange.getNextNodes();
+        Node childToChange = nodeToChange.getNext(childChoiceValue);
+        String condition = nodeToChange.getNextConditions().get(childChoiceValue);
+        Node oldNode = nodeToChange.getNext(newChoiceValue);
+        String oldCondition = nodeToChange.getNextConditions().get(newChoiceValue);
+        nodeToChange.setChild(childChoiceValue, oldCondition, oldNode);
+        nodeToChange.setChild(newChoiceValue, condition, childToChange);
     }
 
     public void deleteNode(int nodeID){
 
     }
 
-    public void addNode(String storyContent, int parentID){
-        if(storyContent.equals(" ") || parentID < 1) {
+    public void addNode(String storyContent, int parentID, int choiceValue, String condition){
+        if(storyContent.equals("") || findNode(parentID) == null) {
             throw new IllegalArgumentException("There has to be at least one story node");
         }
-        if(storyNodes.size() == 0) {
-            Node sNode = new Node(1, storyContent);
-            storyNodes.put(1, sNode);
-        }
-        else {
-            int count = 0;
-            Iterator<Integer> iterator = storyNodes.keySet().iterator();
-            while(iterator.hasNext()) {
-                Integer currKey = iterator.next();
-                count++;
-            }
-            Node sNode = new Node(count, storyContent);
-            storyNodes.put(count, sNode);
-        }
+        Node parent = findNode(parentID);
+        int nodeID = storyNodes.size() + 1;
+        Node sNode = new Node(nodeID, storyContent, parent);
+        storyNodes.put(nodeID, sNode);
+        parent.setChild(choiceValue, condition, sNode);
     }
+
 
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {
             throw new IllegalArgumentException("There has to be at least one story node");
         }
-        Iterator<Integer> iterator = storyNodes.keySet().iterator();
-        while(iterator.hasNext()) {
-            Integer currKey = iterator.next();
-            if(nodeID == currKey){
-                return storyNodes.get(currKey);
-            }
-        }
-        return storyNodes.get(0);
+        return storyNodes.get(nodeID);
     }
 
     public void printCurrentNode() { //return current node as a string instead of print
@@ -94,11 +80,11 @@ public class Story {
     }
 
     public Node getRoot(){
-        return new Node(0, "dfnsalk");
+        return root;
     }
 
     public HashMap getStoryNodes(){
-        return new HashMap();
+        return storyNodes;
     }
 
 

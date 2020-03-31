@@ -21,25 +21,25 @@ public class StoryTests {
         LinkedList<String> testTags = new LinkedList<>();
         testTags.add(0, "adventure");
         testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory.addNode("Content for the first child", 1);
-        testStory.addNode("additional content for another node", 1);
-        testStory.editNodeStoryContent(2, "this is the changed story content");
-        assertEquals("this is the changed story content", testStory.findNode(2).getStoryContent());
+        Story testStory = new Story(0,"Story", "This is test content for the root", testTags);
+        testStory.addNode("Content for the first child", 1, 1, "First choice");
+        testStory.addNode("additional content for another node", 2, 1, "First choice");
+        testStory.editNodeStoryContent(3, "this is the changed story content");
+        assertEquals("this is the changed story content", testStory.findNode(3).getStoryContent());
         assertEquals("This is test content for the root", testStory.getRoot().getStoryContent());
-        assertEquals("Content for the first child", testStory.findNode(1).getStoryContent());
+        assertEquals("Content for the first child", testStory.findNode(2).getStoryContent());
         assertFalse(testStory.findNode(2).getStoryContent().contentEquals("additional content for another node"));
     }
 
     @Test
     void editNodeChildrenTest(){
         LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(1, "adventure");
-        testTags.add(2, "strategy");
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
         Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory.addNode("Content for the first child", 1);
-        testStory.addNode("additional content for another node", 1);
-        testStory.addNode("more content", 1);
+        testStory.addNode("Content for the first child", 1, 1, "First choice");
+        testStory.addNode("additional content for another node", 1, 2, "Second choice");
+        testStory.addNode("more content", 1, 3, "Third choice");
         testStory.editNodeChildren(1,2,3);
         assertEquals("additional content for another node", testStory.getRoot().getNext(3).getStoryContent());
         assertEquals("more content", testStory.getRoot().getNext(2).getStoryContent());
@@ -49,10 +49,11 @@ public class StoryTests {
     @Test
     void addNodeTest(){
         LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(1, "adventure");
-        testTags.add(2, "strategy");
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
         Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory.addNode("Content for the first child", 1);
+        testStory.addNode("Content for the first child", 1, 1, "First choice");
+        testStory.addNode("additional content for another node", 1, 2, "Second choice");
 
         System.out.println();
     }
@@ -65,25 +66,25 @@ public class StoryTests {
     @Test
     void findNodeTest(){
         LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(1, "adventure");
-        testTags.add(2, "comedy");
+        testTags.add(0, "adventure");
+        testTags.add(1, "comedy");
         Story testStory1 = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory1.addNode("Content for the first child", 1);
-        testStory1.addNode("additional content for another node", 1);
-        testStory1.addNode("more content", 1);
+        testStory1.addNode("Content for the first child", 1, 1, "First choice");
+        testStory1.addNode("additional content for another node", 1, 2, "Second choice");
+        testStory1.addNode("more content", 1, 3, "Third choice");
         testStory1.findNode(2);
     }
 
     @Test
     void printCurrentNodeTest(){
         LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(1, "adventure");
+        testTags.add(0, "adventure");
         Story testStory2 = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory2.addNode("Content for the first child", 1);
+        testStory2.addNode("Content for the first child", 1, 1, "First choice");
         testStory2.printCurrentNode();
 
-        testTags.add(2, "horror");
-        testStory2.addNode("additional content for another node", 1);
+        testTags.add(1, "horror");
+        testStory2.addNode("additional content for another node", 1, 2, "Second choice");
         testStory2.printCurrentNode();
     }
 
