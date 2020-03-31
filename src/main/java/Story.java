@@ -53,12 +53,14 @@ public class Story {
         if (findNode(nodeID)==null){
             throw new IllegalArgumentException("Can't find the nodes");
         }else{
-            if(findNode((nodeID)).getNextNodes()!=null){
-//                findNode((nodeID)).getParentNode().setChild(findNode((nodeID)).getNext(),findNode((nodeID)).getNextNodes());
-
-            }else{
-                findNode((nodeID)).getParentNode();
-            }
+//            if(findNode((nodeID)).getNextNodes()!=null){
+                //delete parent node
+//                findNode((nodeID)).getParentNode().setChild(findNode(nodeID).getNextNodes().get(),findNode(nodeID).getNextNodes().keySet().,findNode((nodeID)).getNextNodes());
+                findNode(nodeID).getParentNode().getNextConditions().remove(findNode(nodeID));
+//            }else{
+//                //delete child node, set child node equal to null
+//                findNode((nodeID)).getParentNode().setChild(null,null,null);
+//            }
         }
     }
 

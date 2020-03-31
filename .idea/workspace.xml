@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +64,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Android JUnit.Unnamed">
+  <component name="RunManager" selected="JUnit.StoryTests.deleteNodeTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -101,6 +103,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StoryTests.deleteNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Digress" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StoryTests" />
+      <option name="METHOD_NAME" value="deleteNodeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -129,9 +142,11 @@
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
       <item itemvalue="Android JUnit.ExampleTest" />
+      <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
         <item itemvalue="Android JUnit.ExampleTest" />
       </list>
     </recent_temporary>
@@ -149,7 +164,7 @@
       <workItem from="1585261722766" duration="7714000" />
       <workItem from="1585271270456" duration="909000" />
       <workItem from="1585279518691" duration="6924000" />
-      <workItem from="1585678356589" duration="1445000" />
+      <workItem from="1585678356589" duration="5098000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1585583722601</created>
@@ -179,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585678385963</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="delete">
+      <created>1585683977383</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585683977383</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -209,34 +231,38 @@
     </state>
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
-    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1585678385519">
+    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1585683977081">
       <screen x="0" y="23" width="1440" height="824" />
     </state>
-    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585678385519" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585270368423">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585683977081" />
+    <state width="1358" height="213" key="GridCell.Tab.0.bottom" timestamp="1585691267417">
+      <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom/0.22.1440.821@0.22.1440.821" timestamp="1585175074305" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585270368423">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1358" height="213" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585691267417" />
+    <state width="1358" height="213" key="GridCell.Tab.0.center" timestamp="1585691267416">
+      <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.center/0.22.1440.821@0.22.1440.821" timestamp="1585175074303" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585270368422">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1358" height="213" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585691267416" />
+    <state width="1358" height="213" key="GridCell.Tab.0.left" timestamp="1585691267415">
+      <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585270368422" />
     <state width="1358" height="198" key="GridCell.Tab.0.left/0.22.1440.821@0.22.1440.821" timestamp="1585175074302" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585270368423">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1358" height="213" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585691267415" />
+    <state width="1358" height="213" key="GridCell.Tab.0.right" timestamp="1585691267416">
+      <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1585175074304" />
-    <state x="461" y="158" key="MultipleFileMergeDialog" timestamp="1585583741122">
+    <state width="1358" height="213" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585691267416" />
+    <state x="461" y="158" key="MultipleFileMergeDialog" timestamp="1585683988798">
       <screen x="0" y="23" width="1440" height="824" />
     </state>
-    <state x="461" y="158" key="MultipleFileMergeDialog/0.23.1440.824@0.23.1440.824" timestamp="1585583741122" />
+    <state x="461" y="158" key="MultipleFileMergeDialog/0.23.1440.824@0.23.1440.824" timestamp="1585683988798" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1585678395302">
       <screen x="0" y="23" width="1440" height="824" />
     </state>
@@ -245,11 +271,11 @@
       <screen x="0" y="22" width="1440" height="821" />
     </state>
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174501995" />
-    <state x="517" y="276" key="git4idea.merge.GitPullDialog" timestamp="1585679007842">
+    <state x="517" y="276" key="git4idea.merge.GitPullDialog" timestamp="1585683984867">
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585281135501" />
-    <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585679007842" />
+    <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585683984867" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585267975345">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
