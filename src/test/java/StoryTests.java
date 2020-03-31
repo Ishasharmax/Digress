@@ -93,12 +93,12 @@ public class StoryTests {
         testTags.add(1, "adventure");
         testTags.add(2, "comedy");
         Story testStory1 = new Story(1,"Story", "This is test content for the root", testTags);
-//        testStory1.addNode("[2] Content for the first child", 1);
-//        testStory1.addNode("[3] Content for the first child", 1);
-//        testStory1.addNode("[4] Content for the second child", 2);
-//        testStory1.addNode("[5] Content for the second child", 2);
-//        testStory1.addNode("[6] Content for the second child", 2);
-//
+        testStory1.addNode("[2] Content for the first child", 1,1,"1C");
+        testStory1.addNode("[3] Content for the first child", 1,2,"2C");
+        testStory1.addNode("[4] Content for the second child", 2,1,"1C");
+        testStory1.addNode("[5] Content for the second child", 2,2,"2C");
+        testStory1.addNode("[6] Content for the second child", 2,3,"3C");
+
 //        //test delete node without child nodes
 //        testStory1.deleteNode(5);
 //        assertEquals(null,testStory1.findNode(5));
@@ -107,9 +107,9 @@ public class StoryTests {
 //        assertEquals(null,testStory1.findNode(2));
 //        assertEquals(4,testStory1.findNode(4));
 //        assertEquals(6,testStory1.findNode(6));
-
-        //test delete unkind node
-        assertThrows(IllegalArgumentException.class,()-> testStory1.deleteNode(12));
+//
+//        //test delete unkind node
+//        assertThrows(IllegalArgumentException.class,()-> testStory1.deleteNode(12));
 
     }
 

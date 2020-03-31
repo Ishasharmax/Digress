@@ -82,7 +82,6 @@ public class Story {
         nextNodes.replace(child1ChoiceValue, child2);
         nextNodes.replace(child2ChoiceValue, child1);
     }
-
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
             throw new IllegalArgumentException("Can't find the nodes");
