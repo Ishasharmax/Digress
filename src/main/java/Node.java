@@ -120,8 +120,10 @@ public class Node {
     }
 
     public HashMap<Integer, Node> getNextNodes(){
-
         return nextNodes;
+    }
+    public int getId(){
+        return id;
     }
 
     public HashMap<Integer, String> getNextConditions(){

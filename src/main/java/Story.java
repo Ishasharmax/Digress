@@ -86,10 +86,6 @@ public class Story {
         nextNodes.replace(child2ChoiceValue, child1);
     }
 
-    public void deleteNode(int nodeID){
-
-    }
-
     public void addNode(String storyContent, int parentID, int choiceValue, String condition){
         if (findNode(parentID) == null) {
             throw new IllegalArgumentException("A node with this ID does not exist");
@@ -103,8 +99,13 @@ public class Story {
         storyNodes.put(nodeID, sNode);
         parent.setChild(choiceValue, condition, sNode);
     }
-
-
+    public void deleteNode(int nodeID) throws IllegalArgumentException{
+        if (findNode(nodeID)==null){
+            throw new IllegalArgumentException("Node is not exist");
+        }else{
+            storyNodes.remove(nodeID);
+        }
+    }
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {
             throw new IllegalArgumentException("There has to be at least one story node");
