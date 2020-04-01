@@ -81,7 +81,6 @@ public class StoryTests {
         Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
-
         assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("test content", 0, 4, "test choice"));
         assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("", 1, 4, "test choice"));
         assertThrows(IllegalArgumentException.class, ()-> testStory.addNode(" ", 1, 4, "test choice"));
@@ -90,27 +89,34 @@ public class StoryTests {
     @Test
     void deleteNodeTest(){
         LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(1, "adventure");
-        testTags.add(2, "comedy");
-        Story testStory1 = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory1.addNode("[2] Content for the first child", 1,1,"1C");
-        testStory1.addNode("[3] Content for the first child", 1,2,"2C");
-        testStory1.addNode("[4] Content for the second child", 2,1,"1C");
-        testStory1.addNode("[5] Content for the second child", 2,2,"2C");
-        testStory1.addNode("[6] Content for the second child", 2,3,"3C");
+        testTags.add(0, "adventure");
+        testTags.add(1, "comedy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        testStory.addNode("【2】", 1, 1, "First choice");
+        testStory.addNode("【3】", 1, 2, "Second choice");
+        testStory.addNode("【4】", 1, 3, "Third choice");
+        testStory.addNode("【5】", 1, 4, "Fourth choice");
+        testStory.addNode("【6】", 1, 5, "Five choice");
 
-//        //test delete node without child nodes
-//        testStory1.deleteNode(5);
-//        assertEquals(null,testStory1.findNode(5));
-//        //test delete parent node
-//        testStory1.deleteNode(2);
-//        assertEquals(null,testStory1.findNode(2));
-//        assertEquals(4,testStory1.findNode(4));
-//        assertEquals(6,testStory1.findNode(6));
-//
-//        //test delete unkind node
-//        assertThrows(IllegalArgumentException.class,()-> testStory1.deleteNode(12));
+        //test if there's 6 nodes
+        assertTrue(testStory.getStoryNodes().size()==6);
 
+
+        //test delete node 2
+        assertFalse(testStory.findNode(2)==null);
+        testStory.deleteNode(2);
+
+        //test if node 2 not exist and throw error
+        assertThrows(IllegalArgumentException.class,()-> testStory.findNode(2));
+
+        //test if other node is exist
+        assertFalse(testStory.findNode(3)==null);
+        assertFalse(testStory.findNode(4)==null);
+        assertFalse(testStory.findNode(5)==null);
+        assertFalse(testStory.findNode(6)==null);
+
+        //test delete unknown node
+        assertThrows(IllegalArgumentException.class,()-> testStory.deleteNode(12));
     }
 
     @Test

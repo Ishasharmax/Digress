@@ -85,20 +85,6 @@ public class Story {
         nextNodes.replace(child1ChoiceValue, child2);
         nextNodes.replace(child2ChoiceValue, child1);
     }
-    public void deleteNode(int nodeID) throws IllegalArgumentException{
-        if (findNode(nodeID)==null){
-            throw new IllegalArgumentException("Can't find the nodes");
-        }else{
-//            if(findNode((nodeID)).getNextNodes()!=null){
-                //delete parent node
-//                findNode((nodeID)).getParentNode().setChild(findNode(nodeID).getNextNodes().get(),findNode(nodeID).getNextNodes().keySet().,findNode((nodeID)).getNextNodes());
-                findNode(nodeID).getParentNode().getNextConditions().remove(findNode(nodeID));
-//            }else{
-//                //delete child node, set child node equal to null
-//                findNode((nodeID)).getParentNode().setChild(null,null,null);
-//            }
-        }
-    }
 
     public void addNode(String storyContent, int parentID, int choiceValue, String condition){
         if (findNode(parentID) == null) {
@@ -113,8 +99,13 @@ public class Story {
         storyNodes.put(nodeID, sNode);
         parent.setChild(choiceValue, condition, sNode);
     }
-
-
+    public void deleteNode(int nodeID) throws IllegalArgumentException{
+        if (findNode(nodeID)==null){
+            throw new IllegalArgumentException("Node is not exist");
+        }else{
+            storyNodes.remove(nodeID);
+        }
+    }
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {
             throw new IllegalArgumentException("There has to be at least one story node");
