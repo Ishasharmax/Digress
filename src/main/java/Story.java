@@ -130,7 +130,7 @@ public class Story {
 
             }
             if(entry.getKey().equals(getChoiceVal())){
-                System.out.println("key: " + entry.getKey() + "; tags:" + getTags()
+                System.out.println("key: " + (getChoiceVal() + 1) + "; tags:" + getTags()
                         +"; content:" + getContent());
             }
         }
