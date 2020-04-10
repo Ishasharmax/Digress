@@ -4,6 +4,9 @@ public class Story {
 
     private int id;
     private String title;
+    private String rootCont;
+    private String content;
+    private int choiceVal;
     private Node root;
     private HashMap<Integer, Node> storyNodes;
     LinkedList<String> tags;
@@ -18,7 +21,8 @@ public class Story {
         if (rootContent == " " || rootContent == ""){
             throw new IllegalArgumentException("Root cannot be empty");
         }
-        root = new Node(1, rootContent);
+        rootCont = rootContent;
+        root = new Node(1, rootCont);
         storyNodes = new HashMap();
         storyNodes.put(1, root);
         tags = tagsIn;
@@ -93,6 +97,8 @@ public class Story {
         if (storyContent.equals("") || storyContent == " "){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
+        content = storyContent;
+        choiceVal = choiceValue;
         Node parent = findNode(parentID);
         int nodeID = storyNodes.size() + 1;
         Node sNode = new Node(nodeID, storyContent, parent);
@@ -116,9 +122,17 @@ public class Story {
         return storyNodes.get(nodeID);
     }
 
-    public void printCurrentNode() { //return current node as a string instead of print
-        for (HashMap.Entry entry : storyNodes.entrySet()) {
-            System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
+    public void printCurrentNode(){ //return current node as a string instead of print
+        for (HashMap.Entry entry : storyNodes.entrySet()){
+            if (entry.getKey().equals(1) && entry.getKey().equals(getChoiceVal())){
+                System.out.println("key: " + entry.getKey() + "; tags:" + getTags()
+                        + "; content:" + getRootContent());
+
+            }
+            if(entry.getKey().equals(getChoiceVal())){
+                System.out.println("key: " + entry.getKey() + "; tags:" + getTags()
+                        +"; content:" + getContent());
+            }
         }
     }
 
@@ -136,6 +150,17 @@ public class Story {
 
     public String getTitle(){
         return title;
+    }
+
+    public String getRootContent(){
+        return rootCont;
+    }
+    public String getContent(){
+        return content;
+    }
+
+    public int getChoiceVal(){
+        return choiceVal;
     }
 
     public LinkedList<String> getTags(){
