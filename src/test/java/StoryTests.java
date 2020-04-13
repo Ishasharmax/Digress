@@ -136,11 +136,14 @@ public class StoryTests {
         LinkedList<String> testTags = new LinkedList<>();
         testTags.add(0, "adventure");
         Story testStory2 = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory2.addNode("Content for the first child", 1, 1, "First choice");
         testStory2.printCurrentNode();
 
-        testTags.add(1, "horror");
+        testStory2.addNode("Content for the first child", 1, 1, "First choice");
         testStory2.addNode("additional content for another node", 1, 2, "Second choice");
+        testStory2.printCurrentNode();
+        testStory2.findNode(1);
+        testStory2.printCurrentNode();
+        testStory2.findNode(2);
         testStory2.printCurrentNode();
     }
 

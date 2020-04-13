@@ -8,6 +8,7 @@ public class Story {
     private String content;
     private int choiceVal;
     private Node root;
+    private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
     LinkedList<String> tags;
 
@@ -21,7 +22,7 @@ public class Story {
         if (rootContent == " " || rootContent == ""){
             throw new IllegalArgumentException("Root cannot be empty");
         }
-        rootCont = rootContent;
+        rootCont = rootContent; //holds the beginning content outside of node
         root = new Node(1, rootCont);
         storyNodes = new HashMap();
         storyNodes.put(1, root);
@@ -34,7 +35,7 @@ public class Story {
         }
         for (HashMap.Entry entry : storyNodes.entrySet()) {
             Integer key = (Integer) entry.getKey();
-            Node currentNode = storyNodes.get(key);
+            currentNode = storyNodes.get(key);
             return currentNode.getNext(choiceValue);
         }
         return storyNodes.get(1);
@@ -103,6 +104,7 @@ public class Story {
         int nodeID = storyNodes.size() + 1;
         Node sNode = new Node(nodeID, storyContent, parent);
         storyNodes.put(nodeID, sNode);
+        currentNode = storyNodes.get(nodeID);
         parent.setChild(choiceValue, condition, sNode);
     }
     public void deleteNode(int nodeID) throws IllegalArgumentException{
@@ -119,10 +121,22 @@ public class Story {
         if (storyNodes.get(nodeID) == null){
             throw new IllegalArgumentException("A node with this ID does not exist");
         }
+        currentNode = storyNodes.get(nodeID);
         return storyNodes.get(nodeID);
     }
 
     public void printCurrentNode(){ //return current node as a string instead of print
+        if(storyNodes.size() == 1) {
+            System.out.println("key: " + getID() + "; tags:" + getTags()
+                    + "; content:" + getRootContent());
+        }
+        else {
+            System.out.println("key: " + currentNode.getId() + "; tags:" + getTags()
+                    + "; content:" + currentNode.getStoryContent());
+        }
+    }
+
+    public void printAllNodes(){ //return current node as a string instead of print
         for (HashMap.Entry entry : storyNodes.entrySet()){
             if (entry.getKey().equals(1) && entry.getKey().equals(getChoiceVal())){
                 System.out.println("key: " + entry.getKey() + "; tags:" + getTags()
@@ -136,8 +150,13 @@ public class Story {
         }
     }
 
+
     public Node getRoot(){
         return root;
+    }
+
+    public Node getCurrNode(){
+        return currentNode;
     }
 
     public HashMap getStoryNodes(){
@@ -155,6 +174,7 @@ public class Story {
     public String getRootContent(){
         return rootCont;
     }
+
     public String getContent(){
         return content;
     }
