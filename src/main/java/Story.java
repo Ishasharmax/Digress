@@ -131,12 +131,11 @@ public class Story {
                     + "; content:" + getRootContent());
         }
         else {
-            System.out.println("key: " + currentNode.getId() + "; tags:" + getTags()
-                    + "; content:" + currentNode.getStoryContent());
+            System.out.println("key: " + currentNode.getId() + "; content:" + currentNode.getStoryContent());
         }
     }
 
-    public void printAllNodes(){ //return current node as a string instead of print
+    public void printAllNodes(){ //Prints all nodes that have been added and worked on with its content
         for (HashMap.Entry entry : storyNodes.entrySet()){
             if (entry.getKey().equals(1) && entry.getKey().equals(getChoiceVal())){
                 System.out.println("key: " + entry.getKey() + "; tags:" + getTags()
@@ -144,8 +143,7 @@ public class Story {
 
             }
             if(entry.getKey().equals(getChoiceVal())){
-                System.out.println("key: " + (getChoiceVal() + 1) + "; tags:" + getTags()
-                        +"; content:" + getContent());
+                System.out.println("key: " + (getChoiceVal() + 1) +"; content:" + getContent());
             }
         }
     }
@@ -155,7 +153,7 @@ public class Story {
         return root;
     }
 
-    public Node getCurrNode(){
+    public Node getCurrNode(){ //returns the currentNode as Node(numbers) as a location
         return currentNode;
     }
 
