@@ -104,7 +104,7 @@ public class Story {
         int nodeID = storyNodes.size() + 1;
         Node sNode = new Node(nodeID, storyContent, parent);
         storyNodes.put(nodeID, sNode);
-        currentNode = storyNodes.get(nodeID);
+        currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
         parent.setChild(choiceValue, condition, sNode);
     }
     public void deleteNode(int nodeID) throws IllegalArgumentException{
@@ -121,7 +121,7 @@ public class Story {
         if (storyNodes.get(nodeID) == null){
             throw new IllegalArgumentException("A node with this ID does not exist");
         }
-        currentNode = storyNodes.get(nodeID);
+        currentNode = storyNodes.get(nodeID); //Every time findNode is used, the node becomes the current node
         return storyNodes.get(nodeID);
     }
 
