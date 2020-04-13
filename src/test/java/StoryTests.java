@@ -146,5 +146,4 @@ public class StoryTests {
         testStory2.findNode(2);
         testStory2.printCurrentNode();
     }
-
 }
