@@ -7,6 +7,7 @@ public class Story {
     private Node root;
     private HashMap<Integer, Node> storyNodes;
     LinkedList<String> tags;
+    GlobalVariables variables;
 
 
     public Story(int idIn, String titleIn, String rootContent, LinkedList<String> tagsIn){
@@ -21,6 +22,7 @@ public class Story {
         root = new Node(1, rootContent);
         storyNodes = new HashMap();
         storyNodes.put(1, root);
+        variables = new GlobalVariables();
         tags = tagsIn;
     }
 
@@ -122,6 +124,10 @@ public class Story {
         }
     }
 
+    public void addVariable(String name, String type){
+
+    }
+
     public Node getRoot(){
         return root;
     }
@@ -140,6 +146,10 @@ public class Story {
 
     public LinkedList<String> getTags(){
         return tags;
+    }
+
+    public GlobalVariables getGlobalVariables(){
+        return variables;
     }
 
 }
