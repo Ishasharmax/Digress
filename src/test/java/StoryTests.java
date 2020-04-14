@@ -36,7 +36,7 @@ public class StoryTests {
         assertThrows(IllegalArgumentException.class, ()-> testStory.getNext(4));
 
     }
-    
+
 
     @Test
     void editNodeStoryContentTest(){
