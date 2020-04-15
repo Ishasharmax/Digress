@@ -8,46 +8,44 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 public class File {
     String fileName;
-    String path;
+    Path path;
 
-    public File(String fileNameIn){
+    public File(String fileNameIn) throws FileNotFoundException {
         fileName = fileNameIn;
-        
+        path = findPath(fileName);
     }
 
-
-    public boolean checkFile(String fileName){
-        File newFile = new File(this.path);
-        if(newFile==null){
-            return false;
-        }else {
-            return true;
-        }
-    }
-    public void importFile(String fileName, LinkedList TagsIn) throws FileNotFoundException {
-        //int idIn, String titleIn, String rootContent, LinkedList<String> tagsIn
-        if(checkFile(fileName)==false) {
-            throw new FileNotFoundException("Can not find the file");
+    public Path findPath(String fileNameIn)throws FileNotFoundException{
+        Path p = Paths.get(fileNameIn);
+        Path folder = p.getParent();
+        if(folder!=null){
+            return folder;
         }else{
-            File newFile = new File("src/main/java/testFile.txt");
-            Scanner scanner = new Scanner((Readable) newFile);
-            String data = " ";
-            while (scanner.hasNextLine()) {
-                if(data==" "){
-                    data= scanner.nextLine();
-                    int key = data.charAt(1);
-                    Story newStory = new Story(key,fileName,"",TagsIn);
-                }
-                System.out.println(data);
-            }
-            scanner.close();
+            throw new FileNotFoundException("Can not find the file");
         }
     }
-    public void outputFile(String fileName){
+
+    public void importFile(String fileNameIn, LinkedList TagsIn) throws FileNotFoundException {
+        //int idIn, String titleIn, String rootContent, LinkedList<String> tagsIn
+        File newFile = new File(fileName);
+        Scanner scanner = new Scanner((Readable) newFile);
+        String data = " ";
+        while (scanner.hasNextLine()) {
+            if(data==" "){
+                data= scanner.nextLine();
+                int key = data.charAt(1);
+                Story newStory = new Story(key,fileName,"",TagsIn);
+            }
+            System.out.println(data);
+        }
+        scanner.close();
 
     }
-    public void removeFile(String fileName) throws FileNotFoundException {
-        File newFile = new File("src/main/java/testFile.txt");
+    public void outputFile(String fileNameIn){
+
+    }
+    public void removeFile(String fileNameIN) throws FileNotFoundException {
+        File newFile = new File(fileNameIN);
         if (newFile.delete()) {
             System.out.println("Deleted the folder: " + newFile.getName());
         } else {
