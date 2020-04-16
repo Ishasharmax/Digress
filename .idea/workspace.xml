@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="JsonTestClass added">
-      <change afterPath="$PROJECT_DIR$/src/test/Story3-1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Story3-2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Story3-3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Story3-4.json" afterDir="false" />
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="all nodes and story files added">
+      <change beforePath="$PROJECT_DIR$/src/test/java/JsonTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/JsonTestClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587072416890</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="all nodes and story files added">
+      <created>1587075285714</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587075285714</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -305,7 +309,8 @@
     <MESSAGE value="Fix deleteNode Test" />
     <MESSAGE value="JsonTestClass added" />
     <MESSAGE value="json test file added" />
-    <option name="LAST_COMMIT_MESSAGE" value="json test file added" />
+    <MESSAGE value="all nodes and story files added" />
+    <option name="LAST_COMMIT_MESSAGE" value="all nodes and story files added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -313,15 +318,16 @@
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1585266826343" />
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.824@0.23.1440.824" timestamp="1585694486563" />
-    <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585261764182">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
-    <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
-    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1587072415975">
+    <state x="761" y="418" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1587075401758">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1587072415975" />
+    <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
+    <state x="761" y="418" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587075401758" />
+    <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
+    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1587075284838">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1587075284838" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
     <state width="1481" height="134" key="GridCell.Tab.0.bottom" timestamp="1586802346857">
       <screen x="0" y="0" width="1536" height="824" />
@@ -383,10 +389,10 @@
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="428" y="199" key="Vcs.Push.Dialog.v2" timestamp="1587072419212">
+    <state x="428" y="199" key="Vcs.Push.Dialog.v2" timestamp="1587075288440">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="428" y="199" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587072419212" />
+    <state x="428" y="199" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587075288440" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
