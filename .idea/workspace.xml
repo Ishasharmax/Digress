@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="Json stuff added to lib">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_26_PM__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_26_PM__Default_.xml" afterDir="false" />
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="example stories added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +39,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1ZdgeDAQHdusWxjjtsZPCYYIsbJ" />
   <component name="ProjectViewState">
@@ -299,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587075496589</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="example stories added">
+      <created>1587077063332</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587077063332</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -323,7 +338,8 @@
     <MESSAGE value="json test file added" />
     <MESSAGE value="all nodes and story files added" />
     <MESSAGE value="JUnit stuff added to test file" />
-    <option name="LAST_COMMIT_MESSAGE" value="JUnit stuff added to test file" />
+    <MESSAGE value="example stories added" />
+    <option name="LAST_COMMIT_MESSAGE" value="example stories added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -337,10 +353,10 @@
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="761" y="418" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587076986939" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
-    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1587075495591">
+    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1587077062424">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1587075495591" />
+    <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1587077062424" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
     <state x="740" y="282" key="FileChooserDialogImpl" timestamp="1587075761518">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -415,10 +431,10 @@
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="428" y="199" key="Vcs.Push.Dialog.v2" timestamp="1587075522532">
+    <state x="428" y="199" key="Vcs.Push.Dialog.v2" timestamp="1587077068671">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="428" y="199" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587075522532" />
+    <state x="428" y="199" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587077068671" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
