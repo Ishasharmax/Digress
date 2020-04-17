@@ -41,7 +41,39 @@ public class JsonTestClass {
     }
 
     @Test
-    void story3Tests(){
+    void story3Tests() throws IOException {
+        Story storyT3 = JsonUtil.fromJsonFile("src/test/Story3.json", Story.class);
+        //checking ID
+        assertEquals(1, storyT3.getID());
+        //checking title
+        assertEquals("Story", storyT3.getTitle());
+        //checking root content
+        assertEquals("Main Content", storyT3.getRootContent());
+        //checking tags
+        assertEquals("Horror", storyT3.getTags().getFirst());
 
+        //importing node 3-1
+        Node node1 = JsonUtil.fromJsonFile("src/test/Story3-1.json", Node.class);
+        //checking getters
+        assertEquals(2, node1.getId());
+        assertEquals("Starting content for story 3", node1.getStoryContent());
+
+        //importing node 3-2
+        Node node1 = JsonUtil.fromJsonFile("src/test/Story3-2.json", Node.class);
+        //checking getters
+        assertEquals(3, node1.getId());
+        assertEquals("Second content for story 3", node1.getStoryContent());
+
+        //importing node 3-3
+        Node node1 = JsonUtil.fromJsonFile("src/test/Story3-3.json", Node.class);
+        //checking getters
+        assertEquals(4, node1.getId());
+        assertEquals("Third content for story 3", node1.getStoryContent());
+
+        //importing node 3-4
+        Node node1 = JsonUtil.fromJsonFile("src/test/Story3-4.json", Node.class);
+        //checking getters
+        assertEquals(5, node1.getId());
+        assertEquals("Fourth content for story 3", node1.getStoryContent());
     }
 }
