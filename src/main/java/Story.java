@@ -29,6 +29,19 @@ public class Story {
         tags = tagsIn;
     }
 
+    public void addExistingNode(Node nodeIn) throws IllegalArgumentException{
+        if(nodeIn == null){
+            throw new IllegalArgumentException("Node cannot be null");
+        }
+        //already exists
+        if(findNode(nodeIn.getId()) != null){
+            throw new IllegalArgumentException("A node already exists with that ID");
+        }
+        content = nodeIn.getStoryContent();
+        storyNodes.put(nodeIn.getId(), nodeIn);
+        currentNode = nodeIn;
+    }
+
     public Node getNext(int choiceValue){
         if(storyNodes.size()-1 < choiceValue) {
             throw new IllegalArgumentException("A node with this choice value does not exist");
