@@ -31,7 +31,7 @@ public class JsonTestClass {
         assertEquals("Content for first node in S1", node1.getStoryContent());
 
         //adding node to story
-        story1.addNode(node1);
+        //story1.addNode(node1);
 
     }
 
@@ -46,7 +46,7 @@ public class JsonTestClass {
         //checking ID
         assertEquals(1, storyT3.getID());
         //checking title
-        assertEquals("Story", storyT3.getTitle());
+        assertEquals("Story3", storyT3.getTitle());
         //checking root content
         assertEquals("Main Content", storyT3.getRootContent());
         //checking tags
@@ -59,21 +59,21 @@ public class JsonTestClass {
         assertEquals("Starting content for story 3", node1.getStoryContent());
 
         //importing node 3-2
-        Node node1 = JsonUtil.fromJsonFile("src/test/Story3-2.json", Node.class);
+        Node node2 = JsonUtil.fromJsonFile("src/test/Story3-2.json", Node.class);
         //checking getters
-        assertEquals(3, node1.getId());
+        assertEquals(3, node2.getId());
         assertEquals("Second content for story 3", node1.getStoryContent());
 
         //importing node 3-3
-        Node node1 = JsonUtil.fromJsonFile("src/test/Story3-3.json", Node.class);
+        Node node3 = JsonUtil.fromJsonFile("src/test/Story3-3.json", Node.class);
         //checking getters
-        assertEquals(4, node1.getId());
+        assertEquals(4, node3.getId());
         assertEquals("Third content for story 3", node1.getStoryContent());
 
         //importing node 3-4
-        Node node1 = JsonUtil.fromJsonFile("src/test/Story3-4.json", Node.class);
+        Node node4 = JsonUtil.fromJsonFile("src/test/Story3-4.json", Node.class);
         //checking getters
-        assertEquals(5, node1.getId());
+        assertEquals(5, node4.getId());
         assertEquals("Fourth content for story 3", node1.getStoryContent());
     }
 }
