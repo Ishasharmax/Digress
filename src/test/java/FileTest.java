@@ -10,7 +10,7 @@ public class FileTest {
     @Test
     public void checkPathTest(){
         File testFile = JsonUtil.fromJsonFile("src/test/java/validFile.json", File.class);
-        Assert.assertEquals(4, testFile.numberOfAccounts());
+        Assert.assertEquals(4, testFile.numberOfFile());
     }
     @Test
     public void importFileTest(){
