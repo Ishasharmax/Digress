@@ -7,9 +7,10 @@ import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 public class File {
+
     String fileName;
     Path path;
-
+    private Map<String, fileName> fileMap;
     public File(String fileNameIn) throws FileNotFoundException {
         fileName = fileNameIn;
         path = findPath(fileName);
@@ -24,6 +25,11 @@ public class File {
             throw new FileNotFoundException("Can not find the file");
         }
     }
+
+    public Path getPath() {
+        return path;
+    }
+
 
     public void importFile(String fileNameIn, LinkedList TagsIn) throws FileNotFoundException {
         //int idIn, String titleIn, String rootContent, LinkedList<String> tagsIn
