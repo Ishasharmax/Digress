@@ -107,6 +107,20 @@ public class Story {
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
         parent.setChild(choiceValue, condition, sNode);
     }
+
+    public void addExistingNode(Node nodeIn) throws IllegalArgumentException{
+        if(nodeIn == null){
+            throw new IllegalArgumentException("Node cannot be null");
+        }
+        //already exists
+        if(findNode(nodeIn.getId()) != null){
+            throw new IllegalArgumentException("A node already exists with that ID");
+        }
+        content = nodeIn.getStoryContent();
+        storyNodes.put(nodeIn.getId(), nodeIn);
+        currentNode = nodeIn;
+    }
+
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
             throw new IllegalArgumentException("Node is not exist");

@@ -1,5 +1,5 @@
 {
-  "idIn" : 5,
-  "storyContentIn" : "This is a test node linked from 3",
-  "parentNodeIn" : 3
+  "idIn" : 4,
+  "storyContentIn" : "Repeat node",
+  "parentNodeIn" : 1
 }
