@@ -110,10 +110,10 @@ public class Story {
         parent.setChild(choiceValue, condition, sNode);
     }
 
-//    private Node changeNode(Node toChange, Node toGetInfo){
-//        Node retNode = new Node(toGetInfo.getId(), toChange.getStoryContent());
-//        return retNode;
-//    }
+    private Node changeNode(Node toChange, Node toGetInfo){
+        Node retNode = new Node(toGetInfo.getId(), toChange.getStoryContent());
+        return retNode;
+    }
 
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
@@ -125,7 +125,7 @@ public class Story {
             storyNodes.remove(nodeID);
             for(int i = idNum+1; i < tempMap.size(); i++){
                 Node temp = getNext(i);
-                storyNodes.replace(i, storyNodes.get(i),temp);
+                storyNodes.replace(i, storyNodes.get(i),changeNode(temp, tempMap.get(i-1))); //to pass: delete the 3rd input and just put temp
             }
             storyNodes.remove(storyNodes.size());
         }
