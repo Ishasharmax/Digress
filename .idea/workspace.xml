@@ -74,7 +74,7 @@
     <property name="project.structure.side.proportion" value="0.3770115" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
-  <component name="RunManager" selected="JUnit.StoryTests.printCurrentNodeTest">
+  <component name="RunManager" selected="JUnit.StoryTests">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -102,12 +102,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoryTests.addNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoryTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoryTests" />
-      <option name="METHOD_NAME" value="addNodeTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -184,19 +183,19 @@
     </configuration>
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
-      <item itemvalue="JUnit.StoryTests.addNodeTest" />
       <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
       <item itemvalue="JUnit.StoryTests.findNodeTest" />
       <item itemvalue="JUnit.StoryTests.printCurrentNodeTest" />
       <item itemvalue="JUnit.StoryTests.printAllNode" />
+      <item itemvalue="JUnit.StoryTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StoryTests" />
         <item itemvalue="JUnit.StoryTests.printAllNode" />
         <item itemvalue="JUnit.StoryTests.printCurrentNodeTest" />
         <item itemvalue="JUnit.StoryTests.findNodeTest" />
         <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
-        <item itemvalue="JUnit.StoryTests.addNodeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -358,36 +357,44 @@
     </state>
     <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1587077062424" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
+    <state x="184" y="96" key="DiffContextDialog" timestamp="1587176119915">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="184" y="96" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587176119915" />
     <state x="740" y="282" key="FileChooserDialogImpl" timestamp="1587075761518">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="282" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1587075761518" />
-    <state width="1481" height="134" key="GridCell.Tab.0.bottom" timestamp="1586802346857">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="186" key="GridCell.Tab.0.bottom" timestamp="1587176021792">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1481" height="134" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586802346857" />
+    <state width="1877" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587176021792" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom/0.22.1440.821@0.22.1440.821" timestamp="1585175074305" />
     <state width="1358" height="213" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585713100982" />
-    <state width="1481" height="134" key="GridCell.Tab.0.center" timestamp="1586802346857">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="186" key="GridCell.Tab.0.center" timestamp="1587176021792">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1481" height="134" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586802346857" />
+    <state width="1877" height="186" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587176021792" />
     <state width="1358" height="198" key="GridCell.Tab.0.center/0.22.1440.821@0.22.1440.821" timestamp="1585175074303" />
     <state width="1358" height="213" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
-    <state width="1481" height="134" key="GridCell.Tab.0.left" timestamp="1586802346857">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="186" key="GridCell.Tab.0.left" timestamp="1587176021792">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585270368422" />
     <state width="1481" height="134" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586802346857" />
+    <state width="1877" height="186" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587176021792" />
     <state width="1358" height="198" key="GridCell.Tab.0.left/0.22.1440.821@0.22.1440.821" timestamp="1585175074302" />
     <state width="1358" height="213" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585713100980" />
-    <state width="1481" height="134" key="GridCell.Tab.0.right" timestamp="1586802346857">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="186" key="GridCell.Tab.0.right" timestamp="1587176021792">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1481" height="134" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586802346857" />
+    <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587176021792" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1585175074304" />
     <state width="1358" height="213" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
     <state width="1481" height="246" key="GridCell.Tab.1.bottom" timestamp="1586800238745">
@@ -444,14 +451,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1021" y="427" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1080@0.0.1920.1080" timestamp="1587076431636" />
-    <state x="747" y="332" key="git4idea.merge.GitMergeDialog" timestamp="1587076938068">
+    <state x="747" y="332" key="git4idea.merge.GitMergeDialog" timestamp="1587176091572">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="747" y="332" key="git4idea.merge.GitMergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587076938068" />
-    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1587073919057">
+    <state x="747" y="332" key="git4idea.merge.GitMergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587176091572" />
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1587176060599">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587073919057" />
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587176060599" />
     <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585712970539" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585267975345">
       <screen x="0" y="0" width="1280" height="680" />
