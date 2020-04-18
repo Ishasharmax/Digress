@@ -120,5 +120,41 @@ public class GlobalVariablesTests {
         assertThrows(IllegalArgumentException.class, ()-> testVars.clearVariables());
     }
 
+    @Test
+    void editVariablesTest(){
+        GlobalVariables testVars = new GlobalVariables();
+        testVars.addInt("Health", 10);
+        testVars.addString("Life", "Max");
+        testVars.addInt("Level", 0);
+        assertEquals(3, testVars.variables.size());
+        assertEquals(10, testVars.getVariable("Health"));
+        assertEquals("Max", testVars.getVariable("Life"));
+        assertEquals(0, testVars.getVariable("Level"));
+
+        testVars.editVariable("Health", 5);
+        testVars.editVariable("Life", "Min");
+        testVars.editVariable("Level", 5);
+
+        assertEquals(3, testVars.variables.size());
+        assertEquals(5, testVars.getVariable("Health"));
+        assertEquals("Min", testVars.getVariable("Life"));
+        assertEquals(5, testVars.getVariable("Level"));
+
+        //changing string to int value
+        testVars.editVariable("Life", 10);
+        assertEquals(10, testVars.getVariable("Life"));
+
+        //changing int to string value
+        testVars.editVariable("Health", "Full");
+        testVars.editVariable("Level", "One");
+
+        assertEquals("Full", testVars.getVariable("Health"));
+        assertEquals("One", testVars.getVariable("Level"));
+
+        //nonexistent variable
+        assertThrows(IllegalArgumentException.class, ()-> testVars.editVariable("Energy", 5));
+
+    }
+
 
 }

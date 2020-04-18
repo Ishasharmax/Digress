@@ -145,4 +145,156 @@ public class StoryTests {
         testStory2.printCurrentNode();
     }
 
+    @Test
+    void addVariableTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        assertEquals(0, testStory.variables.getSize());
+
+        //adding strings
+        testStory.variables.addString("Health", "Full");
+        assertEquals(1, testStory.variables.variables.size());
+        assertEquals("Full", testStory.variables.variables.get("Health"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.getVariable("Life"));
+
+        testStory.variables.addString("Life", "Max");
+        assertEquals(2, testStory.variables.variables.size());
+        assertEquals("Max", testStory.variables.getVariable("Life"));
+
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString("Health", "Low"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString("Life", "Min"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString("", "Low"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString(" ", "Min"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString("                            ", "Min"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString("Power", ""));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString("Power", " "));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addString("Power", "                          "));
+
+        //adding ints
+        testStory.variables.addInt("H", 10);
+        assertEquals(10, testStory.variables.variables.get("H"));
+
+        testStory.variables.addInt("L", 0);
+        assertEquals(0, testStory.variables.variables.get("L"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addInt("E", -1));
+
+        testStory.variables.addInt("E", 100);
+        assertEquals(100, testStory.variables.variables.get("E"));
+
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addInt("E", 50));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addInt("L", 50));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addInt("H", 50));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addInt("", 50));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addInt(" ", 50));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.addInt("                   ", 50));
+    }
+
+    @Test
+    void getVariableTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        assertEquals(0, testStory.variables.getSize());
+
+        testStory.variables.addString("Health", "Full");
+        assertEquals("Full", testStory.variables.getVariable("Health"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.getVariable("Life"));
+
+        testStory.variables.addString("Life", "Max");
+        assertEquals("Max", testStory.variables.getVariable("Life"));
+
+        testStory.variables.addInt("Power", 10);
+        assertEquals(10, testStory.variables.getVariable("Power"));
+    }
+
+    @Test
+    void removeVariableTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        assertEquals(0, testStory.variables.getSize());
+
+        testStory.variables.addInt("Health", 10);
+        assertEquals(10, testStory.variables.variables.get("Health"));
+
+        testStory.variables.addString("Life", "Max");
+        assertEquals("Max", testStory.variables.variables.get("Life"));
+        assertEquals(2, testStory.variables.variables.size());
+
+        testStory.variables.removeVariable("Health");
+        assertEquals(1, testStory.variables.variables.size());
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.getVariable("Health"));
+
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.removeVariable("Power"));
+
+        testStory.variables.removeVariable("Life");
+        assertEquals(0, testStory.variables.variables.size());
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.getVariable("Life"));
+    }
+
+    @Test
+    void clearVariablesTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        assertEquals(0, testStory.variables.getSize());
+
+        testStory.variables.addInt("Health", 10);
+        testStory.variables.addString("Life", "Max");
+        testStory.variables.addInt("Level", 0);
+        assertEquals(3, testStory.variables.variables.size());
+
+        testStory.variables.clearVariables();
+        assertEquals(0, testStory.variables.variables.size());
+
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.clearVariables());
+    }
+
+    @Test
+    void editVariablesTest(){
+        LinkedList<String> testTags = new LinkedList<>();
+        testTags.add(0, "adventure");
+        testTags.add(1, "strategy");
+        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        assertEquals(0, testStory.variables.getSize());
+        testStory.variables.addInt("Health", 10);
+        testStory.variables.addString("Life", "Max");
+        testStory.variables.addInt("Level", 0);
+        assertEquals(3, testStory.variables.variables.size());
+        assertEquals(10, testStory.variables.getVariable("Health"));
+        assertEquals("Max", testStory.variables.getVariable("Life"));
+        assertEquals(0, testStory.variables.getVariable("Level"));
+
+        testStory.variables.editVariable("Health", 5);
+        testStory.variables.editVariable("Life", "Min");
+        testStory.variables.editVariable("Level", 5);
+
+        assertEquals(3, testStory.variables.variables.size());
+        assertEquals(5, testStory.variables.getVariable("Health"));
+        assertEquals("Min", testStory.variables.getVariable("Life"));
+        assertEquals(5, testStory.variables.getVariable("Level"));
+
+        //changing string to int value
+        testStory.variables.editVariable("Life", 10);
+        assertEquals(10, testStory.variables.getVariable("Life"));
+
+        //changing int to string value
+        testStory.variables.editVariable("Health", "Full");
+        testStory.variables.editVariable("Level", "One");
+
+        assertEquals("Full", testStory.variables.getVariable("Health"));
+        assertEquals("One", testStory.variables.getVariable("Level"));
+
+        //nonexistent variable
+        assertThrows(IllegalArgumentException.class, ()-> testStory.variables.editVariable("Energy", 5));
+
+    }
+
+
+
 }

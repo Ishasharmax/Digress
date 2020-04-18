@@ -82,4 +82,8 @@ public class GlobalVariables {
         }
         variables.clear();
     }
+
+    public int getSize(){
+        return variables.size();
+    }
 }
