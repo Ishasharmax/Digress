@@ -109,18 +109,28 @@ public class Story {
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
         parent.setChild(choiceValue, condition, sNode);
     }
+
+//    private Node changeNode(Node toChange, Node toGetInfo){
+//        Node retNode = new Node(toGetInfo.getId(), toChange.getStoryContent());
+//        return retNode;
+//    }
+
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
             throw new IllegalArgumentException("Node is not exist");
         }
         else{
-            //storyNodes.remove(nodeID);
-            for(int i = nodeID+1; i < storyNodes.size(); i++){
+            int idNum = nodeID;
+            HashMap<Integer, Node> tempMap = storyNodes;
+            storyNodes.remove(nodeID);
+            for(int i = idNum+1; i < tempMap.size(); i++){
                 Node temp = getNext(i);
                 storyNodes.replace(i, storyNodes.get(i),temp);
             }
+            storyNodes.remove(storyNodes.size());
         }
     }
+
 
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {

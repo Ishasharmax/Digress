@@ -151,7 +151,7 @@ public class StoryTests {
         testStory2.addNode("Im Here to Party", 1, 5, "Fifth choice"); //6
         testStory2.printCurrentNode();
         testStory2.deleteNode(3);
-        testStory2.findNode(4);
+        testStory2.findNode(3);
         testStory2.printCurrentNode();
     }
 
