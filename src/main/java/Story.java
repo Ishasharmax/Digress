@@ -11,6 +11,7 @@ public class Story {
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
     LinkedList<String> tags;
+    GlobalVariables variables;
 
 
     public Story(int idIn, String titleIn, String rootContent, LinkedList<String> tagsIn){
@@ -26,6 +27,7 @@ public class Story {
         root = new Node(1, rootCont);
         storyNodes = new HashMap();
         storyNodes.put(1, root);
+        variables = new GlobalVariables();
         tags = tagsIn;
     }
 
@@ -135,6 +137,38 @@ public class Story {
         }
     }
 
+    public void addVariable(String name, String type, Object value){
+        if (!type.equals("string") && !type.equals("int")){
+            throw new IllegalArgumentException("Must be a valid type");
+        }
+        if (type.equals("string")){
+            variables.addString(name, value.toString());
+        }
+        if (type.equals("int")){
+            variables.addInt(name, (Integer) value);
+        }
+    }
+
+    public Object getVariable(String name){
+        return variables.getVariable(name);
+    }
+
+    public void removeVariable(String name){
+        variables.removeVariable(name);
+    }
+
+    public void clearVariables(){
+        variables.clearVariables();
+    }
+
+    public void printVariable(String name){
+        variables.printVariable(name);
+    }
+
+    public void editVariable(String name, Object newValue){
+        variables.editVariable(name, newValue);
+    }
+
     public Node getRoot(){
         return root;
     }
@@ -169,6 +203,10 @@ public class Story {
 
     public LinkedList<String> getTags(){
         return tags;
+    }
+
+    public GlobalVariables getGlobalVariables(){
+        return variables;
     }
 
 }
