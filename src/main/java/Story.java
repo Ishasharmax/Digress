@@ -14,7 +14,7 @@ public class Story {
     GlobalVariables variables;
 
 
-    public Story(int idIn, String titleIn, String rootContent, LinkedList<String> tagsIn){
+    public Story(int idIn, String titleIn, String rootContent){
         id = idIn;
         if (titleIn == " " || titleIn == ""){
             throw new IllegalArgumentException("Title cannot be empty");
@@ -28,7 +28,7 @@ public class Story {
         storyNodes = new HashMap();
         storyNodes.put(1, root);
         variables = new GlobalVariables();
-        tags = tagsIn;
+        tags = new LinkedList<String>();
     }
 
     public Node getNext(int choiceValue){
@@ -147,6 +147,10 @@ public class Story {
         if (type.equals("int")){
             variables.addInt(name, (Integer) value);
         }
+    }
+
+    public void addTag(String tagToAdd){
+        tags.add(tagToAdd);
     }
 
     public Object getVariable(String name){

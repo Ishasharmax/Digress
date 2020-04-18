@@ -8,22 +8,16 @@ public class StoryTests {
 
     @Test
     void constructorTest(){
-        LinkedList<String> tags = new LinkedList<>();
-        tags.add("adventure");
-        Story testStory = new Story(0, "Title", "Root content", tags);
+        Story testStory = new Story(0, "Title", "Root content");
         assertEquals(0, testStory.getID());
         assertEquals("Title", testStory.getTitle());
         assertFalse(testStory.getRoot() == null);
         assertEquals("Root content", testStory.getRoot().getStoryContent());
-        assertEquals("adventure", testStory.getTags().getFirst());
     }
 
     @Test
     void getNextTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
         testStory.addNode("more content", 1, 3, "Third choice");
@@ -40,10 +34,7 @@ public class StoryTests {
 
     @Test
     void editNodeStoryContentTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(0,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(0,"Story", "This is test content for the root");
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 2, 1, "First choice");
         testStory.editNodeStoryContent(3, "this is the changed story content");
@@ -59,10 +50,7 @@ public class StoryTests {
 
     @Test
     void editNodeChildrenTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
         testStory.addNode("more content", 1, 3, "Third choice");
@@ -76,10 +64,7 @@ public class StoryTests {
 
     @Test
     void addNodeTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
         assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("test content", 0, 4, "test choice"));
@@ -89,10 +74,7 @@ public class StoryTests {
 
     @Test
     void deleteNodeTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "comedy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         testStory.addNode("【2】", 1, 1, "First choice");
         testStory.addNode("【3】", 1, 2, "Second choice");
         testStory.addNode("【4】", 1, 3, "Third choice");
@@ -122,10 +104,7 @@ public class StoryTests {
 
     @Test
     void findNodeTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "comedy");
-        Story testStory1 = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory1 = new Story(1,"Story", "This is test content for the root");
         testStory1.addNode("Content for the first child", 1, 1, "First choice");
         testStory1.addNode("additional content for another node", 1, 2, "Second choice");
         testStory1.addNode("more content", 1, 3, "Third choice");
@@ -134,23 +113,17 @@ public class StoryTests {
 
     @Test
     void printCurrentNodeTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        Story testStory2 = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory2 = new Story(1,"Story", "This is test content for the root");
         testStory2.addNode("Content for the first child", 1, 1, "First choice");
         testStory2.printCurrentNode();
 
-        testTags.add(1, "horror");
         testStory2.addNode("additional content for another node", 1, 2, "Second choice");
         testStory2.printCurrentNode();
     }
 
     @Test
     void addVariableTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         assertEquals(0, testStory.variables.getSize());
 
         //adding strings
@@ -193,10 +166,7 @@ public class StoryTests {
 
     @Test
     void getVariableTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         assertEquals(0, testStory.variables.getSize());
 
         testStory.variables.addString("Health", "Full");
@@ -212,10 +182,7 @@ public class StoryTests {
 
     @Test
     void removeVariableTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         assertEquals(0, testStory.variables.getSize());
 
         testStory.variables.addInt("Health", 10);
@@ -238,10 +205,7 @@ public class StoryTests {
 
     @Test
     void clearVariablesTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         assertEquals(0, testStory.variables.getSize());
 
         testStory.variables.addInt("Health", 10);
@@ -257,10 +221,7 @@ public class StoryTests {
 
     @Test
     void editVariablesTest(){
-        LinkedList<String> testTags = new LinkedList<>();
-        testTags.add(0, "adventure");
-        testTags.add(1, "strategy");
-        Story testStory = new Story(1,"Story", "This is test content for the root", testTags);
+        Story testStory = new Story(1,"Story", "This is test content for the root");
         assertEquals(0, testStory.variables.getSize());
         testStory.variables.addInt("Health", 10);
         testStory.variables.addString("Life", "Max");
