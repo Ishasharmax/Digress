@@ -143,6 +143,13 @@ public class StoryTests {
         testTags.add(1, "horror");
         testStory2.addNode("additional content for another node", 1, 2, "Second choice");
         testStory2.printCurrentNode();
+
+        testStory2.addNode("Delete Me", 1, 1, "Third choice");
+        testStory2.addNode("New Content for deleted Node", 1, 1, "Fourth choice");
+        testStory2.addNode("Im Here to Party", 1, 1, "Fifth choice");
+        testStory2.printCurrentNode();
+        testStory2.deleteNode(3);
+        testStory2.findNode(3);
     }
 
     @Test

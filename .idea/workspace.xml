@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="GlobalVariables class added, tests failing">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_6_15_PM__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_6_15_PM__Default_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_8_20_PM__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_8_20_PM__Default_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GlobalVariablesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GlobalVariablesTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/StoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StoryTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Story.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Story.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,17 +45,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1ZdgeDAQHdusWxjjtsZPCYYIsbJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -74,7 +66,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.All in Digress">
+  <component name="RunManager" selected="JUnit.StoryTests.printCurrentNodeTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -131,22 +123,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoryTests.addNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoryTests.deleteNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoryTests" />
-      <option name="METHOD_NAME" value="addNodeTest" />
+      <option name="METHOD_NAME" value="deleteNodeTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoryTests.deleteNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoryTests.printCurrentNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoryTests" />
-      <option name="METHOD_NAME" value="deleteNodeTest" />
+      <option name="METHOD_NAME" value="printCurrentNodeTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -181,18 +173,18 @@
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
       <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
-      <item itemvalue="JUnit.StoryTests.addNodeTest" />
       <item itemvalue="JUnit.StoryTests" />
       <item itemvalue="JUnit.GlobalVariablesTests" />
       <item itemvalue="JUnit.All in Digress" />
+      <item itemvalue="JUnit.StoryTests.printCurrentNodeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StoryTests.printCurrentNodeTest" />
         <item itemvalue="JUnit.All in Digress" />
         <item itemvalue="JUnit.GlobalVariablesTests" />
         <item itemvalue="JUnit.StoryTests" />
         <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
-        <item itemvalue="JUnit.StoryTests.addNodeTest" />
       </list>
     </recent_temporary>
   </component>

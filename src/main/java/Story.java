@@ -114,8 +114,13 @@ public class Story {
             throw new IllegalArgumentException("Node is not exist");
         }else{
             storyNodes.remove(nodeID);
+            for(int i = nodeID; i < storyNodes.size(); i++){
+                Node temp = getNext(i+1);
+                storyNodes.replace(i, storyNodes.get(i),temp);
+            }
         }
     }
+
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {
             throw new IllegalArgumentException("There has to be at least one story node");

@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_4_18_2020_12_01_PM_[Default]" date="1587225717081" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2020_12_01_PM_[Default]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4/18/2020 12:01 PM [Default]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/StoryTests.class" />
+    <option name="AFTER_PATH" value="target/test-classes/StoryTests.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2020_12_01_PM_[Default]/StoryTests.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/Story.class" />
+    <option name="AFTER_PATH" value="target/classes/Story.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2020_12_01_PM_[Default]/Story.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/JsonTestClass.class" />
+    <option name="AFTER_PATH" value="target/test-classes/JsonTestClass.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_18_2020_12_01_PM_[Default]/JsonTestClass.class" />
+  </binary>
+</changelist>
