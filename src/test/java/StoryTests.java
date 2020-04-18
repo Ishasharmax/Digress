@@ -137,19 +137,22 @@ public class StoryTests {
         LinkedList<String> testTags = new LinkedList<>();
         testTags.add(0, "adventure");
         Story testStory2 = new Story(1,"Story", "This is test content for the root", testTags);
-        testStory2.addNode("Content for the first child", 1, 1, "First choice");
+        testStory2.addNode("Content for the first child", 1, 1, "First choice"); //2
         testStory2.printCurrentNode();
 
         testTags.add(1, "horror");
-        testStory2.addNode("additional content for another node", 1, 2, "Second choice");
+        testStory2.addNode("additional content for another node", 1, 2, "Second choice"); //3
         testStory2.printCurrentNode();
 
-        testStory2.addNode("Delete Me", 1, 1, "Third choice");
-        testStory2.addNode("New Content for deleted Node", 1, 1, "Fourth choice");
-        testStory2.addNode("Im Here to Party", 1, 1, "Fifth choice");
+        testStory2.addNode("Delete Me", 1, 3, "Third choice"); //4
+        testStory2.printCurrentNode();
+        testStory2.addNode("New Content for deleted Node", 1, 4, "Fourth choice"); //5
+        testStory2.printCurrentNode();
+        testStory2.addNode("Im Here to Party", 1, 5, "Fifth choice"); //6
         testStory2.printCurrentNode();
         testStory2.deleteNode(3);
-        testStory2.findNode(3);
+        testStory2.findNode(4);
+        testStory2.printCurrentNode();
     }
 
     @Test

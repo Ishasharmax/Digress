@@ -112,10 +112,11 @@ public class Story {
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
             throw new IllegalArgumentException("Node is not exist");
-        }else{
-            storyNodes.remove(nodeID);
-            for(int i = nodeID; i < storyNodes.size(); i++){
-                Node temp = getNext(i+1);
+        }
+        else{
+            //storyNodes.remove(nodeID);
+            for(int i = nodeID+1; i < storyNodes.size(); i++){
+                Node temp = getNext(i);
                 storyNodes.replace(i, storyNodes.get(i),temp);
             }
         }
