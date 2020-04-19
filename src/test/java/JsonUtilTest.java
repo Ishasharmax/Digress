@@ -6,23 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 
-public class JsonTestClass {
-
-
-    @Test
-    void story1Tests(){
-
-    }
-
-    @Test
-    void story2Tests(){
-
-    }
-
-    @Test
-    void story3Tests(){
-
-    }
+public class JsonUtilTest {
 
     @Test
     void exportToJsonTest(){
