@@ -41,6 +41,11 @@ public class storyFile {
         }
     }
 
+    /**
+     * input txt file
+     * @throws IOException if path is empty
+     * @throws IllegalArgumentException if the file have no content
+     */
     public void importFile() throws IOException,IllegalArgumentException {
         FileInputStream readFile = checkPath();
         System.setIn(readFile);

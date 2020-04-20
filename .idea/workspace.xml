@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="deleteTest">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/testFilePackage/33.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Digress.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Digress.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/12_testFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/testFilePackage/12_testFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/33.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storyFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/testFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/testFilePackage/testFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/testFilePackage/test_file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/storyFileTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="inputFile" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -289,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585712961667</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="inputFile">
+      <created>1587405559863</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587405559863</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -309,7 +302,8 @@
     <MESSAGE value="delete" />
     <MESSAGE value="deleteTest" />
     <MESSAGE value="Fix deleteNode Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix deleteNode Test" />
+    <MESSAGE value="inputFile" />
+    <option name="LAST_COMMIT_MESSAGE" value="inputFile" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -327,37 +321,38 @@
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
     <state x="570" y="341" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.822@0.23.1440.822" timestamp="1587324437588" />
-    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1585712961255">
-      <screen x="0" y="23" width="1440" height="824" />
+    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1587405988933">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
+    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587405988933" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
-    <state width="1358" height="212" key="GridCell.Tab.0.bottom" timestamp="1587402742627">
+    <state width="1358" height="212" key="GridCell.Tab.0.bottom" timestamp="1587405988986">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom/0.22.1440.821@0.22.1440.821" timestamp="1585175074305" />
-    <state width="1358" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587402742627" />
+    <state width="1358" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587405988986" />
     <state width="1358" height="213" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585713100982" />
-    <state width="1358" height="212" key="GridCell.Tab.0.center" timestamp="1587402742626">
+    <state width="1358" height="212" key="GridCell.Tab.0.center" timestamp="1587405988986">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.center/0.22.1440.821@0.22.1440.821" timestamp="1585175074303" />
-    <state width="1358" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1587402742626" />
+    <state width="1358" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1587405988986" />
     <state width="1358" height="213" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
-    <state width="1358" height="212" key="GridCell.Tab.0.left" timestamp="1587402742626">
+    <state width="1358" height="212" key="GridCell.Tab.0.left" timestamp="1587405988985">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585270368422" />
     <state width="1358" height="198" key="GridCell.Tab.0.left/0.22.1440.821@0.22.1440.821" timestamp="1585175074302" />
-    <state width="1358" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1587402742626" />
+    <state width="1358" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1587405988985" />
     <state width="1358" height="213" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585713100980" />
-    <state width="1358" height="212" key="GridCell.Tab.0.right" timestamp="1587402742626">
+    <state width="1358" height="212" key="GridCell.Tab.0.right" timestamp="1587405988986">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1585175074304" />
-    <state width="1358" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1587402742626" />
+    <state width="1358" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1587405988986" />
     <state width="1358" height="213" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
     <state width="1358" height="263" key="GridCell.Tab.1.bottom" timestamp="1587397941481">
       <screen x="0" y="23" width="1440" height="822" />
@@ -391,9 +386,10 @@
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1585691412760">
-      <screen x="0" y="23" width="1440" height="824" />
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1587405565964">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587405565964" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
