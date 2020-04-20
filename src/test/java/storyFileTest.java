@@ -32,7 +32,11 @@ public class storyFileTest {
 
     }
     @Test
-    public void removeFileTest(){
+    public void deleteFileTest() throws IOException {
+
+        storyFile test1 = new storyFile("deleteFile","src/main/java/testFilePackage/deleteFile.txt");
+        test1.deleteFile();
+        assertThrows(FileNotFoundException.class, ()-> new storyFile("deleteFile","/main/java/deleteFile.txt").checkPath());
 
     }
     @Test

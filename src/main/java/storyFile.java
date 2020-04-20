@@ -79,13 +79,8 @@ public class storyFile {
     public void outputFile(String fileNameIn){
 
     }
-    public void removeFile(String fileNameIN) throws FileNotFoundException {
-        File newFile = new File(fileNameIN);
-//        if (newFile.delete()) {
-//            System.out.println("Deleted the folder: " + newFile.getName());
-//        } else {
-//            System.out.println("Failed to delete the folder.");
-//        }
+    public void deleteFile() throws IOException {
+        Files.deleteIfExists(Paths.get(path));
     }
 
     public void editFile(String fileName, String content){
