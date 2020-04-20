@@ -21,12 +21,16 @@ public class StoryTests {
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
         testStory.addNode("more content", 1, 3, "Third choice");
+        testStory.setCurrentNode(testStory.getRoot());
         Node testNode1 = testStory.getNext(1);
         assertEquals("Content for the first child", testNode1.getStoryContent());
+        testStory.setCurrentNode(testStory.getRoot());
         Node testNode2 = testStory.getNext(2);
         assertEquals("additional content for another node", testNode2.getStoryContent());
+        testStory.setCurrentNode(testStory.getRoot());
         Node testNode3 = testStory.getNext(3);
         assertEquals("more content", testNode3.getStoryContent());
+        testStory.setCurrentNode(testStory.getRoot());
         assertThrows(IllegalArgumentException.class, ()-> testStory.getNext(4));
 
     }
@@ -90,7 +94,7 @@ public class StoryTests {
         testStory.deleteNode(2);
 
         //test if node 2 not exist and throw error
-        assertThrows(IllegalArgumentException.class,()-> testStory.findNode(2));
+        assertEquals(null, testStory.findNode(2));
 
         //test if other node is exist
         assertFalse(testStory.findNode(3)==null);

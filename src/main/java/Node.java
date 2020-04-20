@@ -7,17 +7,31 @@ public class Node {
     private HashMap<Integer, Node> nextNodes;
     private HashMap<Integer, String> nextConditions;
 
+
+    //used by Json
+    public Node(){
+
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setStoryContent(String storyContent){
+        this.storyContent = storyContent;
+    }
+
     //root node constructor
     //add character limit here?
-    public Node(int idIn, String storyContentIn) throws IllegalArgumentException{
+    public Node(int id, String storyContent) throws IllegalArgumentException{
         //should throw invalid argument exceptions higher up:
         //id must be unique, each story must have exactly one root node
 
-        if (idIn < 1){
+        if (id < 1){
             throw new IllegalArgumentException("ID must be a positive number");
         }
-        id = idIn;
-        storyContent = storyContentIn;
+        this.id = id;
+        this.storyContent = storyContent;
         parentNode = null;
         nextNodes = new HashMap<>();
         nextConditions = new HashMap<>();
@@ -88,6 +102,11 @@ public class Node {
     //sets map to the new child
     //this should be called whenever addNode is called in story class
     public void setChild(Integer choiceValue, String condition, Node childNode) throws IllegalArgumentException{
+        if (nextNodes == null){
+            this.nextNodes = new HashMap<>();
+            this.nextConditions = new HashMap<>();
+        }
+
         if(choiceValue < 1){
             throw new IllegalArgumentException("Choice value must be a positive number");
         }
