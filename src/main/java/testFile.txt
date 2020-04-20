@@ -1,4 +1,0 @@
-1 You are walking down a dark, dingy hallway. Where would you like to go?
-2 1 Continue straight
-3 2 Take a left
-4 3 Turn right
