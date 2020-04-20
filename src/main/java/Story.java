@@ -4,12 +4,17 @@ public class Story {
 
     private int id;
     private String title;
+    private String rootCont;
+    private String content;
+    private int choiceVal;
     private Node root;
+    private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
     LinkedList<String> tags;
+    GlobalVariables variables;
 
 
-    public Story(int idIn, String titleIn, String rootContent, LinkedList<String> tagsIn){
+    public Story(int idIn, String titleIn, String rootContent){
         id = idIn;
         if (titleIn == " " || titleIn == ""){
             throw new IllegalArgumentException("Title cannot be empty");
@@ -18,10 +23,12 @@ public class Story {
         if (rootContent == " " || rootContent == ""){
             throw new IllegalArgumentException("Root cannot be empty");
         }
-        root = new Node(1, rootContent);
+        rootCont = rootContent; //holds the beginning content outside of node
+        root = new Node(1, rootCont);
         storyNodes = new HashMap();
         storyNodes.put(1, root);
-        tags = tagsIn;
+        variables = new GlobalVariables();
+        tags = new LinkedList<String>();
     }
 
     public Node getNext(int choiceValue){
@@ -30,7 +37,7 @@ public class Story {
         }
         for (HashMap.Entry entry : storyNodes.entrySet()) {
             Integer key = (Integer) entry.getKey();
-            Node currentNode = storyNodes.get(key);
+            currentNode = storyNodes.get(key);
             return currentNode.getNext(choiceValue);
         }
         return storyNodes.get(1);
@@ -93,10 +100,13 @@ public class Story {
         if (storyContent.equals("") || storyContent == " "){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
+        content = storyContent;
+        choiceVal = choiceValue;
         Node parent = findNode(parentID);
         int nodeID = storyNodes.size() + 1;
         Node sNode = new Node(nodeID, storyContent, parent);
         storyNodes.put(nodeID, sNode);
+        currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
         parent.setChild(choiceValue, condition, sNode);
     }
     public void deleteNode(int nodeID) throws IllegalArgumentException{
@@ -113,17 +123,62 @@ public class Story {
         if (storyNodes.get(nodeID) == null){
             throw new IllegalArgumentException("A node with this ID does not exist");
         }
+        currentNode = storyNodes.get(nodeID); //Every time findNode is used, the node becomes the current node
         return storyNodes.get(nodeID);
     }
 
-    public void printCurrentNode() { //return current node as a string instead of print
-        for (HashMap.Entry entry : storyNodes.entrySet()) {
-            System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
+    public void printCurrentNode(){ //return current node as a string instead of print
+        if(storyNodes.size() == 1) {
+            System.out.println("key: " + getID() + "; tags:" + getTags()
+                    + "; content:" + getRootContent());
         }
+        else {
+            System.out.println("key: " + currentNode.getId() + "; content:" + currentNode.getStoryContent());
+        }
+    }
+
+    public void addVariable(String name, String type, Object value){
+        if (!type.equals("string") && !type.equals("int")){
+            throw new IllegalArgumentException("Must be a valid type");
+        }
+        if (type.equals("string")){
+            variables.addString(name, value.toString());
+        }
+        if (type.equals("int")){
+            variables.addInt(name, (Integer) value);
+        }
+    }
+
+    public void addTag(String tagToAdd){
+        tags.add(tagToAdd);
+    }
+
+    public Object getVariable(String name){
+        return variables.getVariable(name);
+    }
+
+    public void removeVariable(String name){
+        variables.removeVariable(name);
+    }
+
+    public void clearVariables(){
+        variables.clearVariables();
+    }
+
+    public void printVariable(String name){
+        variables.printVariable(name);
+    }
+
+    public void editVariable(String name, Object newValue){
+        variables.editVariable(name, newValue);
     }
 
     public Node getRoot(){
         return root;
+    }
+
+    public Node getCurrNode(){ //returns the currentNode as Node(numbers) as a location
+        return currentNode;
     }
 
     public HashMap getStoryNodes(){
@@ -138,8 +193,24 @@ public class Story {
         return title;
     }
 
+    public String getRootContent(){
+        return rootCont;
+    }
+
+    public String getContent(){
+        return content;
+    }
+
+    public int getChoiceVal(){
+        return choiceVal;
+    }
+
     public LinkedList<String> getTags(){
         return tags;
+    }
+
+    public GlobalVariables getGlobalVariables(){
+        return variables;
     }
 
 }
