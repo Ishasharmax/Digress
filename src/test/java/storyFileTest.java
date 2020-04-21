@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class storyFileTest {
     public void importFileTest() throws IOException {
         storyFile test1 = new storyFile("testFile","src/main/java/testFilePackage/testFile.txt");
         test1.importFile();
+
     }
     @Test
     public void outputFileTest(){
@@ -33,9 +35,13 @@ public class storyFileTest {
     }
     @Test
     public void deleteFileTest() throws IOException {
-
+        //create a random file for test
+        File deleteFile = new File("src/main/java/testFilePackage/deleteFile.txt");
+        deleteFile.createNewFile();
+        //delete the file
         storyFile test1 = new storyFile("deleteFile","src/main/java/testFilePackage/deleteFile.txt");
         test1.deleteFile();
+        //check if the file is still exist
         assertThrows(FileNotFoundException.class, ()-> new storyFile("deleteFile","/main/java/deleteFile.txt").checkPath());
 
     }

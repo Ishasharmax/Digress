@@ -76,9 +76,14 @@ public class storyFile {
         }
 
     }
-    public void outputFile(String fileNameIn){
+    public void outputFile(Story outputStory, int nodeID,String fileNameIn){
 
     }
+
+    /**
+     * delete file from directory
+     * @throws IOException
+     */
     public void deleteFile() throws IOException {
         Files.deleteIfExists(Paths.get(path));
     }
