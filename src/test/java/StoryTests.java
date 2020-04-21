@@ -88,7 +88,6 @@ public class StoryTests {
         //test if there's 6 nodes
         assertTrue(testStory.getStoryNodes().size()==6);
 
-
         //test delete node 2
         assertFalse(testStory.findNode(2)==null);
         testStory.deleteNode(2);
