@@ -60,13 +60,15 @@ public class storyFileTest {
         assertThrows(FileNotFoundException.class, ()-> new storyFile("deleteFile","/main/java/deleteFile.txt").checkPath());
     }
     @Test
-    public void outputFileTest() throws IOException {
+    public void outputFileTest() throws IOException,IllegalArgumentException {
         Story testStory = new Story(1,"Story", "This is test content for the root");
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
         testStory.addNode("more content", 1, 3, "Third choice");
         storyFile test1 = new storyFile("outputFile","src/main/java/testFilePackage/outputFile.txt");
         test1.outputFile(testStory);
+        storyFile test2 = new storyFile("repeatFile","src/main/java/testFilePackage/repeatFile.txt");
+        assertThrows(IllegalArgumentException.class, ()-> test2.outputFile(testStory));
     }
     @Test
     public void editFileTest(){

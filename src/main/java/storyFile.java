@@ -104,6 +104,10 @@ public class storyFile {
         if(outputStory==null){
             throw new IllegalArgumentException("Can not find the story");
         }
+        Path checkPath = Paths.get(path);
+        if (Files.exists(checkPath)) {
+            throw new IllegalArgumentException("File already exist");
+        }
         //content
         FileWriter outputFile = new FileWriter(path);
         outputFile.write(outputStory.getRootContent());
