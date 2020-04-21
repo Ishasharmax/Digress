@@ -15,6 +15,7 @@
 #### Goal: Improve the Digress codebase by making creating and playing stories both accessible through the command line, and being able to export and import files through a specific data format.
 ##### Class Diagram: https://drive.google.com/open?id=1YQLeissTZrZpM7taQPfdGErFD9BYnJP1
 ##### State Diagram: https://drive.google.com/file/d/1XT4qmm5o73_TsW8my4r3Sb9xEKgxPHJ3/view?usp=sharing
+##### Sprint Review Agenda: https://docs.google.com/document/d/1NcCjYO-nPbzBVy40lZb2RnjTHsWszpf6XlxiAXYODHo/edit
 ##### ---------------------------------------------
 ### Sprint 1
 
