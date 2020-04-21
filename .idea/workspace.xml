@@ -56,24 +56,13 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.StoryTests">
+  <component name="RunManager" selected="JUnit.All in Digress (1)">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
-    </configuration>
-    <configuration name="ExampleTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Digress" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ExampleTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Unnamed" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
       <option name="PACKAGE_NAME" value="" />
@@ -95,9 +84,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in Digress (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Digress" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in Digress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -110,7 +107,6 @@
     </configuration>
     <configuration name="StoryTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoryTests" />
       <option name="METHOD_NAME" value="" />
@@ -170,19 +166,19 @@
     </configuration>
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
-      <item itemvalue="Android JUnit.ExampleTest" />
       <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
       <item itemvalue="JUnit.StoryTests" />
       <item itemvalue="JUnit.StoryTests.addNodeTest" />
       <item itemvalue="JUnit.All in Digress" />
+      <item itemvalue="JUnit.All in Digress (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Digress (1)" />
         <item itemvalue="JUnit.StoryTests" />
         <item itemvalue="JUnit.All in Digress" />
         <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
         <item itemvalue="JUnit.StoryTests.addNodeTest" />
-        <item itemvalue="Android JUnit.ExampleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -292,37 +288,42 @@
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1585266826343" />
     <state x="108" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.22.1440.821@0.22.1440.821" timestamp="1586502567635" />
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.824@0.23.1440.824" timestamp="1585694486563" />
-    <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586502423547">
-      <screen x="0" y="22" width="1440" height="821" />
+    <state x="760" y="417" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1587427256492">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
+    <state x="760" y="417" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587427256492" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1586502423547" />
     <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1585712961255">
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
-    <state width="1358" height="198" key="GridCell.Tab.0.bottom" timestamp="1587387842221">
-      <screen x="0" y="22" width="1440" height="821" />
+    <state width="1877" height="307" key="GridCell.Tab.0.bottom" timestamp="1587427429096">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
+    <state width="1877" height="307" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587427429096" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom/0.22.1440.821@0.22.1440.821" timestamp="1587387842221" />
     <state width="1358" height="213" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585713100982" />
-    <state width="1358" height="198" key="GridCell.Tab.0.center" timestamp="1587387842219">
-      <screen x="0" y="22" width="1440" height="821" />
+    <state width="1877" height="307" key="GridCell.Tab.0.center" timestamp="1587427429095">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
+    <state width="1877" height="307" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587427429095" />
     <state width="1358" height="198" key="GridCell.Tab.0.center/0.22.1440.821@0.22.1440.821" timestamp="1587387842219" />
     <state width="1358" height="213" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
-    <state width="1358" height="198" key="GridCell.Tab.0.left" timestamp="1587387842219">
-      <screen x="0" y="22" width="1440" height="821" />
+    <state width="1877" height="307" key="GridCell.Tab.0.left" timestamp="1587427429095">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585270368422" />
+    <state width="1877" height="307" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587427429095" />
     <state width="1358" height="198" key="GridCell.Tab.0.left/0.22.1440.821@0.22.1440.821" timestamp="1587387842219" />
     <state width="1358" height="213" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585713100980" />
-    <state width="1358" height="198" key="GridCell.Tab.0.right" timestamp="1587387842220">
-      <screen x="0" y="22" width="1440" height="821" />
+    <state width="1877" height="307" key="GridCell.Tab.0.right" timestamp="1587427429096">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
+    <state width="1877" height="307" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587427429096" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1587387842220" />
     <state width="1358" height="213" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
     <state width="1358" height="264" key="GridCell.Tab.1.bottom" timestamp="1585712570352">

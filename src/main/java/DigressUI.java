@@ -9,7 +9,7 @@ import java.util.Random;
 public class DigressUI {
 
     public static Story createStory (int idIn, String titleIn, String rootContent, LinkedList< String > tagsIn) throws IllegalArgumentException{
-        return new Story(idIn, titleIn, rootContent, tagsIn);
+        return new Story(idIn, titleIn, rootContent);
     }
 
     public static HashMap playStory (Story storyChosen){
@@ -62,7 +62,7 @@ public class DigressUI {
         else if (storyChosen.getTitle().equalsIgnoreCase(newTitle))
             throw new IllegalArgumentException("New title entered is same as previous title");
         else if (!storyChosen.getTitle().equalsIgnoreCase(newTitle)){
-            storyChosen = new Story(storyChosen.getID(), newTitle, storyChosen.getRoot().getStoryContent(), storyChosen.getTags());
+            storyChosen = new Story(storyChosen.getID(), newTitle, storyChosen.getRoot().getStoryContent());
         }
     }
 
