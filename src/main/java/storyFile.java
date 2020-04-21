@@ -9,7 +9,7 @@ public class storyFile {
     String path;
     //constructor
     public storyFile(String fileNameIn, String pathIn) throws IllegalArgumentException{
-        if(fileNameIn!=" "&&pathIn!=" "){
+        if(fileNameIn!=" " && pathIn!=" " && fileNameIn!="" && pathIn!=""){
             fileName = fileNameIn;
             path = pathIn;
         }else {
@@ -17,16 +17,6 @@ public class storyFile {
         }
 
     }
-
-//    public Path findPath(String fileNameIn)throws FileNotFoundException{
-//        Path p = Paths.get(fileNameIn);
-//        Path folder = p.getParent();
-//        if(folder!=null){
-//            return folder;
-//        }else{
-//            throw new FileNotFoundException("Can not find the file");
-//        }
-//    }
 
     /**
      * Check if there's a file in this path
@@ -102,6 +92,13 @@ public class storyFile {
         }
 
     }
+
+    /**
+     * output a story
+     * @param outputStory a story node
+     * @throws IllegalArgumentException if the story node is empty
+     * @throws IOException
+     */
     public void outputFile(Story outputStory) throws IllegalArgumentException, IOException {
         //check the inout format
         if(outputStory==null){
