@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.String;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GlobalVariablesTests {
+public class GlobalVariableTests{
 
     @Test
     void constructorTest(){

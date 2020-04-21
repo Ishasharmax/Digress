@@ -5,7 +5,6 @@ public class Story {
     private int id;
     private String title;
     private String rootCont;
-    private String content;
     private int choiceVal;
     private Node root;
     private Node currentNode;
@@ -13,17 +12,34 @@ public class Story {
     LinkedList<String> tags;
     GlobalVariables variables;
 
+    //used by Json
+    public Story(){
 
-    public Story(int idIn, String titleIn, String rootContent){
-        id = idIn;
-        if (titleIn == " " || titleIn == ""){
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+    public void setRootCont(String rootCont){
+        this.rootCont = rootCont;
+    }
+
+
+    public Story(int id, String title, String rootCont){
+        this.id = id;
+        if (title == " " || title == ""){
             throw new IllegalArgumentException("Title cannot be empty");
         }
-        title = titleIn;
-        if (rootContent == " " || rootContent == ""){
+        this.title = title;
+        if (rootCont == " " || rootCont == ""){
             throw new IllegalArgumentException("Root cannot be empty");
         }
-        rootCont = rootContent; //holds the beginning content outside of node
+        this.rootCont = rootCont; //holds the beginning content outside of node
         root = new Node(1, rootCont);
         storyNodes = new HashMap();
         storyNodes.put(1, root);
@@ -31,16 +47,28 @@ public class Story {
         tags = new LinkedList<String>();
     }
 
+    public void addExistingNode(Node nodeIn) throws IllegalArgumentException{
+        if (storyNodes == null){
+            this.storyNodes = new HashMap<>();
+            this.root = new Node(1, rootCont);
+            storyNodes.put(1, root);
+        }
+        if(nodeIn == null){
+            throw new IllegalArgumentException("Node cannot be null");
+        }
+        //already exists
+        if(findNode(nodeIn.getId()) != null){
+            throw new IllegalArgumentException("A node already exists with that ID");
+        }
+        storyNodes.put(nodeIn.getId(), nodeIn);
+        currentNode = nodeIn;
+    }
+
     public Node getNext(int choiceValue){
         if(storyNodes.size()-1 < choiceValue) {
             throw new IllegalArgumentException("A node with this choice value does not exist");
         }
-        for (HashMap.Entry entry : storyNodes.entrySet()) {
-            Integer key = (Integer) entry.getKey();
-            currentNode = storyNodes.get(key);
-            return currentNode.getNext(choiceValue);
-        }
-        return storyNodes.get(1);
+        return currentNode.getNext(choiceValue);
     }
 
     public void editNode(int nodeID, String editChoice){
@@ -100,7 +128,6 @@ public class Story {
         if (storyContent.equals("") || storyContent == " "){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
-        content = storyContent;
         choiceVal = choiceValue;
         Node parent = findNode(parentID);
         int nodeID = storyNodes.size() + 1;
@@ -121,7 +148,7 @@ public class Story {
             throw new IllegalArgumentException("There has to be at least one story node");
         }
         if (storyNodes.get(nodeID) == null){
-            throw new IllegalArgumentException("A node with this ID does not exist");
+            return null;
         }
         currentNode = storyNodes.get(nodeID); //Every time findNode is used, the node becomes the current node
         return storyNodes.get(nodeID);
@@ -181,6 +208,10 @@ public class Story {
         return currentNode;
     }
 
+    public void setCurrentNode(Node nodeToAssign){
+        this.currentNode = nodeToAssign;
+    }
+
     public HashMap getStoryNodes(){
         return storyNodes;
     }
@@ -197,9 +228,6 @@ public class Story {
         return rootCont;
     }
 
-    public String getContent(){
-        return content;
-    }
 
     public int getChoiceVal(){
         return choiceVal;
