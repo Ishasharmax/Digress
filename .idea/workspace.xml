@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="import file">
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="outputFile+test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/storyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storyFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/storyFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/storyFileTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/storyFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/storyFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/storyFileTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/storyFileTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +333,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587495552125</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="outputFile+test">
+      <created>1587497525256</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587497525256</updated>
+    </task>
+    <task id="LOCAL-00019" summary="outputFile+test">
+      <created>1587497652450</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587497652450</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -361,7 +371,8 @@
     <MESSAGE value="deleteFile" />
     <MESSAGE value="file" />
     <MESSAGE value="import file" />
-    <option name="LAST_COMMIT_MESSAGE" value="import file" />
+    <MESSAGE value="outputFile+test" />
+    <option name="LAST_COMMIT_MESSAGE" value="outputFile+test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -379,10 +390,10 @@
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
     <state x="570" y="341" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485461005" />
-    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1587497524899">
+    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1587497652114">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587497524899" />
+    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587497652114" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
     <state width="1358" height="212" key="GridCell.Tab.0.bottom" timestamp="1587497608847">
       <screen x="0" y="23" width="1440" height="822" />
@@ -445,10 +456,10 @@
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1587497530291">
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1587497658926">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587497530291" />
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587497658926" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
