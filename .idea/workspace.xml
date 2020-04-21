@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="file">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="import file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/storyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storyFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/testFilePackage/testFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/testFilePackage/testFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/storyFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/storyFileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/storyFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/storyFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GlobalVariablesTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/storyFileTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/storyFileTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +78,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/testFilePackage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.storyFileTest.importFileTest">
+  <component name="RunManager" selected="JUnit.storyFileTest.outputFileTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -138,22 +135,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="storyFileTest.findPathTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="storyFileTest.importFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="storyFileTest" />
-      <option name="METHOD_NAME" value="findPathTest" />
+      <option name="METHOD_NAME" value="importFileTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="storyFileTest.importFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="storyFileTest.outputFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="storyFileTest" />
-      <option name="METHOD_NAME" value="importFileTest" />
+      <option name="METHOD_NAME" value="outputFileTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -191,19 +188,19 @@
     </configuration>
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
-      <item itemvalue="JUnit.storyFileTest.findPathTest" />
       <item itemvalue="JUnit.storyFileTest.checkPathTest" />
       <item itemvalue="JUnit.storyFileTest.storyFileTest" />
       <item itemvalue="JUnit.storyFileTest.deleteFileTest" />
       <item itemvalue="JUnit.storyFileTest.importFileTest" />
+      <item itemvalue="JUnit.storyFileTest.outputFileTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.storyFileTest.outputFileTest" />
         <item itemvalue="JUnit.storyFileTest.importFileTest" />
         <item itemvalue="JUnit.storyFileTest.deleteFileTest" />
         <item itemvalue="JUnit.storyFileTest.checkPathTest" />
         <item itemvalue="JUnit.storyFileTest.storyFileTest" />
-        <item itemvalue="JUnit.storyFileTest.findPathTest" />
       </list>
     </recent_temporary>
   </component>
@@ -334,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587485428800</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="import file">
+      <created>1587495552124</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587495552125</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -357,7 +361,8 @@
     <MESSAGE value="inputFile" />
     <MESSAGE value="deleteFile" />
     <MESSAGE value="file" />
-    <option name="LAST_COMMIT_MESSAGE" value="file" />
+    <MESSAGE value="import file" />
+    <option name="LAST_COMMIT_MESSAGE" value="import file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -375,38 +380,38 @@
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
     <state x="570" y="341" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485461005" />
-    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1587485428566">
+    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1587495551665">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587485428566" />
+    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587495551665" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
-    <state width="1358" height="212" key="GridCell.Tab.0.bottom" timestamp="1587495400314">
+    <state width="1358" height="212" key="GridCell.Tab.0.bottom" timestamp="1587497485864">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom/0.22.1440.821@0.22.1440.821" timestamp="1585175074305" />
-    <state width="1358" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587495400314" />
+    <state width="1358" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587497485864" />
     <state width="1358" height="213" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585713100982" />
-    <state width="1358" height="212" key="GridCell.Tab.0.center" timestamp="1587495400313">
+    <state width="1358" height="212" key="GridCell.Tab.0.center" timestamp="1587497485862">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.center/0.22.1440.821@0.22.1440.821" timestamp="1585175074303" />
-    <state width="1358" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1587495400313" />
+    <state width="1358" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1587497485862" />
     <state width="1358" height="213" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
-    <state width="1358" height="212" key="GridCell.Tab.0.left" timestamp="1587495400312">
+    <state width="1358" height="212" key="GridCell.Tab.0.left" timestamp="1587497485861">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585270368422" />
     <state width="1358" height="198" key="GridCell.Tab.0.left/0.22.1440.821@0.22.1440.821" timestamp="1585175074302" />
-    <state width="1358" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1587495400312" />
+    <state width="1358" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1587497485861" />
     <state width="1358" height="213" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585713100980" />
-    <state width="1358" height="212" key="GridCell.Tab.0.right" timestamp="1587495400313">
+    <state width="1358" height="212" key="GridCell.Tab.0.right" timestamp="1587497485862">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1585175074304" />
-    <state width="1358" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1587495400313" />
+    <state width="1358" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1587497485862" />
     <state width="1358" height="213" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
     <state width="1358" height="263" key="GridCell.Tab.1.bottom" timestamp="1587492867933">
       <screen x="0" y="23" width="1440" height="822" />
@@ -441,10 +446,10 @@
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1587406420378">
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1587495559729">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587406420378" />
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587495559729" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
