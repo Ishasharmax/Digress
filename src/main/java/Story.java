@@ -68,7 +68,8 @@ public class Story {
         if(storyNodes.size()-1 < choiceValue) {
             throw new IllegalArgumentException("A node with this choice value does not exist");
         }
-        return currentNode.getNext(choiceValue);
+        currentNode = currentNode.getNext(choiceValue);
+        return currentNode;
     }
 
     public void editNode(int nodeID, String editChoice){
