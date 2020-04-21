@@ -46,31 +46,52 @@ public class storyFile {
      * @throws IOException if path is empty
      * @throws IllegalArgumentException if the file have no content
      */
-    public void importFile() throws IOException,IllegalArgumentException {
+    public Story importFile() throws IOException,IllegalArgumentException {
         FileInputStream readFile = checkPath();
         System.setIn(readFile);
-        Scanner scanfile = new Scanner(System.in);
-        String line = scanfile.nextLine();
-        if(line!=null) {
+        Scanner scanFile = new Scanner(System.in);
+        String line = scanFile.nextLine();
+        if(scanFile.hasNextLine()) {
             //ID
-            int lineNum = 1;
-            //key
-            int ChoiceNum = 1;
+            int parentID = 1;
             //create story node
-            Story newStory = new Story(lineNum, fileName, line);
-            lineNum += 1;
-            line = scanfile.nextLine();
+            Story newStory = new Story(parentID, fileName, line);
+            //for loop check key
+            boolean isOpen = false;
+            boolean isClose = false;
+            //choice value and condition
+            String choice = "";
+            String value = "";
+            String newV = "false";
             //check if there's child node
-            while (line != null) {
-                String checkLine[] = line.split("[,. ?]+");
+            int count = 0;
+            while (scanFile.hasNextLine()) {
+                line = scanFile.nextLine();
+                //reset counting value
+                choice = "";
+                value = "";
+                isOpen = false;
+                isClose = false;
                 //check the choice value
-                if (Integer.parseInt(String.valueOf(checkLine[0]))==ChoiceNum) {
-                    newStory.addNode(line,lineNum,ChoiceNum,line);
-                    ChoiceNum += 1;
+                for (int j = 0; j < line.length(); j++){
+                    if (line.charAt(j)=='['){
+                        isOpen = true;
+                    }else if(line.charAt(j)==']'){
+                        isClose = true;
+                        isOpen = false;
+                    }else if(isClose==false && isOpen==true){
+                        choice = choice + String.valueOf(line.charAt(j));
+                    }else {
+                        value = value + String.valueOf(line.charAt(j));
+                    }
                 }
-                line = scanfile.nextLine();
-                lineNum++;
+                //add child node
+                if(choice.isEmpty()==false && value.isEmpty()==false) {
+                    //String storyContent, int parentID, int choiceValue, String condition
+                    newStory.addNode(value, parentID, Integer.parseInt(choice), value);
+                }
             }
+            return newStory;
         }else{
             throw new IllegalArgumentException("File is empty");
         }

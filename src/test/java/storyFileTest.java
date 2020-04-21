@@ -26,7 +26,23 @@ public class storyFileTest {
     @Test
     public void importFileTest() throws IOException {
         storyFile test1 = new storyFile("testFile","src/main/java/testFilePackage/testFile.txt");
-        test1.importFile();
+        //check the parent root
+        assertEquals(1,test1.importFile().getID());
+        assertEquals("testFile",test1.importFile().getTitle());
+        assertEquals("You are walking down a dark, dingy hallway. Where would you like to go?",test1.importFile().getRootContent());
+
+        //check how many children
+        assertEquals(10,test1.importFile().getChoiceVal());
+
+        //check child
+        //key
+        assertEquals("Continue straight",test1.importFile().findNode(2).getStoryContent());
+        assertEquals("Take a left",test1.importFile().findNode(3).getStoryContent());
+        assertEquals("test ten",test1.importFile().findNode(11).getStoryContent());
+        //choice value
+        assertEquals("test ten",test1.importFile().getRoot().getNext(10).getStoryContent());
+        assertEquals("test seven",test1.importFile().getRoot().getNext(7).getStoryContent());
+        assertEquals("test four",test1.importFile().getRoot().getNext(4).getStoryContent());
 
     }
     @Test
