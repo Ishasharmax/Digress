@@ -9,7 +9,7 @@ public class storyFile {
     String path;
     //constructor
     public storyFile(String fileNameIn, String pathIn) throws IllegalArgumentException{
-        if(fileNameIn!=" "||pathIn!=" "){
+        if(fileNameIn!=" " && pathIn!=" " && fileNameIn!="" && pathIn!=""){
             fileName = fileNameIn;
             path = pathIn;
         }else {
@@ -17,16 +17,6 @@ public class storyFile {
         }
 
     }
-
-//    public Path findPath(String fileNameIn)throws FileNotFoundException{
-//        Path p = Paths.get(fileNameIn);
-//        Path folder = p.getParent();
-//        if(folder!=null){
-//            return folder;
-//        }else{
-//            throw new FileNotFoundException("Can not find the file");
-//        }
-//    }
 
     /**
      * Check if there's a file in this path
@@ -54,24 +44,28 @@ public class storyFile {
         if(scanFile.hasNextLine()) {
             //ID
             int parentID = 1;
+
             //create story node
             Story newStory = new Story(parentID, fileName, line);
+
             //for loop check key
             boolean isOpen = false;
             boolean isClose = false;
+
             //choice value and condition
             String choice = "";
             String value = "";
-            String newV = "false";
+
             //check if there's child node
-            int count = 0;
             while (scanFile.hasNextLine()) {
                 line = scanFile.nextLine();
+
                 //reset counting value
                 choice = "";
                 value = "";
                 isOpen = false;
                 isClose = false;
+
                 //check the choice value
                 for (int j = 0; j < line.length(); j++){
                     if (line.charAt(j)=='['){
@@ -85,6 +79,7 @@ public class storyFile {
                         value = value + String.valueOf(line.charAt(j));
                     }
                 }
+
                 //add child node
                 if(choice.isEmpty()==false && value.isEmpty()==false) {
                     //String storyContent, int parentID, int choiceValue, String condition
@@ -97,8 +92,29 @@ public class storyFile {
         }
 
     }
-    public void outputFile(Story outputStory, int nodeID,String fileNameIn){
 
+    /**
+     * output a story
+     * @param outputStory a story node
+     * @throws IllegalArgumentException if the story node is empty
+     * @throws IOException
+     */
+    public void outputFile(Story outputStory) throws IllegalArgumentException, IOException {
+        //check the inout format
+        if(outputStory==null){
+            throw new IllegalArgumentException("Can not find the story");
+        }
+        //content
+        FileWriter outputFile = new FileWriter(path);
+        outputFile.write(outputStory.getRootContent());
+        //count how many children
+        int count = outputStory.getChoiceVal();
+
+        //write file
+        for(int i = 1; i <= count; i++){
+            outputFile.write("\n["+i+"]"+outputStory.getRoot().getNext(i).getStoryContent());
+        }
+        outputFile.close();
     }
 
     /**
