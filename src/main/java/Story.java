@@ -1,3 +1,5 @@
+import testFilePackage.GlobalVariables;
+
 import java.util.*;
 
 public class Story {
