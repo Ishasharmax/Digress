@@ -83,6 +83,7 @@ public class storyFile {
                 //add child node
                 if(choice.isEmpty()==false && value.isEmpty()==false) {
                     //String storyContent, int parentID, int choiceValue, String condition
+                    //ask for boolean endNode
                     newStory.addNode(value, parentID, Integer.parseInt(choice), value);
                 }
             }

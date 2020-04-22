@@ -12,15 +12,9 @@ public class DigressUI {
         return new Story(idIn, titleIn, rootContent);
     }
 
-    public static HashMap playStory (Story storyChosen){
-        //String contentPlayed="";
-        /*for (int i = 0; i < storyChosen.getStoryNodes(); i++) {
-            contentPlayed = storyChosen.getStoryNodes().get(i).;
-        }*/
-        // Displaying the HashMap
-        return (storyChosen.getStoryNodes());
-        // Using values() to get the set view of values
-        //System.out.println("storyChosen.getStoryNodes().values());
+    public static void playStory (Story story){
+        System.out.println("Playing story");
+        System.out.println(story.printAllNodes());
     }
 
     public static void editStoryContent (Story storyChosen, String newContent, int contentToEdit) throws IllegalArgumentException{
@@ -39,7 +33,7 @@ public class DigressUI {
         }*/
     }
 
-    public static void addNodes (int idIn, Story storyChosen, String newContent) throws IllegalArgumentException {
+    public static void addNodes (int idIn, Story storyChosen, String newContent, boolean endNode) throws IllegalArgumentException {
         storyChosen.addNode(newContent,storyChosen.getID(), idIn, newContent);
     }
 
@@ -57,6 +51,45 @@ public class DigressUI {
         fileEx.close();
     }
 
+    public static Story getTestStory(){
+        String node1 = "You are walking down a dark, dingy hallway. Where would you like to go?";
+        String node2 = "You see cobwebs in front of you and a dark shadowy figure. What would you like to do next?";
+        String node3 = "There is a giant spider coming down the hallway towards you.";
+        String node4 = "You see a vial on the ground with a strange glowing liquid.";
+        String node5 = "You approach the figure and you can see nothing but darkness beneath his hood. 'What brings you this way, traveler?'  he asks.";
+        String node6 = "You have no weapons and were slain by the spider. Try again?";
+        String node7 = "You charmed the spider with your great personality. He will now fight alongside you.";
+        String node8 = "You picked up the vial and put it in your bag.";
+        String node9 = "For some reason you decided to drink the weird liquid. You died. Whoops.";
+        String node10 = "You see a glowing door to your right.";
+        String node11 = "He pulls out a dagger and slays you. Stronger than he looks!";
+        String endNode = "I don't feel like writing this story anymore lol";
+
+        Story testStory = new Story(44, "Labyrinth", node1);
+        testStory.addNode(node2,1, 1, "Continue straight");
+        testStory.addNode(node3, 1, 2, "Take a left");
+        testStory.addNode(node4, 1, 3, "Turn right");
+        testStory.addNode(node5, 2, 1, "Approach the figure");
+        testStory.findNode(2).setChild(2, "Retreat backward", testStory.getRoot());
+        testStory.addNode(node6, 3, 1, "Fight the spider");
+        testStory.addNode(node7, 3, 2, "Befriend the spider");
+        testStory.findNode(7).setEndNode();
+        testStory.findNode(3).setChild(3, "Run back", testStory.getRoot());
+        testStory.addNode(node8, 4, 1, "Pick it up for later");
+        testStory.addNode(node9, 4, 2, "Drink it");
+        testStory.findNode(9).setEndNode();
+        testStory.addNode(node10, 4, 3, "Keep moving");
+        testStory.addNode(node11, 5, 1,"Shut up and fight me fool");
+        testStory.findNode(11).setEndNode();
+        testStory.addNode(endNode, 5, 2, "I am looking for the holy grail");
+        testStory.findNode(12).setEndNode();;
+        testStory.findNode(7).setChild(1, "Continue moving", testStory.findNode(12));
+        testStory.findNode(8).setChild(1, "Continue down the hallway", testStory.findNode(12));
+        testStory.findNode(10).setChild(1, "Try to enter the room", testStory.findNode(12));
+
+        return testStory;
+    }
+
     public static void editTitle (Story storyChosen, String newTitle) throws IllegalArgumentException {
         if (newTitle == " " || newTitle == "") throw new IllegalArgumentException("Title cannot be empty");
         else if (storyChosen.getTitle().equalsIgnoreCase(newTitle))
@@ -72,6 +105,7 @@ public class DigressUI {
         String title=null;
         Story storySelected=null;
         LinkedList<Story> storyCol=new LinkedList<Story>();
+        storyCol.add(getTestStory());
         do {
             System.out.println("What you want to do? Enter a #");
             System.out.println("1. Create a story");
@@ -99,7 +133,7 @@ public class DigressUI {
                 String tagEx= scanner.next();
                 tag.add(0, tagEx);
                 Story story1 = createStory (id, title, root, tag);
-                storyCol.add(story1);
+                storyCol.add(getTestStory());
             }
             else if (userChoice==2){
                 System.out.println("How you want to read the story?");
@@ -153,7 +187,9 @@ public class DigressUI {
                                     int newID = scanner.nextInt();
                                     System.out.println("Enter new content:");
                                     String newContent = scanner.next();
-                                    addNodes(newID, storySelected, newContent);
+
+                                    //ask for end node condition
+                                    addNodes(newID, storySelected, newContent, false);
                                     System.out.println("You successfully added content to the story");
                                 } else {
                                     System.out.println("Enter node number you want to edit:");
@@ -210,7 +246,9 @@ public class DigressUI {
                                     int newID = scanner.nextInt();
                                     System.out.println("Enter new content:");
                                     String newContent = scanner.next();
-                                    addNodes(newID, storySelected, newContent);
+
+                                    //ask for end node condition
+                                    addNodes(newID, storySelected, newContent, false);
                                     System.out.println("You successfully added content to the story");
                                 } else {
                                     System.out.println("Enter node number you want to edit:");

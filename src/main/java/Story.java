@@ -157,14 +157,30 @@ public class Story {
         return storyNodes.get(nodeID);
     }
 
-    public void printCurrentNode(){ //return current node as a string instead of print
+    public String printCurrentNode(){ //return current node as a string instead of print
+        String node = "";
         if(storyNodes.size() == 1) {
-            System.out.println("key: " + getID() + "; tags:" + getTags()
-                    + "; content:" + getRootContent());
+            node += getRootContent();
         }
         else {
-            System.out.println("key: " + currentNode.getId() + "; content:" + currentNode.getStoryContent());
+            node += currentNode.getStoryContent();
         }
+        Map nextConditions = currentNode.getNextConditions();
+        for (int i = 1; i <= nextConditions.size(); i++){
+            node += "\n(" + i + ") " + nextConditions.get(i);
+        }
+        return node;
+    }
+
+    public String printAllNodes(){
+        String allNodes = "";
+        for(int i = 1; i <= storyNodes.size(); i++){
+            if(i > 1){
+                allNodes += "\n";
+            }
+            allNodes += "(" + i + ") " + storyNodes.get(i).getStoryContent();
+        }
+        return allNodes;
     }
 
     public void addVariable(String name, String type, Object value){
