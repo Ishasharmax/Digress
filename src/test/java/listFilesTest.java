@@ -9,7 +9,7 @@ import java.nio.file.NoSuchFileException;
 public class listFilesTest{
     @Test // = Passed but needs files to be existing in C: folder
     public void listFilesTest() throws NullPointerException, IOException {
-        String basicPath = "C:\\ListFilesTest";
+        String basicPath = "C:\\DigressListTest";
         File folder = new File(basicPath);
         if(folder.mkdir()){
             System.out.println("New Directory made");
@@ -19,7 +19,7 @@ public class listFilesTest{
         }
         File txtFile = new File(basicPath + "\\testFile1.txt");
         FileWriter writer = new FileWriter(txtFile);
-        writer.write("Test data");
+        writer.write("Test data for the first txt file");
         writer.close();
 
         listFiles listFiles = new listFiles();
