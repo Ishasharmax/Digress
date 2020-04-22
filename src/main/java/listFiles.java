@@ -1,22 +1,33 @@
-import java.io.File;
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class listFiles {
-    private static File currFolder;
 
-    public static void listAllFiles(File folder){
-        currFolder = folder;
-        System.out.println("All the Files in this folder are: ");
-        File[] fNames = currFolder.listFiles();
-        for(File file : fNames){
-            if(file.isDirectory()){
-                listAllFiles(file);
-            }
+    public void File(Path filePath){
+
+    }
+
+    public static void fileContent(Path filePath) throws IOException{
+        System.out.println("read file " + filePath);
+        List<String> fileList = Files.readAllLines(filePath);
+        System.out.println("" + fileList);
+    }
+
+    public static void listAllFiles(String path) throws IOException {
+        try(Stream<Path> paths = Files.walk(Paths.get(path))) {
+            paths.forEach(filePath ->{
+                if (Files.isRegularFile(filePath)) {
+                    try {
+                        fileContent(filePath);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+
+            });
         }
     }
-
-    public File getCurrFolder(){
-        return currFolder;
-    }
-
-    p\
 }
