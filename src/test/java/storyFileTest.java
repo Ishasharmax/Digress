@@ -14,7 +14,11 @@ public class storyFileTest {
     @Test
     public void storyFileTest() throws IllegalArgumentException {
         storyFile test1 = new storyFile("testFile","src/main/java/testFilePackage/testFile.txt");
+
+        //check file name
         assertEquals("testFile",test1.getFileName());
+
+        //check file path
         assertEquals("src/main/java/testFilePackage/testFile.txt",test1.getPath());
     }
 
@@ -39,6 +43,7 @@ public class storyFileTest {
         assertEquals("Continue straight",test1.importFile().findNode(2).getStoryContent());
         assertEquals("Take a left",test1.importFile().findNode(3).getStoryContent());
         assertEquals("test ten",test1.importFile().findNode(11).getStoryContent());
+
         //choice value
         assertEquals("test ten",test1.importFile().getRoot().getNext(10).getStoryContent());
         assertEquals("test seven",test1.importFile().getRoot().getNext(7).getStoryContent());
@@ -53,20 +58,27 @@ public class storyFileTest {
         //create a random file for test
         File deleteFile = new File("src/main/java/testFilePackage/deleteFile.txt");
         deleteFile.createNewFile();
+
         //delete the file
         storyFile test1 = new storyFile("deleteFile","src/main/java/testFilePackage/deleteFile.txt");
         test1.deleteFile();
+
         //check if the file is still exist
         assertThrows(FileNotFoundException.class, ()-> new storyFile("deleteFile","/main/java/deleteFile.txt").checkPath());
     }
     @Test
     public void outputFileTest() throws IOException,IllegalArgumentException {
+        //create a story
         Story testStory = new Story(1,"Story", "This is test content for the root");
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
         testStory.addNode("more content", 1, 3, "Third choice");
+
+        //create a story file
         storyFile test1 = new storyFile("outputFile","src/main/java/testFilePackage/outputFile.txt");
         test1.outputFile(testStory);
+
+        //check if the file already exist
         storyFile test2 = new storyFile("repeatFile","src/main/java/testFilePackage/repeatFile.txt");
         assertThrows(IllegalArgumentException.class, ()-> test2.outputFile(testStory));
     }
