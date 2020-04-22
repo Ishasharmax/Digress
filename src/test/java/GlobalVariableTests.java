@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import testFilePackage.GlobalVariables;
 
 import java.lang.String;
 import static org.junit.jupiter.api.Assertions.*;
