@@ -2,12 +2,8 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.lang.String;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class storyFileTest {
