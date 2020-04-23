@@ -1,5 +1,4 @@
-import testFilePackage.GlobalVariables;
-
+import java.io.*;
 import java.util.*;
 
 public class Story {
@@ -11,6 +10,7 @@ public class Story {
     private Node root;
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
+    LinkedList<String> commands;
     LinkedList<String> tags;
     GlobalVariables variables;
 
@@ -47,9 +47,11 @@ public class Story {
         storyNodes = new HashMap();
         storyNodes.put(1, root);
         variables = new GlobalVariables();
-        tags = new LinkedList<String>();
+        tags = new LinkedList<>();
+        commands = new LinkedList<>();
     }
 
+    //for Json testing purposes
     public void addExistingNode(Node nodeIn) throws IllegalArgumentException{
         if (storyNodes == null){
             this.storyNodes = new HashMap<>();
@@ -92,6 +94,7 @@ public class Story {
         else{
             throw new IllegalArgumentException("Invalid choice");
         }
+
     }
 
     public void editNodeStoryContent(int nodeID, String newStoryContent){
@@ -103,6 +106,7 @@ public class Story {
             throw new IllegalArgumentException("Story content cannot be empty");
         }
         nodeToChange.editStoryContent(newStoryContent);
+        commands.add("newStory.editNodeStoryContent(" + nodeID + ", \"" + newStoryContent + "\");");
     }
 
     public void editNodeChildren(int nodeID, int child1ChoiceValue, int child2ChoiceValue){
@@ -123,6 +127,7 @@ public class Story {
         nextConditions.replace(child2ChoiceValue, child1Condition);
         nextNodes.replace(child1ChoiceValue, child2);
         nextNodes.replace(child2ChoiceValue, child1);
+        commands.add("newStory.editNodeChildren(" + nodeID + ", " + child1ChoiceValue + ", " + child2ChoiceValue + ");");
     }
 
     public void addNode(String storyContent, int parentID, int choiceValue, String condition){
@@ -139,6 +144,7 @@ public class Story {
         storyNodes.put(nodeID, sNode);
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
         parent.setChild(choiceValue, condition, sNode);
+        commands.add("newStory.addNode(" + storyContent + ", " + parentID + ", " + choiceValue + ", \"" + condition + "\");");
     }
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
@@ -146,6 +152,7 @@ public class Story {
         }else{
             storyNodes.remove(nodeID);
         }
+        commands.add("newStory.deleteNode(" + nodeID + ");");
     }
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {
@@ -188,11 +195,14 @@ public class Story {
         if (type.equals("int")){
             variables.addInt(name, (Integer) value);
         }
+        commands.add("newStory.addVariable(\"" + name + "\", \"" + type + "\", " + value + ");");
     }
 
     public void addTag(String tagToAdd){
         tags.add(tagToAdd);
+        commands.add("newStory.addTag(\"" + tagToAdd + "\");");
     }
+
 
     public Object getVariable(String name){
         return variables.getVariable(name);
@@ -200,10 +210,12 @@ public class Story {
 
     public void removeVariable(String name){
         variables.removeVariable(name);
+        commands.add("newStory.removeVariable(\"" + name + "\");");
     }
 
     public void clearVariables(){
         variables.clearVariables();
+        commands.add("newStory.clearVariables();");
     }
 
     public void printVariable(String name){
@@ -212,6 +224,32 @@ public class Story {
 
     public void editVariable(String name, Object newValue){
         variables.editVariable(name, newValue);
+        commands.add("newStory.editVariable(" + name + ", " + newValue + ");");
+    }
+
+    //Json
+    public void exportStory(String filepath) throws IOException {
+        filepath += "/" + this.getTitle();
+        File file = new File(filepath);
+        file.mkdir();
+        FileWriter fileWriter = new FileWriter(filepath + "/commands.txt");
+        for (int i = 0; i < this.commands.size(); i++){
+            if (i == this.commands.size() - 1){
+                fileWriter.write(this.commands.get(i));
+            }
+            else {
+                fileWriter.write(this.commands.get(i) + "\n");
+            }
+        }
+        fileWriter.close();
+        JsonUtil.toJsonFile(filepath + "/" + this.getTitle() + ".json", this);
+    }
+
+    public void executeCommands(String filename) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new FileInputStream(filename));
+
+
+
     }
 
     public Node getRoot(){

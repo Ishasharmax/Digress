@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.lang.String;
 import static org.junit.jupiter.api.Assertions.*;
@@ -259,6 +260,24 @@ public class StoryTests {
 
     }
 
+    @Test
+    void importTest() throws IOException {
+        Story newStory = JsonUtil.fromJsonFile("src/test/Story1.json", Story.class);
+
+    }
+
+
+//    @Test
+//    void exportTest() throws IOException {
+//        Story testStory = new Story(1,"Story Title", "This is test content for the root");
+//        testStory.addNode("Content for the first child", 1, 1, "First choice");
+//        testStory.addNode("additional content for another node", 1, 2, "Second choice");
+//        testStory.editNodeStoryContent(2, "new content");
+//        testStory.addNode("content", 1, 3, "Third choice");
+//        testStory.deleteNode(4);
+//        testStory.addVariable("Health", "int", 5);
+//        testStory.exportStory("src/main/java");
+//    }
 
 
 }

@@ -1,5 +1,3 @@
-package testFilePackage;
-
 import java.util.*;
 
 
