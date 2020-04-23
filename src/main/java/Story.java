@@ -43,6 +43,7 @@ public class Story {
         }
         this.rootCont = rootCont; //holds the beginning content outside of node
         root = new Node(1, rootCont);
+        currentNode = root;
         storyNodes = new HashMap();
         storyNodes.put(1, root);
         variables = new GlobalVariables();
@@ -157,14 +158,8 @@ public class Story {
         return storyNodes.get(nodeID);
     }
 
-    public String printCurrentNode(){ //return current node as a string instead of print
-        String node = "";
-        if(storyNodes.size() == 1) {
-            node += getRootContent();
-        }
-        else {
-            node += currentNode.getStoryContent();
-        }
+    public String printCurrentNode(){
+        String node = currentNode.getStoryContent();
         Map nextConditions = currentNode.getNextConditions();
         for (int i = 1; i <= nextConditions.size(); i++){
             node += "\n(" + i + ") " + nextConditions.get(i);

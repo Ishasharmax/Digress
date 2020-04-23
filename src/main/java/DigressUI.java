@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -13,8 +14,37 @@ public class DigressUI {
     }
 
     public static void playStory (Story story){
-        System.out.println("Playing story");
-        System.out.println(story.printAllNodes());
+        String choice;
+        String userIn = "y";
+        Scanner in = new Scanner(System.in);
+        do {
+            boolean playing = true;
+            story.setCurrentNode(story.getRoot());
+
+            while (playing) {
+                System.out.println(story.printCurrentNode());
+                do {
+                    choice = in.next();
+                    try {
+                        Integer.parseInt(choice);
+                    } catch (Exception e) {
+                        System.out.println("Please enter a valid number");
+                    }
+
+                    if (!story.getCurrNode().getNextNodes().containsKey(Integer.parseInt(choice))) {
+                        System.out.println("Please enter a valid number");
+                    }
+                } while (!story.getCurrNode().getNextNodes().containsKey(Integer.parseInt(choice)));
+                story.getNext(Integer.parseInt(choice));
+                if (story.getCurrNode().isEndNode()) {
+                    System.out.println(story.getCurrNode().getStoryContent());
+                    playing = false;
+                }
+            }
+            System.out.println("Done with story");
+            System.out.println("Play again? (Y/N)");
+            userIn = in.next();
+        } while(!userIn.equalsIgnoreCase("n"));
     }
 
     public static void editStoryContent (Story storyChosen, String newContent, int contentToEdit) throws IllegalArgumentException{
@@ -269,6 +299,9 @@ public class DigressUI {
                     uploadStory(fileName);
                     //play or edit the story in function
                 }
+            }
+            else if(userChoice == 4){
+                playStory(getTestStory());
             }
         }while (userChoice!=3);
     }
