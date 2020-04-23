@@ -75,7 +75,7 @@ public class Node {
         return true;
     }
 
-    public boolean checkConditionValid(String conditionIn){
+    public static boolean checkConditionValid(String conditionIn){
         conditionIn = conditionIn.toLowerCase();
         char[] charArray = conditionIn.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
