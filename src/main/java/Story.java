@@ -167,6 +167,16 @@ public class Story {
         return node;
     }
 
+    public String printNode(int nodeId){
+        Node node = findNode(nodeId);
+        String nodeStr = node.getStoryContent();
+        Map nextConditions = node.getNextConditions();
+        for (int i = 1; i <= nextConditions.size(); i++){
+            nodeStr += "\n(" + i + ") " + nextConditions.get(i);
+        }
+        return nodeStr;
+    }
+
     public String printAllNodes(){
         String allNodes = "";
         for(int i = 1; i <= storyNodes.size(); i++){
