@@ -6,6 +6,7 @@ public class Node {
     private Node parentNode;
     private HashMap<Integer, Node> nextNodes;
     private HashMap<Integer, String> nextConditions;
+    private boolean endNode;
 
 
     //used by Json
@@ -52,6 +53,7 @@ public class Node {
         id = idIn;
         storyContent = storyContentIn;
         parentNode = parentNodeIn;
+        endNode = false;
         nextNodes = new HashMap<>();
         nextConditions = new HashMap<>();
     }
@@ -73,7 +75,7 @@ public class Node {
         return true;
     }
 
-    public boolean checkConditionValid(String conditionIn){
+    public static boolean checkConditionValid(String conditionIn){
         conditionIn = conditionIn.toLowerCase();
         char[] charArray = conditionIn.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
@@ -137,6 +139,10 @@ public class Node {
     public Node getParentNode(){
         return parentNode;
     }
+
+    public boolean isEndNode() { return endNode; }
+
+    public void setEndNode(){ endNode = true; }
 
     public HashMap<Integer, Node> getNextNodes(){
         return nextNodes;
