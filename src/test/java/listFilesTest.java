@@ -56,13 +56,18 @@ public class listFilesTest{ //With txt files
         wStory.put("rootCont", "This is for the test so the file can be created");
         wStory.put("tagsIn", "Comedy");
 
-        JSONObject cOfStory = new JSONObject();
-        wStory.put("id", "2");
-        wStory.put("rootCont", "This is to help the test");
+        JSONObject cOfStory1 = new JSONObject();
+//        JSONObject cOfStory2 = new JSONObject();
+//        wStory.put(cOfStory1, cOfStory2);
+        cOfStory1.put("rootCont", "Choice 1");
+        cOfStory1.put("id", "2");
+//        cOfStory2.put("id", "3");
+//        cOfStory2.put("rootCont", "Choice 2");
 
         JSONArray storyList = new JSONArray();
         storyList.add(wStory);
-        storyList.add(cOfStory);
+        storyList.add(cOfStory1);
+//        storyList.add(cOfStory2);
 
         File jsonFile = new File(basicPath + "\\jsonFile1.json");
 
