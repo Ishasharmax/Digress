@@ -72,6 +72,12 @@
             <version>${jackson.version}</version>
         </dependency>
 
+        <dependency> <!-- Json dependency used to write into it, adding an array and object -->
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>

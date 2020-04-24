@@ -5,10 +5,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-public class listFilesTest{
+
+public class listFilesTest{ //With txt files
     @Test // = Passed but needs files to be existing in C: folder
-    public void listFilesTest() throws NullPointerException, IOException {
+    public void listFilesTest1() throws NullPointerException, IOException {
         String basicPath = "C:\\DigressListTest";
         File folder = new File(basicPath);
         if(folder.mkdir()){
@@ -35,4 +38,46 @@ public class listFilesTest{
 //        System.out.println("-------------------------------------------------");
 //    }
 
+    @Test
+    public void listFilesTest2() throws NullPointerException, IOException {
+        String basicPath = "C:\\DigressListTest";
+        File folder = new File(basicPath);
+        if(folder.mkdir()){
+            System.out.println("New Directory made");
+        }
+        else{
+            System.out.println("Directory exists");
+        }
+
+        //Root for json file
+        JSONObject wStory = new JSONObject();
+        wStory.put("id", "1");
+        wStory.put("title", "TestMe");
+        wStory.put("rootCont", "This is for the test so the file can be created");
+        wStory.put("tagsIn", "Comedy");
+
+        JSONObject cOfStory = new JSONObject();
+        wStory.put("id", "2");
+        wStory.put("rootCont", "This is to help the test");
+
+        JSONArray storyList = new JSONArray();
+        storyList.add(wStory);
+        storyList.add(cOfStory);
+
+        File jsonFile = new File(basicPath + "\\jsonFile1.txt");
+
+        try (FileWriter writer = new FileWriter(jsonFile);) {
+            writer.write(storyList.toJSONString());
+            writer.flush();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        listFiles listFiles = new listFiles();
+        System.out.println("reading files");
+        listFiles.listAllFiles(folder);
+        System.out.println("-------------------------------------------------");
+
+    }
 }

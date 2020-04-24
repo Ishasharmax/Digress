@@ -1,0 +1,18 @@
+Index: src/test/java/listFilesTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.junit.jupiter.api.Test;\r\n\r\nimport java.io.File;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.nio.file.NoSuchFileException;\r\n\r\n\r\npublic class listFilesTest{\r\n    @Test // = Passed but needs files to be existing in C: folder\r\n    public void listFilesTest() throws NullPointerException, IOException {\r\n        String basicPath = \"C:\\\\DigressListTest\";\r\n        File folder = new File(basicPath);\r\n        if(folder.mkdir()){\r\n            System.out.println(\"New Directory made\");\r\n        }\r\n        else{\r\n            System.out.println(\"Directory exists\");\r\n        }\r\n        File txtFile = new File(basicPath + \"\\\\testFile1.txt\");\r\n        FileWriter writer = new FileWriter(txtFile);\r\n        writer.write(\"Test data for the first txt file\");\r\n        writer.close();\r\n\r\n        listFiles listFiles = new listFiles();\r\n        System.out.println(\"reading files\");\r\n        listFiles.listAllFiles(folder);\r\n        System.out.println(\"-------------------------------------------------\");\r\n    }\r\n\r\n//    @Test //Walk function way = Passed but needs files to be existing in C: folder\r\n//    public void listFilesTest() throws IOException, NoSuchFileException {\r\n//        System.out.println(\"reading files\");\r\n//        listFiles.listAllFiles(\"C:\\\\Test\");\r\n//        System.out.println(\"-------------------------------------------------\");\r\n//    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/listFilesTest.java	(revision b4c71ab7aadebdc36f596a264c2ab25310b4fb83)
++++ src/test/java/listFilesTest.java	(date 1587578560152)
+@@ -22,6 +22,8 @@
+         writer.write("Test data for the first txt file");
+         writer.close();
+ 
++        
++
+         listFiles listFiles = new listFiles();
+         System.out.println("reading files");
+         listFiles.listAllFiles(folder);
