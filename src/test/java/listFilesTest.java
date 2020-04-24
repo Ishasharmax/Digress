@@ -64,7 +64,7 @@ public class listFilesTest{ //With txt files
         storyList.add(wStory);
         storyList.add(cOfStory);
 
-        File jsonFile = new File(basicPath + "\\jsonFile1.txt");
+        File jsonFile = new File(basicPath + "\\jsonFile1.json");
 
         try (FileWriter writer = new FileWriter(jsonFile);) {
             writer.write(storyList.toJSONString());
