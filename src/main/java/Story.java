@@ -153,9 +153,9 @@ public class Story {
             Map.Entry<Integer, ArrayList<Integer>> entry = itr.next();
             if (entry.getValue().contains(nodeID)){
                 entry.getValue().remove(nodeID);
+                }
             }
         }
-    }
 
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
