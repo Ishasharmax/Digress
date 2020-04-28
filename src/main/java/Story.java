@@ -11,7 +11,6 @@ public class Story {
     private HashMap<Integer, Node> storyNodes;
     private HashMap<Integer, ArrayList<Integer>> nodeConnections;
     LinkedList<String> tags;
-    GlobalVariables variables;
 
     //used by Json
     public Story(){
@@ -47,7 +46,6 @@ public class Story {
         nodeConnections = new HashMap<>();
         storyNodes.put(1, root);
         nodeConnections.put(root.getId(), new ArrayList<>());
-        variables = new GlobalVariables();
         tags = new LinkedList<>();
     }
 
@@ -131,7 +129,6 @@ public class Story {
         Node sNode = new Node(nodeID, storyContent);
         storyNodes.put(nodeID, sNode);
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
-
     }
 
     public void linkNodes(int parentID, int childID){
@@ -201,43 +198,9 @@ public class Story {
         return allNodes;
     }
 
-    public void addVariable(String name, String type, Object value){
-        if (!type.equals("string") && !type.equals("int")){
-            throw new IllegalArgumentException("Must be a valid type");
-        }
-        if (type.equals("string")){
-            variables.addString(name, value.toString());
-        }
-        if (type.equals("int")){
-            variables.addInt(name, (Integer) value);
-        }
-    }
-
     public void addTag(String tagToAdd){
         tags.add(tagToAdd);
     }
-
-
-    public Object getVariable(String name){
-        return variables.getVariable(name);
-    }
-
-    public void removeVariable(String name){
-        variables.removeVariable(name);
-    }
-
-    public void clearVariables(){
-        variables.clearVariables();
-    }
-
-    public void printVariable(String name){
-        variables.printVariable(name);
-    }
-
-    public void editVariable(String name, Object newValue){
-        variables.editVariable(name, newValue);
-    }
-
 
     public Node getRoot(){
         return root;
@@ -269,10 +232,6 @@ public class Story {
 
     public LinkedList<String> getTags(){
         return tags;
-    }
-
-    public GlobalVariables getGlobalVariables(){
-        return variables;
     }
 
 }
