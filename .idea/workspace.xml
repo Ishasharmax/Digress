@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="comment">
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="changed structure of Story and Node classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +40,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1ZdgeDAQHdusWxjjtsZPCYYIsbJ" />
   <component name="ProjectViewState">
@@ -48,10 +56,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -61,9 +71,13 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -74,7 +88,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/testFilePackage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.storyFileTest.outputFileTest">
+  <component name="RunManager" selected="JUnit.StoryTests">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -96,8 +110,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DigressUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DigressUI" />
+      <module name="Digress" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Digress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Digress" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoryTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Digress" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StoryTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,39 +155,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="storyFileTest" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="storyFileTest.checkPathTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Digress" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="storyFileTest" />
-      <option name="METHOD_NAME" value="checkPathTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="storyFileTest.deleteFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Digress" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="storyFileTest" />
-      <option name="METHOD_NAME" value="deleteFileTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="storyFileTest.importFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Digress" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="storyFileTest" />
-      <option name="METHOD_NAME" value="importFileTest" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,19 +191,19 @@
     </configuration>
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
-      <item itemvalue="JUnit.storyFileTest.checkPathTest" />
-      <item itemvalue="JUnit.storyFileTest.deleteFileTest" />
-      <item itemvalue="JUnit.storyFileTest.importFileTest" />
+      <item itemvalue="Application.DigressUI" />
       <item itemvalue="JUnit.storyFileTest.outputFileTest" />
       <item itemvalue="JUnit.storyFileTest" />
+      <item itemvalue="JUnit.All in Digress" />
+      <item itemvalue="JUnit.StoryTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.storyFileTest.outputFileTest" />
+        <item itemvalue="JUnit.StoryTests" />
         <item itemvalue="JUnit.storyFileTest" />
-        <item itemvalue="JUnit.storyFileTest.importFileTest" />
-        <item itemvalue="JUnit.storyFileTest.deleteFileTest" />
-        <item itemvalue="JUnit.storyFileTest.checkPathTest" />
+        <item itemvalue="Application.DigressUI" />
+        <item itemvalue="JUnit.All in Digress" />
+        <item itemvalue="JUnit.storyFileTest.outputFileTest" />
       </list>
     </recent_temporary>
   </component>
@@ -213,8 +221,9 @@
       <workItem from="1585271270456" duration="909000" />
       <workItem from="1585279518691" duration="6924000" />
       <workItem from="1585678356589" duration="17012000" />
-      <workItem from="1587569740098" duration="3768000" />
-      <workItem from="1587746011091" duration="912000" />
+      <workItem from="1587590896777" duration="11003000" />
+      <workItem from="1587610463969" duration="7297000" />
+      <workItem from="1588092660936" duration="1131000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1585583722601</created>
@@ -335,70 +344,28 @@
       <option name="project" value="LOCAL" />
       <updated>1587495552125</updated>
     </task>
-    <task id="LOCAL-00018" summary="outputFile+test">
-      <created>1587497525256</created>
+    <task id="LOCAL-00018" summary="committing before checking out">
+      <created>1587610649151</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1587497525256</updated>
+      <updated>1587610649151</updated>
     </task>
-    <task id="LOCAL-00019" summary="outputFile+test">
-      <created>1587497652450</created>
+    <task id="LOCAL-00019" summary="changed structure of Story and Node classes">
+      <created>1588048882302</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1587497652450</updated>
+      <updated>1588048882302</updated>
     </task>
-    <task id="LOCAL-00020" summary="outputFile+test">
-      <created>1587498279405</created>
+    <task id="LOCAL-00020" summary="changed structure of Story and Node classes">
+      <created>1588104317400</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1587498279405</updated>
+      <updated>1588104317400</updated>
     </task>
-    <task id="LOCAL-00021" summary="outputFile throw argument">
-      <created>1587502125867</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1587502125867</updated>
-    </task>
-    <task id="LOCAL-00022" summary="outputFile throw argument">
-      <created>1587502136422</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1587502136422</updated>
-    </task>
-    <task id="LOCAL-00023" summary="comment">
-      <created>1587570414629</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1587570414629</updated>
-    </task>
-    <task id="LOCAL-00024" summary="comment">
-      <created>1587674624438</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1587674624440</updated>
-    </task>
-    <task id="LOCAL-00025" summary="comment">
-      <created>1587674704769</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1587674704769</updated>
-    </task>
-    <task id="LOCAL-00026" summary="comment">
-      <created>1588104475180</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1588104475184</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -422,10 +389,9 @@
     <MESSAGE value="deleteFile" />
     <MESSAGE value="file" />
     <MESSAGE value="import file" />
-    <MESSAGE value="outputFile+test" />
-    <MESSAGE value="outputFile throw argument" />
-    <MESSAGE value="comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment" />
+    <MESSAGE value="committing before checking out" />
+    <MESSAGE value="changed structure of Story and Node classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed structure of Story and Node classes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -437,107 +403,165 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="440" y="244" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.822@0.23.1440.822" timestamp="1587398111118" />
-    <state x="513" y="146" key="#com.intellij.ide.util.MemberChooser" timestamp="1587501598274">
-      <screen x="0" y="23" width="1440" height="822" />
-    </state>
-    <state x="513" y="146" key="#com.intellij.ide.util.MemberChooser/0.23.1440.822@0.23.1440.822" timestamp="1587501598274" />
     <state x="570" y="341" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1587485461005">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
     <state x="570" y="341" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485461005" />
-    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1588104474367">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="756" y="400" width="408" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587614397007">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1588104474367" />
+    <state x="756" y="400" width="408" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1080@0.0.1920.1080" timestamp="1587614397007" />
+    <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588103119810">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588103119810" />
+    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1588104335364">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104335364" />
+    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587497524899" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
-    <state width="1358" height="263" key="GridCell.Tab.0.bottom" timestamp="1587502582844">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="289" height="348" key="Git.Branch.Popup" timestamp="1587610878149">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
+    <state width="289" height="348" key="Git.Branch.Popup/0.0.1920.1080@0.0.1920.1080" timestamp="1587610878149" />
+    <state width="1877" height="358" key="GridCell.Tab.0.bottom" timestamp="1587615393333">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587605384768" />
+    <state width="1877" height="358" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587615393333" />
     <state width="1358" height="198" key="GridCell.Tab.0.bottom/0.22.1440.821@0.22.1440.821" timestamp="1585175074305" />
-    <state width="1358" height="263" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587502582844" />
+    <state width="1358" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587497608847" />
     <state width="1358" height="213" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585713100982" />
-    <state width="1358" height="263" key="GridCell.Tab.0.center" timestamp="1587502582843">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="1877" height="358" key="GridCell.Tab.0.center" timestamp="1587615393333">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587605384767" />
+    <state width="1877" height="358" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587615393333" />
     <state width="1358" height="198" key="GridCell.Tab.0.center/0.22.1440.821@0.22.1440.821" timestamp="1585175074303" />
-    <state width="1358" height="263" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1587502582843" />
+    <state width="1358" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1587497608842" />
     <state width="1358" height="213" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
-    <state width="1358" height="263" key="GridCell.Tab.0.left" timestamp="1587502582842">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="1877" height="358" key="GridCell.Tab.0.left" timestamp="1587615393333">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585270368422" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587605384767" />
+    <state width="1877" height="358" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587615393333" />
     <state width="1358" height="198" key="GridCell.Tab.0.left/0.22.1440.821@0.22.1440.821" timestamp="1585175074302" />
-    <state width="1358" height="263" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1587502582842" />
+    <state width="1358" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1587497608829" />
     <state width="1358" height="213" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585713100980" />
-    <state width="1358" height="263" key="GridCell.Tab.0.right" timestamp="1587502582844">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="1877" height="358" key="GridCell.Tab.0.right" timestamp="1587615393333">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585270368423" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587605384767" />
+    <state width="1877" height="358" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587615393333" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.22.1440.821@0.22.1440.821" timestamp="1585175074304" />
-    <state width="1358" height="263" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1587502582844" />
+    <state width="1358" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1587497608846" />
     <state width="1358" height="213" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585713100981" />
-    <state width="1358" height="263" key="GridCell.Tab.1.bottom" timestamp="1587502582847">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1587615339300">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1358" height="263" key="GridCell.Tab.1.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587502582847" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587615339300" />
+    <state width="1358" height="263" key="GridCell.Tab.1.bottom/0.23.1440.822@0.23.1440.822" timestamp="1587492867933" />
     <state width="1358" height="264" key="GridCell.Tab.1.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585712570352" />
-    <state width="1358" height="263" key="GridCell.Tab.1.center" timestamp="1587502582846">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1587615339300">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1358" height="263" key="GridCell.Tab.1.center/0.23.1440.822@0.23.1440.822" timestamp="1587502582846" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587615339300" />
+    <state width="1358" height="263" key="GridCell.Tab.1.center/0.23.1440.822@0.23.1440.822" timestamp="1587492867932" />
     <state width="1358" height="264" key="GridCell.Tab.1.center/0.23.1440.824@0.23.1440.824" timestamp="1585712570351" />
-    <state width="1358" height="263" key="GridCell.Tab.1.left" timestamp="1587502582846">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1587615339300">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1358" height="263" key="GridCell.Tab.1.left/0.23.1440.822@0.23.1440.822" timestamp="1587502582846" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587615339300" />
+    <state width="1358" height="263" key="GridCell.Tab.1.left/0.23.1440.822@0.23.1440.822" timestamp="1587492867932" />
     <state width="1358" height="264" key="GridCell.Tab.1.left/0.23.1440.824@0.23.1440.824" timestamp="1585712570351" />
-    <state width="1358" height="263" key="GridCell.Tab.1.right" timestamp="1587502582847">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1587615339300">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1358" height="263" key="GridCell.Tab.1.right/0.23.1440.822@0.23.1440.822" timestamp="1587502582847" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587615339300" />
+    <state width="1358" height="263" key="GridCell.Tab.1.right/0.23.1440.822@0.23.1440.822" timestamp="1587492867933" />
     <state width="1358" height="264" key="GridCell.Tab.1.right/0.23.1440.824@0.23.1440.824" timestamp="1585712570352" />
-    <state x="174" y="95" key="MergeDialog" timestamp="1587674640958">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="174" y="95" key="MergeDialog" timestamp="1585694204400">
+      <screen x="0" y="23" width="1440" height="824" />
     </state>
-    <state x="174" y="95" key="MergeDialog/0.23.1440.822@0.23.1440.822" timestamp="1587674640958" />
     <state x="174" y="95" key="MergeDialog/0.23.1440.824@0.23.1440.824" timestamp="1585694204400" />
-    <state x="461" y="158" key="MultipleFileMergeDialog" timestamp="1587674643415">
+    <state x="461" y="158" key="MultipleFileMergeDialog" timestamp="1587485455403">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="461" y="158" key="MultipleFileMergeDialog/0.23.1440.822@0.23.1440.822" timestamp="1587674643415" />
+    <state x="461" y="158" key="MultipleFileMergeDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485455403" />
     <state x="461" y="158" key="MultipleFileMergeDialog/0.23.1440.824@0.23.1440.824" timestamp="1585695862849" />
-    <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key" timestamp="1587570457037">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key" timestamp="1585694154938">
+      <screen x="0" y="23" width="1440" height="824" />
     </state>
-    <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.822@0.23.1440.822" timestamp="1587570457037" />
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1587570689866">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="428" y="200" key="Vcs.Push.Dialog.v2" timestamp="1588104329548">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587570689866" />
+    <state x="428" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104329548" />
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587497530291" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
     </state>
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174501995" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587590909560">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1587590909560" />
     <state x="694" y="141" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1587351490061">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="694" y="141" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.23.1440.822@0.23.1440.822" timestamp="1587351490061" />
-    <state x="517" y="275" key="git4idea.merge.GitPullDialog" timestamp="1588104488215">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="682" y="254" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587610616002">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585281135501" />
-    <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1588104488215" />
+    <state x="682" y="254" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587610616002" />
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1588104354747">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588104354747" />
+    <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485437131" />
     <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585712970539" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1587595982933">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587595982933" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585267975345">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1585267975345" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/JsonUtil.java</url>
+          <line>15</line>
+          <properties class="JsonUtil">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar!/com/fasterxml/jackson/databind/ObjectMapper.class</url>
+          <line>1350</line>
+          <properties class="com.fasterxml.jackson.databind.ObjectMapper">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar!/com/fasterxml/jackson/databind/ObjectMapper.class</url>
+          <line>1652</line>
+          <properties class="com.fasterxml.jackson.databind.ObjectMapper">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>
