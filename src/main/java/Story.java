@@ -6,11 +6,10 @@ public class Story {
     private int id;
     private String title;
     private String rootCont;
-    private int choiceVal;
     private Node root;
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
-    LinkedList<String> commands;
+    private HashMap<Integer, ArrayList<Integer>> nodeConnections;
     LinkedList<String> tags;
     GlobalVariables variables;
 
@@ -45,35 +44,25 @@ public class Story {
         root = new Node(1, rootCont);
         currentNode = root;
         storyNodes = new HashMap();
+        nodeConnections = new HashMap<>();
         storyNodes.put(1, root);
+        nodeConnections.put(root.getId(), new ArrayList<>());
         variables = new GlobalVariables();
         tags = new LinkedList<>();
-        commands = new LinkedList<>();
-    }
-
-    //for Json testing purposes
-    public void addExistingNode(Node nodeIn) throws IllegalArgumentException{
-        if (storyNodes == null){
-            this.storyNodes = new HashMap<>();
-            this.root = new Node(1, rootCont);
-            storyNodes.put(1, root);
-        }
-        if(nodeIn == null){
-            throw new IllegalArgumentException("Node cannot be null");
-        }
-        //already exists
-        if(findNode(nodeIn.getId()) != null){
-            throw new IllegalArgumentException("A node already exists with that ID");
-        }
-        storyNodes.put(nodeIn.getId(), nodeIn);
-        currentNode = nodeIn;
     }
 
     public Node getNext(int choiceValue){
-        if(storyNodes.size()-1 < choiceValue) {
-            throw new IllegalArgumentException("A node with this choice value does not exist");
+        if (nodeConnections.get(currentNode.getId()).isEmpty()){
+            throw new IllegalArgumentException("Node has no children");
         }
-        currentNode = currentNode.getNext(choiceValue);
+        if (choiceValue > nodeConnections.get(currentNode.getId()).size()){
+            throw new IllegalArgumentException("Choice value doesn't exist");
+        }
+        if (choiceValue < 1){
+            throw new IllegalArgumentException("Choice value must be a positive number greater than 0");
+        }
+        int ID = nodeConnections.get(currentNode.getId()).get(choiceValue-1);
+        currentNode = findNode(ID);
         return currentNode;
     }
 
@@ -106,29 +95,27 @@ public class Story {
             throw new IllegalArgumentException("Story content cannot be empty");
         }
         nodeToChange.editStoryContent(newStoryContent);
-        commands.add("newStory.editNodeStoryContent(" + nodeID + ", \"" + newStoryContent + "\");");
     }
 
-    public void editNodeChildren(int nodeID, int child1ChoiceValue, int child2ChoiceValue){
-        Node nodeToChange = findNode(nodeID);
-        if (nodeToChange.getNextNodes().isEmpty()){
-            throw new IllegalArgumentException("This node has no children");
-        }
-        HashMap<Integer, String> nextConditions = nodeToChange.getNextConditions();
-        HashMap<Integer, Node> nextNodes = nodeToChange.getNextNodes();
-        Node child1 = nodeToChange.getNext(child1ChoiceValue);
-        Node child2 = nodeToChange.getNext(child2ChoiceValue);
-        if (child1 == null || child2 == null){
-            throw new IllegalArgumentException("A node with this choice value does not exist");
-        }
-        String child1Condition = nextConditions.get(child1ChoiceValue);
-        String child2Condition = nextConditions.get(child2ChoiceValue);
-        nextConditions.replace(child1ChoiceValue, child2Condition);
-        nextConditions.replace(child2ChoiceValue, child1Condition);
-        nextNodes.replace(child1ChoiceValue, child2);
-        nextNodes.replace(child2ChoiceValue, child1);
-        commands.add("newStory.editNodeChildren(" + nodeID + ", " + child1ChoiceValue + ", " + child2ChoiceValue + ");");
-    }
+//    public void editNodeChildren(int nodeID, int child1ChoiceValue, int child2ChoiceValue){
+//        Node nodeToChange = findNode(nodeID);
+//        if (nodeToChange.getNextNodes().isEmpty()){
+//            throw new IllegalArgumentException("This node has no children");
+//        }
+//        HashMap<Integer, String> nextConditions = nodeToChange.getNextConditions();
+//        HashMap<Integer, Node> nextNodes = nodeToChange.getNextNodes();
+//        Node child1 = nodeToChange.getNext(child1ChoiceValue);
+//        Node child2 = nodeToChange.getNext(child2ChoiceValue);
+//        if (child1 == null || child2 == null){
+//            throw new IllegalArgumentException("A node with this choice value does not exist");
+//        }
+//        String child1Condition = nextConditions.get(child1ChoiceValue);
+//        String child2Condition = nextConditions.get(child2ChoiceValue);
+//        nextConditions.replace(child1ChoiceValue, child2Condition);
+//        nextConditions.replace(child2ChoiceValue, child1Condition);
+//        nextNodes.replace(child1ChoiceValue, child2);
+//        nextNodes.replace(child2ChoiceValue, child1);
+//    }
 
     public void addNode(String storyContent, int parentID, int choiceValue, String condition){
         if (findNode(parentID) == null) {
@@ -137,22 +124,51 @@ public class Story {
         if (storyContent.equals("") || storyContent == " "){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
-        choiceVal = choiceValue;
-        Node parent = findNode(parentID);
         int nodeID = storyNodes.size() + 1;
-        Node sNode = new Node(nodeID, storyContent, parent);
+        while (storyNodes.get(nodeID) != null){
+            nodeID += 1;
+        }
+        Node sNode = new Node(nodeID, storyContent);
         storyNodes.put(nodeID, sNode);
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
-        parent.setChild(choiceValue, condition, sNode);
-        commands.add("newStory.addNode(" + storyContent + ", " + parentID + ", " + choiceValue + ", \"" + condition + "\");");
+
     }
+
+    public void linkNodes(int parentID, int childID){
+        if (parentID == childID){
+            throw new IllegalArgumentException("Cannot set Node as it's own child");
+        }
+        if (findNode(parentID) == null) {
+            throw new IllegalArgumentException("Parent does not exist");
+        }
+        if (findNode(childID) == null) {
+            throw new IllegalArgumentException("Child does not exist");
+        }
+        if (nodeConnections.get(parentID).contains(childID)){
+            throw new IllegalArgumentException("This node is already a child");
+        }
+        nodeConnections.get(parentID).add(childID);
+    }
+
+    public void removeReferences(int nodeID){
+        Iterator<Map.Entry<Integer, ArrayList<Integer>>> itr = nodeConnections.entrySet().iterator();
+        while (itr.hasNext()){
+            Map.Entry<Integer, ArrayList<Integer>> entry = itr.next();
+            if (entry.getValue().contains(nodeID)){
+                entry.getValue().remove(nodeID);
+                }
+            }
+        }
+
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         if (findNode(nodeID)==null){
             throw new IllegalArgumentException("Node is not exist");
         }else{
             storyNodes.remove(nodeID);
+            removeReferences(nodeID);
+            //TODO handling children after deletion
+
         }
-        commands.add("newStory.deleteNode(" + nodeID + ");");
     }
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode
         if(storyNodes.size() < 1) {
@@ -195,12 +211,10 @@ public class Story {
         if (type.equals("int")){
             variables.addInt(name, (Integer) value);
         }
-        commands.add("newStory.addVariable(\"" + name + "\", \"" + type + "\", " + value + ");");
     }
 
     public void addTag(String tagToAdd){
         tags.add(tagToAdd);
-        commands.add("newStory.addTag(\"" + tagToAdd + "\");");
     }
 
 
@@ -210,12 +224,10 @@ public class Story {
 
     public void removeVariable(String name){
         variables.removeVariable(name);
-        commands.add("newStory.removeVariable(\"" + name + "\");");
     }
 
     public void clearVariables(){
         variables.clearVariables();
-        commands.add("newStory.clearVariables();");
     }
 
     public void printVariable(String name){
@@ -224,33 +236,8 @@ public class Story {
 
     public void editVariable(String name, Object newValue){
         variables.editVariable(name, newValue);
-        commands.add("newStory.editVariable(" + name + ", " + newValue + ");");
     }
 
-    //Json
-    public void exportStory(String filepath) throws IOException {
-        filepath += "/" + this.getTitle();
-        File file = new File(filepath);
-        file.mkdir();
-        FileWriter fileWriter = new FileWriter(filepath + "/commands.txt");
-        for (int i = 0; i < this.commands.size(); i++){
-            if (i == this.commands.size() - 1){
-                fileWriter.write(this.commands.get(i));
-            }
-            else {
-                fileWriter.write(this.commands.get(i) + "\n");
-            }
-        }
-        fileWriter.close();
-        JsonUtil.toJsonFile(filepath + "/" + this.getTitle() + ".json", this);
-    }
-
-    public void executeCommands(String filename) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new FileInputStream(filename));
-
-
-
-    }
 
     public Node getRoot(){
         return root;
@@ -278,11 +265,6 @@ public class Story {
 
     public String getRootContent(){
         return rootCont;
-    }
-
-
-    public int getChoiceVal(){
-        return choiceVal;
     }
 
     public LinkedList<String> getTags(){
