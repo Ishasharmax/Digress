@@ -4,11 +4,10 @@
 ##### Link to Google folder: https://drive.google.com/drive/folders/1lc6ZvvjKeTG_q1lXnn7IUiskEpeWUS7H?usp=sharing
 ##### Zenhub Board: https://app.zenhub.com/workspaces/digress-5e60042463c71840335aad26/board?repos=244985592
 ##### ---------------------------------------------
-#### Prioritised Scenarios: 
-##### A (link pages), E (read story)
-##### G (add variables), C (debug story)
-##### D (export file)
-##### B (search for node), F (search by tags)  .
+### Sprint 3
+
+#### Goal: Finalize restructuring of codebase and implement import/export file feature, as well as ensure create and play story are working properly and the user can delete nodes.
+##### Use Case Planning: https://docs.google.com/document/d/1qQCpFYhUXw0H2gPLOR3jnIta8dcHPC3CsjUzz-Fmafs/edit?usp=sharing
 ##### ---------------------------------------------
 ### Sprint 2
 
