@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="import file">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DigressUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DigressUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="JsonImportExport" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -183,11 +180,11 @@
     </configuration>
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
+      <item itemvalue="Application.DigressUI" />
       <item itemvalue="JUnit.storyFileTest.importFileTest" />
       <item itemvalue="JUnit.storyFileTest.outputFileTest" />
       <item itemvalue="JUnit.storyFileTest" />
       <item itemvalue="JUnit.All in Digress" />
-      <item itemvalue="Application.DigressUI" />
     </list>
     <recent_temporary>
       <list>
@@ -381,6 +378,10 @@
     </state>
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587497524899" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
+    <state x="184" y="96" key="DiffContextDialog" timestamp="1588104093288">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="184" y="96" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588104093288" />
     <state width="1237" height="199" key="GridCell.Tab.0.bottom" timestamp="1587615605481">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -464,10 +465,14 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="694" y="141" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.23.1440.822@0.23.1440.822" timestamp="1587351490061" />
-    <state x="517" y="275" key="git4idea.merge.GitPullDialog" timestamp="1587485437131">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="747" y="332" key="git4idea.merge.GitMergeDialog" timestamp="1588104087476">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585281135501" />
+    <state x="747" y="332" key="git4idea.merge.GitMergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588104087476" />
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1588104049261">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588104049261" />
     <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485437131" />
     <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585712970539" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1587595982933">
