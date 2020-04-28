@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="comment">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_26_PM_[Default]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_26_PM__Default_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_46_PM_[Default]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_46_PM__Default_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +214,7 @@
       <workItem from="1585279518691" duration="6924000" />
       <workItem from="1585678356589" duration="17012000" />
       <workItem from="1587569740098" duration="3768000" />
-      <workItem from="1587746011091" duration="697000" />
+      <workItem from="1587746011091" duration="912000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1585583722601</created>
@@ -395,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587674704769</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="comment">
+      <created>1588104475180</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1588104475184</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -444,10 +447,10 @@
     <state x="507" y="263" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1585261764182" />
     <state x="570" y="339" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174538072" />
     <state x="570" y="341" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485461005" />
-    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1587674704467">
+    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1588104474367">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587674704467" />
+    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1588104474367" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
     <state width="1358" height="263" key="GridCell.Tab.0.bottom" timestamp="1587502582844">
       <screen x="0" y="23" width="1440" height="822" />
@@ -525,11 +528,11 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="694" y="141" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.23.1440.822@0.23.1440.822" timestamp="1587351490061" />
-    <state x="517" y="275" key="git4idea.merge.GitPullDialog" timestamp="1588104462159">
+    <state x="517" y="275" key="git4idea.merge.GitPullDialog" timestamp="1588104488215">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585281135501" />
-    <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1588104462159" />
+    <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1588104488215" />
     <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585712970539" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585267975345">
       <screen x="0" y="0" width="1280" height="680" />
