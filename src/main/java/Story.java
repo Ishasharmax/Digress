@@ -72,11 +72,11 @@ public class Story {
             editNodeStoryContent(nodeID, newContent);
         }
         if (editChoice == "children"){
-            System.out.print("Enter the choice value of the child you want to change: ");
-            int child1ChoiceValue = scanner.nextInt();
-            System.out.print("Enter the choice value you want this child to have: ");
-            int child2ChoiceValue = scanner.nextInt();
-            editNodeChildren(nodeID, child1ChoiceValue, child2ChoiceValue);
+            System.out.print("Would you like to edit or delete a child? ");
+            String choice = scanner.nextLine();
+            System.out.print("Which # child? ");
+            int nodeNum = scanner.nextInt();
+
         }
         else{
             throw new IllegalArgumentException("Invalid choice");
@@ -95,25 +95,25 @@ public class Story {
         nodeToChange.editStoryContent(newStoryContent);
     }
 
-//    public void editNodeChildren(int nodeID, int child1ChoiceValue, int child2ChoiceValue){
-//        Node nodeToChange = findNode(nodeID);
-//        if (nodeToChange.getNextNodes().isEmpty()){
-//            throw new IllegalArgumentException("This node has no children");
-//        }
-//        HashMap<Integer, String> nextConditions = nodeToChange.getNextConditions();
-//        HashMap<Integer, Node> nextNodes = nodeToChange.getNextNodes();
-//        Node child1 = nodeToChange.getNext(child1ChoiceValue);
-//        Node child2 = nodeToChange.getNext(child2ChoiceValue);
-//        if (child1 == null || child2 == null){
-//            throw new IllegalArgumentException("A node with this choice value does not exist");
-//        }
-//        String child1Condition = nextConditions.get(child1ChoiceValue);
-//        String child2Condition = nextConditions.get(child2ChoiceValue);
-//        nextConditions.replace(child1ChoiceValue, child2Condition);
-//        nextConditions.replace(child2ChoiceValue, child1Condition);
-//        nextNodes.replace(child1ChoiceValue, child2);
-//        nextNodes.replace(child2ChoiceValue, child1);
-//    }
+    public void editNodeChildren(int nodeID, int childNum, String choice){
+        Scanner scanner = new Scanner(System.in);
+        if (choice == "edit"){
+            System.out.print("Story content or children? ");
+            choice = scanner.nextLine();
+            if (choice == "story content"){
+                editNode(nodeConnections.get(nodeID).get(childNum-1), "story content");
+            }
+            if (choice == "children"){
+                editNode(nodeConnections.get(nodeID).get(childNum-1), "children");
+            }
+            else{
+                throw new IllegalArgumentException("Invalid choice");
+            }
+        }
+        if (choice == "delete"){
+            deleteNode(nodeConnections.get(nodeID).get(childNum-1));
+        }
+    }
 
     public void addNode(String storyContent, int parentID, int choiceValue, String condition){
         if (findNode(parentID) == null) {
@@ -158,13 +158,27 @@ public class Story {
         }
 
     public void deleteNode(int nodeID) throws IllegalArgumentException{
+        Scanner scanner = new Scanner(System.in);
         if (findNode(nodeID)==null){
             throw new IllegalArgumentException("Node is not exist");
         }else{
             storyNodes.remove(nodeID);
             removeReferences(nodeID);
-            //TODO handling children after deletion
-
+            if (!nodeConnections.get(nodeID).isEmpty()) {
+                for (int i = 0; i < nodeConnections.get(nodeID).size(); i++) {
+                    System.out.print("Would you like to permanently delete or relink Node #" + nodeConnections.get(nodeID).get(i) + "? (delete or relink) ");
+                    String choice = scanner.nextLine();
+                    if (choice == "delete") {
+                        deleteNode(nodeConnections.get(nodeID).get(i));
+                    }
+                    if (choice == "relink") {
+                        System.out.print("What Node would you like to link it to? ");
+                        int nodeChoice = scanner.nextInt();
+                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(i));
+                    }
+                }
+            }
+            nodeConnections.remove(nodeID);
         }
     }
     Node findNode(int nodeID) throws IllegalArgumentException{ //hardcoded test to supplement addnode

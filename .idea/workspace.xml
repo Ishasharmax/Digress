@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="changed structure of Story and Node classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,6 +225,7 @@
       <workItem from="1587590896777" duration="11003000" />
       <workItem from="1587610463969" duration="7297000" />
       <workItem from="1588092660936" duration="1131000" />
+      <workItem from="1588193926919" duration="3201000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1585583722601</created>
@@ -365,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588104317400</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="changed structure of Story and Node classes">
+      <created>1588104373442</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1588104373442</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -417,16 +426,16 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588103119810" />
-    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1588104335364">
+    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1588104372624">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104335364" />
+    <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104372624" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587497524899" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
-    <state width="289" height="348" key="Git.Branch.Popup" timestamp="1587610878149">
+    <state width="291" height="350" key="Git.Branch.Popup" timestamp="1588200695967">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="289" height="348" key="Git.Branch.Popup/0.0.1920.1080@0.0.1920.1080" timestamp="1587610878149" />
+    <state width="291" height="350" key="Git.Branch.Popup/0.0.1920.1080@0.0.1920.1080" timestamp="1588200695967" />
     <state width="1877" height="358" key="GridCell.Tab.0.bottom" timestamp="1587615393333">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -496,10 +505,10 @@
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="428" y="200" key="Vcs.Push.Dialog.v2" timestamp="1588104329548">
+    <state x="428" y="200" key="Vcs.Push.Dialog.v2" timestamp="1588104383088">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="428" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104329548" />
+    <state x="428" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104383088" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587497530291" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
