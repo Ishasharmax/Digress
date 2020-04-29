@@ -14,8 +14,11 @@ public class newDeleteTests {
         testStory1.addNode("Delete Me", 1, 4, "Fourth choice");
         testStory1.addNode("I'm a child of 6, should be deleted", 1, 5, "Fifth choice");
         testStory1.addNode("I'm a child of 6, should also be deleted", 1, 6, "Sixth choice");
+        //Testing if size is correctly 7
         assertEquals(testStory1.getStoryNodes().size(),7);
-
+        //Find the necessary node to delete
+        testStory1.findNode(5);
+        //Deleting Node and should delete children
         testStory1.deleteNode(5);
 
 
@@ -27,7 +30,11 @@ public class newDeleteTests {
         testStory2.addNode("Delete Me", 1, 4, "Fourth choice");
         testStory2.addNode("I'm a child of 6, but i should be relinked to 2", 1, 5, "Fifth choice");
         testStory2.addNode("I'm a child of 6, but i should be relinked to 3", 1, 6, "Sixth choice");
-
+        //Testing if size is correctly 7
+        assertEquals(testStory1.getStoryNodes().size(),7);
+        //Find the necessary node to delete
+        testStory1.findNode(5);
+        //Deleting Node and should delete children
         testStory1.deleteNode(5);
     }
 }

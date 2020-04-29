@@ -77,7 +77,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/testFilePackage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StoryTests.deleteNodeTest">
+  <component name="RunManager" selected="JUnit.newDeleteTests.newDeleteNodeTests">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -113,15 +113,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in Digress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Digress" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StoryTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Digress" />
       <option name="PACKAGE_NAME" value="" />
@@ -145,6 +136,17 @@
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="newDeleteTests.newDeleteNodeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Digress" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="newDeleteTests" />
+      <option name="METHOD_NAME" value="newDeleteNodeTests" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -182,17 +184,17 @@
       <item itemvalue="Android JUnit.Unnamed" />
       <item itemvalue="Application.DigressUI" />
       <item itemvalue="JUnit.storyFileTest" />
-      <item itemvalue="JUnit.All in Digress" />
       <item itemvalue="JUnit.StoryTests" />
       <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
+      <item itemvalue="JUnit.newDeleteTests.newDeleteNodeTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.newDeleteTests.newDeleteNodeTests" />
         <item itemvalue="JUnit.StoryTests.deleteNodeTest" />
         <item itemvalue="JUnit.StoryTests" />
         <item itemvalue="JUnit.storyFileTest" />
         <item itemvalue="Application.DigressUI" />
-        <item itemvalue="JUnit.All in Digress" />
       </list>
     </recent_temporary>
   </component>
