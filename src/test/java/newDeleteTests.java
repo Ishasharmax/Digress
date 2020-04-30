@@ -55,5 +55,30 @@ public class newDeleteTests {
         testStory4.findNode(1);
         //Deleting Node without children
         testStory4.deleteNode(1);
+
+        //Deleting multiple nodes
+        Story testStory5 = new Story(1,"Story", "This is test content for the root");
+        testStory5.addNode("Test Content 1", 1, 1, "First choice");
+        testStory5.addNode("Test Content for another Node", 1, 2, "Second choice");
+        testStory5.addNode("Woah more test content", 1, 3, "Third choice");
+        testStory5.addNode("Delete Me", 1, 4, "Fourth choice");
+        testStory5.addNode("I'm a child of 6, but i should be relinked to 2", 1, 5, "Fifth choice");
+        testStory5.addNode("I'm a child of 6, but i should be relinked to 3", 1, 6, "Sixth choice");
+        testStory5.addNode("I'm a new node with more content", 1, 7, "Seventh choice");
+        testStory5.addNode("I should be deleted though", 1, 8, "Eighth choice");
+        testStory5.addNode("I'm a child of 7", 1, 9, "Ninth choice");
+        testStory5.addNode("I'm a child of 8, relinked with 7", 1, 10, "Tenth choice");
+        //Testing if size is correctly 10
+        assertEquals(testStory5.getStoryNodes().size(),10);
+        //Find the necessary node to delete
+        testStory5.findNode(5);
+        //Deleting Node and should delete children
+        testStory5.deleteNode(5);
+        //Testing if size is correctly 9
+        assertEquals(testStory5.getStoryNodes().size(),9);
+        //Find the necessary node to delete
+        testStory5.findNode(8);
+        //Deleting Node and should delete children
+        testStory5.deleteNode(8);
     }
 }
