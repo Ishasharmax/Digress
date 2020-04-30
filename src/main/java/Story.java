@@ -9,7 +9,7 @@ public class Story {
     private Node root;
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
-    private HashMap<Integer, ArrayList<Integer>> nodeConnections;
+    protected HashMap<Integer, ArrayList<Integer>> nodeConnections;
     LinkedList<String> tags;
 
     //used by Json
@@ -32,11 +32,11 @@ public class Story {
 
     public Story(int id, String title, String rootCont){
         this.id = id;
-        if (title == " " || title == ""){
+        if (title.equals(" ") || title.equals("")){
             throw new IllegalArgumentException("Title cannot be empty");
         }
         this.title = title;
-        if (rootCont == " " || rootCont == ""){
+        if (rootCont.equals(" ") || rootCont.equals("")){
             throw new IllegalArgumentException("Root cannot be empty");
         }
         this.rootCont = rootCont; //holds the beginning content outside of node
@@ -66,17 +66,17 @@ public class Story {
 
     public void editNode(int nodeID, String editChoice){
         Scanner scanner = new Scanner(System.in);
-        if (editChoice == "story content"){
+        if (editChoice.equals("story content")){
             System.out.print("Enter what you would like the new story content to be: ");
             String newContent = scanner.nextLine();
             editNodeStoryContent(nodeID, newContent);
         }
-        if (editChoice == "children"){
-            System.out.print("Would you like to edit or delete a child? ");
+        if (editChoice.equals("children")){
+            System.out.print("Would you like to edit or delete a child? (edit or delete)");
             String choice = scanner.nextLine();
             System.out.print("Which # child? ");
             int nodeNum = scanner.nextInt();
-
+            editNodeChildren(nodeID, nodeNum, choice);
         }
         else{
             throw new IllegalArgumentException("Invalid choice");
@@ -89,7 +89,7 @@ public class Story {
         if (nodeToChange == null){
             throw new IllegalArgumentException("A node with this ID does not exist");
         }
-        if (newStoryContent == "" || newStoryContent == " "){
+        if (newStoryContent.equals("") || newStoryContent.equals(" ")){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
         nodeToChange.editStoryContent(newStoryContent);
@@ -97,20 +97,20 @@ public class Story {
 
     public void editNodeChildren(int nodeID, int childNum, String choice){
         Scanner scanner = new Scanner(System.in);
-        if (choice == "edit"){
+        if (choice.equals("edit")){
             System.out.print("Story content or children? ");
             choice = scanner.nextLine();
-            if (choice == "story content"){
+            if (choice.equals("story content")){
                 editNode(nodeConnections.get(nodeID).get(childNum-1), "story content");
             }
-            if (choice == "children"){
+            if (choice.equals("children")){
                 editNode(nodeConnections.get(nodeID).get(childNum-1), "children");
             }
             else{
                 throw new IllegalArgumentException("Invalid choice");
             }
         }
-        if (choice == "delete"){
+        if (choice.equals("delete")){
             deleteNode(nodeConnections.get(nodeID).get(childNum-1));
         }
     }
@@ -119,7 +119,7 @@ public class Story {
         if (findNode(parentID) == null) {
             throw new IllegalArgumentException("A node with this ID does not exist");
         }
-        if (storyContent.equals("") || storyContent == " "){
+        if (storyContent.equals("") || storyContent.equals(" ")){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
         int nodeID = storyNodes.size() + 1;
@@ -128,6 +128,7 @@ public class Story {
         }
         Node sNode = new Node(nodeID, storyContent);
         storyNodes.put(nodeID, sNode);
+        linkNodes(parentID, nodeID);
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
     }
 
@@ -168,10 +169,10 @@ public class Story {
                 for (int i = 0; i < nodeConnections.get(nodeID).size(); i++) {
                     System.out.print("Would you like to permanently delete or relink Node #" + nodeConnections.get(nodeID).get(i) + "? (delete or relink) ");
                     String choice = scanner.nextLine();
-                    if (choice == "delete") {
+                    if (choice.equals("delete")) {
                         deleteNode(nodeConnections.get(nodeID).get(i));
                     }
-                    if (choice == "relink") {
+                    if (choice.equals("relink")) {
                         System.out.print("What Node would you like to link it to? ");
                         int nodeChoice = scanner.nextInt();
                         linkNodes(nodeChoice, nodeConnections.get(nodeID).get(i));
@@ -230,6 +231,10 @@ public class Story {
 
     public HashMap getStoryNodes(){
         return storyNodes;
+    }
+
+    public HashMap getNodeConnections(){
+        return nodeConnections;
     }
 
     public int getID(){

@@ -14,6 +14,7 @@ public class StoryTests {
         assertEquals("Title", testStory.getTitle());
         assertFalse(testStory.getRoot() == null);
         assertEquals("Root content", testStory.getRoot().getStoryContent());
+        assertEquals("Root content", testStory.getCurrNode().getStoryContent());
     }
 
     @Test
@@ -59,12 +60,9 @@ public class StoryTests {
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
         testStory.addNode("more content", 1, 3, "Third choice");
-        testStory.editNodeChildren(1,2,3);
-        assertEquals("additional content for another node", testStory.getRoot().getNext(3).getStoryContent());
-        assertEquals("more content", testStory.getRoot().getNext(2).getStoryContent());
-        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(2,1,2));
-        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 5, 2));
-        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 2, 5));
+        testStory.editNodeChildren(1, 2, "delete");
+        assertEquals(2, testStory.nodeConnections.get(1).size());
+        assertEquals("more content", testStory.findNode(testStory.nodeConnections.get(1).get(1)).getStoryContent());
     }
 
     @Test
@@ -72,6 +70,9 @@ public class StoryTests {
         Story testStory = new Story(1,"Story", "This is test content for the root");
         testStory.addNode("Content for the first child", 1, 1, "First choice");
         testStory.addNode("additional content for another node", 1, 2, "Second choice");
+        assertEquals(2, testStory.nodeConnections.get(1).size());
+        assertEquals("Content for the first child", testStory.findNode(testStory.nodeConnections.get(1).get(0)).getStoryContent());
+        assertEquals("additional content for another node", testStory.findNode(testStory.nodeConnections.get(1).get(2)).getStoryContent());
         assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("test content", 0, 4, "test choice"));
         assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("", 1, 4, "test choice"));
         assertThrows(IllegalArgumentException.class, ()-> testStory.addNode(" ", 1, 4, "test choice"));
