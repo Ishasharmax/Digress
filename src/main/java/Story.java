@@ -10,6 +10,7 @@ public class Story {
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
     private HashMap<Integer, ArrayList<Integer>> nodeConnections;
+    private HashMap<Integer, ArrayList<String>> nodeConditions;
     LinkedList<String> tags;
 
     //used by Json
@@ -46,6 +47,7 @@ public class Story {
         nodeConnections = new HashMap<>();
         storyNodes.put(1, root);
         nodeConnections.put(root.getId(), new ArrayList<>());
+        nodeConditions.put(root.getId(), new ArrayList<>());
         tags = new LinkedList<>();
     }
 
@@ -115,7 +117,7 @@ public class Story {
         }
     }
 
-    public void addNode(String storyContent, int parentID, int choiceValue, String condition){
+    public void addNode(String storyContent, int parentID){
         if (findNode(parentID) == null) {
             throw new IllegalArgumentException("A node with this ID does not exist");
         }
@@ -128,10 +130,11 @@ public class Story {
         }
         Node sNode = new Node(nodeID, storyContent);
         storyNodes.put(nodeID, sNode);
+        nodeConditions.put(nodeID, new ArrayList<>());
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
     }
 
-    public void linkNodes(int parentID, int childID){
+    public void linkNodes(int parentID, int childID, String condition){
         if (parentID == childID){
             throw new IllegalArgumentException("Cannot set Node as it's own child");
         }
@@ -145,6 +148,8 @@ public class Story {
             throw new IllegalArgumentException("This node is already a child");
         }
         nodeConnections.get(parentID).add(childID);
+        nodeConditions.get(parentID).add(condition);
+
     }
 
     public void removeReferences(int nodeID){
@@ -174,7 +179,7 @@ public class Story {
                     if (choice == "relink") {
                         System.out.print("What Node would you like to link it to? ");
                         int nodeChoice = scanner.nextInt();
-                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(i));
+                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(i), nodeConditions.get(nodeID).get(i));
                     }
                 }
             }
@@ -194,7 +199,7 @@ public class Story {
 
     public String printCurrentNode(){
         String node = currentNode.getStoryContent();
-        Map nextConditions = currentNode.getNextConditions();
+        ArrayList nextConditions = getNextConditions();
         for (int i = 1; i <= nextConditions.size(); i++){
             node += "\n(" + i + ") " + nextConditions.get(i);
         }
@@ -203,11 +208,16 @@ public class Story {
 
     public String printAllNodes(){
         String allNodes = "";
+        ArrayList nextConditions;
         for(int i = 1; i <= storyNodes.size(); i++){
             if(i > 1){
                 allNodes += "\n";
             }
             allNodes += "(" + i + ") " + storyNodes.get(i).getStoryContent();
+            nextConditions = getNextConditions();
+            for (int j = 1; j <= nextConditions.size(); j++){
+                allNodes += "\n(" + i + ") " + nextConditions.get(i);
+            }
         }
         return allNodes;
     }
@@ -246,6 +256,10 @@ public class Story {
 
     public LinkedList<String> getTags(){
         return tags;
+    }
+
+    public ArrayList<String> getNextConditions(){
+        return nodeConditions.get(currentNode.getId());
     }
 
 }
