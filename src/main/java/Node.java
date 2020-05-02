@@ -33,7 +33,7 @@ public class Node {
     }
 
 
-    public boolean checkChoiceValueValid(int choiceValueIn){
+    /*public boolean checkChoiceValueValid(int choiceValueIn){
         if(nextNodes.isEmpty()){
             return true;
         }
@@ -48,7 +48,7 @@ public class Node {
             return false;
         }
         return true;
-    }
+    }*/
 
     public static boolean checkConditionValid(String conditionIn){
         conditionIn = conditionIn.toLowerCase();
