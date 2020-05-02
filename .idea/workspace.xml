@@ -506,6 +506,10 @@
       <screen x="0" y="22" width="1440" height="821" />
     </state>
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog/0.22.1440.821@0.22.1440.821" timestamp="1585174501995" />
+    <state x="517" y="92" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588104786143">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="517" y="92" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.822@0.23.1440.822" timestamp="1588104786143" />
     <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587590909560">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -539,7 +543,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/JsonUtil.java</url>
           <line>15</line>
-          <properties class="JsonUtil">
+          <properties class="JsonUtil" method="toJsonFile">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="2" />
@@ -547,7 +551,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar!/com/fasterxml/jackson/databind/ObjectMapper.class</url>
           <line>1350</line>
-          <properties class="com.fasterxml.jackson.databind.ObjectMapper">
+          <properties class="com.fasterxml.jackson.databind.ObjectMapper" method="writeValue">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="3" />
@@ -555,7 +559,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar!/com/fasterxml/jackson/databind/ObjectMapper.class</url>
           <line>1652</line>
-          <properties class="com.fasterxml.jackson.databind.ObjectMapper">
+          <properties class="com.fasterxml.jackson.databind.ObjectMapper" method="_configAndWriteValue">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="4" />
