@@ -3,7 +3,7 @@ import java.nio.file.Path;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-public class storyFile {
+public class storyFile extends Story{
 
     String fileName;
     String path;
@@ -84,7 +84,9 @@ public class storyFile {
                 if(choice.isEmpty()==false && value.isEmpty()==false) {
                     //String storyContent, int parentID, int choiceValue, String condition
                     //ask for boolean endNode
-                    newStory.addNode(value, parentID, Integer.parseInt(choice), value);
+//                    newStory.addNode(value, parentID, Integer.parseInt(choice), value);
+                    newStory.addNode(value, parentID);
+
                 }
             }
             return newStory;

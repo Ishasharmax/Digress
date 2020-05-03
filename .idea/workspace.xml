@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="changed structure of Story and Node classes">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_46_PM__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_46_PM__Default_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DigressUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DigressUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/storyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storyFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,6 +226,7 @@
       <workItem from="1587610463969" duration="7297000" />
       <workItem from="1588092660936" duration="1131000" />
       <workItem from="1588193926919" duration="3201000" />
+      <workItem from="1588473986417" duration="501000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1585583722601</created>
@@ -404,7 +401,8 @@
     <MESSAGE value="import file" />
     <MESSAGE value="committing before checking out" />
     <MESSAGE value="changed structure of Story and Node classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed structure of Story and Node classes" />
+    <MESSAGE value="check" />
+    <option name="LAST_COMMIT_MESSAGE" value="check" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -541,6 +539,10 @@
     <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588104354747" />
     <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485437131" />
     <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585712970539" />
+    <state x="446" y="96" key="refactoring.ChangeSignatureDialog" timestamp="1588435192845">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="446" y="96" key="refactoring.ChangeSignatureDialog/0.23.1440.822@0.23.1440.822" timestamp="1588435192845" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1587595982933">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
