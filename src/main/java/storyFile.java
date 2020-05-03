@@ -115,11 +115,12 @@ public class storyFile extends Story{
         FileWriter outputFile = new FileWriter(path);
         outputFile.write(outputStory.getRootContent());
         //count how many children
-        int count = outputStory.getChoiceVal();
+        int count = outputStory.getCount();
 
         //write file
         for(int i = 1; i <= count; i++){
-            outputFile.write("\n["+i+"]"+outputStory.getRoot().getNext(i).getStoryContent());
+//            outputFile.write("\n["+i+"]"+outputStory.getRoot().getNext(i).getStoryContent());
+            outputFile.write("\n["+i+"]"+outputStory.getNext(i).getStoryContent());
         }
         outputFile.close();
     }

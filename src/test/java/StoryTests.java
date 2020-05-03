@@ -19,9 +19,9 @@ public class StoryTests {
     @Test
     void getNextTest(){
         Story testStory = new Story(1,"Story", "This is test content for the root");
-        testStory.addNode("Content for the first child", 1, 1, "First choice");
-        testStory.addNode("additional content for another node", 1, 2, "Second choice");
-        testStory.addNode("more content", 1, 3, "Third choice");
+        testStory.addNode("Content for the first child", 1);
+        testStory.addNode("additional content for another node", 1);
+        testStory.addNode("more content", 1);
         testStory.setCurrentNode(testStory.getRoot());
         Node testNode1 = testStory.getNext(1);
         assertEquals("Content for the first child", testNode1.getStoryContent());
@@ -40,8 +40,8 @@ public class StoryTests {
     @Test
     void editNodeStoryContentTest(){
         Story testStory = new Story(0,"Story", "This is test content for the root");
-        testStory.addNode("Content for the first child", 1, 1, "First choice");
-        testStory.addNode("additional content for another node", 2, 1, "First choice");
+        testStory.addNode("Content for the first child", 1);
+        testStory.addNode("additional content for another node", 2);
         testStory.editNodeStoryContent(3, "this is the changed story content");
         assertEquals("this is the changed story content", testStory.findNode(3).getStoryContent());
         assertEquals("This is test content for the root", testStory.getRoot().getStoryContent());
@@ -56,35 +56,35 @@ public class StoryTests {
     @Test
     void editNodeChildrenTest(){
         Story testStory = new Story(1,"Story", "This is test content for the root");
-        testStory.addNode("Content for the first child", 1, 1, "First choice");
-        testStory.addNode("additional content for another node", 1, 2, "Second choice");
-        testStory.addNode("more content", 1, 3, "Third choice");
-        testStory.editNodeChildren(1,2,3);
-        assertEquals("additional content for another node", testStory.getRoot().getNext(3).getStoryContent());
-        assertEquals("more content", testStory.getRoot().getNext(2).getStoryContent());
-        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(2,1,2));
-        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 5, 2));
-        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 2, 5));
+        testStory.addNode("Content for the first child", 1);
+        testStory.addNode("additional content for another node", 1);
+        testStory.addNode("more content", 1);
+        testStory.editNodeChildren(1,2,"3");
+        assertEquals("additional content for another node", testStory.getNext(3).getStoryContent());
+        assertEquals("more content", testStory.getNext(2).getStoryContent());
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(2,1,"2"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 5, "2"));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.editNodeChildren(1, 2, "5"));
     }
 
     @Test
     void addNodeTest(){
         Story testStory = new Story(1,"Story", "This is test content for the root");
-        testStory.addNode("Content for the first child", 1, 1, "First choice");
-        testStory.addNode("additional content for another node", 1, 2, "Second choice");
-        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("test content", 0, 4, "test choice"));
-        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("", 1, 4, "test choice"));
-        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode(" ", 1, 4, "test choice"));
+        testStory.addNode("Content for the first child", 1);
+        testStory.addNode("additional content for another node", 1);
+        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("test content", 0));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode("", 1));
+        assertThrows(IllegalArgumentException.class, ()-> testStory.addNode(" ", 1));
     }
 
     @Test
     void deleteNodeTest(){
         Story testStory = new Story(1,"Story", "This is test content for the root");
-        testStory.addNode("【2】", 1, 1, "First choice");
-        testStory.addNode("【3】", 1, 2, "Second choice");
-        testStory.addNode("【4】", 1, 3, "Third choice");
-        testStory.addNode("【5】", 1, 4, "Fourth choice");
-        testStory.addNode("【6】", 1, 5, "Five choice");
+        testStory.addNode("【2】", 1);
+        testStory.addNode("【3】", 1);
+        testStory.addNode("【4】", 1);
+        testStory.addNode("【5】", 1);
+        testStory.addNode("【6】", 1);
 
         //test if there's 6 nodes
         assertTrue(testStory.getStoryNodes().size()==6);
@@ -109,19 +109,19 @@ public class StoryTests {
     @Test
     void findNodeTest(){
         Story testStory1 = new Story(1,"Story", "This is test content for the root");
-        testStory1.addNode("Content for the first child", 1, 1, "First choice");
-        testStory1.addNode("additional content for another node", 1, 2, "Second choice");
-        testStory1.addNode("more content", 1, 3, "Third choice");
+        testStory1.addNode("Content for the first child", 1);
+        testStory1.addNode("additional content for another node", 1);
+        testStory1.addNode("more content", 1);
         testStory1.findNode(2);
     }
 
     @Test
     void printCurrentNodeTest(){
         Story testStory2 = new Story(1,"Story", "This is test content for the root");
-        testStory2.addNode("Content for the first child", 1, 1, "First choice");
+        testStory2.addNode("Content for the first child", 1);
         testStory2.printCurrentNode();
 
-        testStory2.addNode("additional content for another node", 1, 2, "Second choice");
+        testStory2.addNode("additional content for another node", 1);
         testStory2.printCurrentNode();
     }
 

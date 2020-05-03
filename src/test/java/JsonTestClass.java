@@ -33,8 +33,8 @@ public class JsonTestClass {
         story1.addExistingNode(node1);
         //set node as child of root
         story1.getRoot().setChild(1, "Choice One", node1);
-        assertEquals("Content for first node in S1", story1.getRoot().getNext(1).getStoryContent());
-        assertEquals(2, story1.getRoot().getNext(1).getId());
+        assertEquals("Content for first node in S1", story1.getNext(1).getStoryContent());
+        assertEquals(2, story1.getNext(1).getId());
 
         //adding another child to the root
         Node node2 = JsonUtil.fromJsonFile("src/test/s1n2.json", Node.class);
@@ -43,8 +43,8 @@ public class JsonTestClass {
         assertEquals("Content for second node in S1", node2.getStoryContent());
         story1.addExistingNode(node2);
         story1.getRoot().setChild(2,"Choice Two", node2);
-        assertEquals("Content for second node in S1", story1.getRoot().getNext(2).getStoryContent());
-        assertEquals(3, story1.getRoot().getNext(2).getId());
+        assertEquals("Content for second node in S1", story1.getNext(2).getStoryContent());
+        assertEquals(3, story1.getNext(2).getId());
 
         //editing node
         story1.editNodeStoryContent(3, "New content");
@@ -57,8 +57,8 @@ public class JsonTestClass {
         assertEquals("Content for third node in S1", node3.getStoryContent());
         story1.addExistingNode(node3);
         story1.getRoot().setChild(3,"Choice Three", node3);
-        assertEquals("Content for third node in S1", story1.getRoot().getNext(3).getStoryContent());
-        assertEquals(4, story1.getRoot().getNext(3).getId());
+        assertEquals("Content for third node in S1", story1.getNext(3).getStoryContent());
+        assertEquals(4, story1.getNext(3).getId());
         //deleting the node
         story1.deleteNode(4);
         assertEquals(null, story1.findNode(4));

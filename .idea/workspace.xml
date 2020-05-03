@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="changed structure of Story and Node classes">
+    <list default="true" id="aa029d66-a352-4517-bec6-074871181f05" name="Default" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Story.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/storyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storyFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JsonTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/JsonTestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/StoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/storyFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/storyFileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Story.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Story.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GlobalVariableTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/JsonTestClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/NodeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/StoryTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/storyFileTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +99,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/testFilePackage" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DigressUI">
+  <component name="RunManager" selected="JUnit.storyFileTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -200,9 +210,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.storyFileTest" />
         <item itemvalue="Application.DigressUI" />
         <item itemvalue="JUnit.StoryTests" />
-        <item itemvalue="JUnit.storyFileTest" />
         <item itemvalue="JUnit.All in Digress" />
         <item itemvalue="JUnit.storyFileTest.outputFileTest" />
       </list>
@@ -226,7 +236,7 @@
       <workItem from="1587610463969" duration="7297000" />
       <workItem from="1588092660936" duration="1131000" />
       <workItem from="1588193926919" duration="3201000" />
-      <workItem from="1588473986417" duration="501000" />
+      <workItem from="1588473986417" duration="3964000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1585583722601</created>
@@ -375,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588104373442</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="test">
+      <created>1588529986032</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1588529986032</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -391,7 +408,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test" />
     <MESSAGE value="delete" />
     <MESSAGE value="deleteTest" />
     <MESSAGE value="Fix deleteNode Test" />
@@ -402,7 +418,8 @@
     <MESSAGE value="committing before checking out" />
     <MESSAGE value="changed structure of Story and Node classes" />
     <MESSAGE value="check" />
-    <option name="LAST_COMMIT_MESSAGE" value="check" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="108" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585694486563">
@@ -428,11 +445,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588103119810" />
-    <state x="496" y="18" key="CommitChangelistDialog2" timestamp="1588104372624">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="372" y="37" key="CommitChangelistDialog2" timestamp="1588529985494">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="496" y="18" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104372624" />
-    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1587497524899" />
+    <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1588529985494" />
     <state x="372" y="37" key="CommitChangelistDialog2/0.23.1440.824@0.23.1440.824" timestamp="1585712961255" />
     <state width="291" height="350" key="Git.Branch.Popup" timestamp="1588200695967">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -507,11 +524,11 @@
       <screen x="0" y="23" width="1440" height="824" />
     </state>
     <state x="450" y="201" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.23.1440.824@0.23.1440.824" timestamp="1585694154938" />
-    <state x="428" y="200" key="Vcs.Push.Dialog.v2" timestamp="1588104383088">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2" timestamp="1588529991978">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="428" y="200" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588104383088" />
-    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1587497530291" />
+    <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1588529991978" />
     <state x="321" y="175" key="Vcs.Push.Dialog.v2/0.23.1440.824@0.23.1440.824" timestamp="1585691412760" />
     <state x="399" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585174501995">
       <screen x="0" y="22" width="1440" height="821" />
@@ -533,11 +550,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="682" y="254" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587610616002" />
-    <state x="689" y="332" key="git4idea.merge.GitPullDialog" timestamp="1588104354747">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="517" y="275" key="git4idea.merge.GitPullDialog" timestamp="1588530618867">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="689" y="332" key="git4idea.merge.GitPullDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588104354747" />
-    <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1587485437131" />
+    <state x="517" y="275" key="git4idea.merge.GitPullDialog/0.23.1440.822@0.23.1440.822" timestamp="1588530618867" />
     <state x="517" y="276" key="git4idea.merge.GitPullDialog/0.23.1440.824@0.23.1440.824" timestamp="1585712970539" />
     <state x="446" y="96" key="refactoring.ChangeSignatureDialog" timestamp="1588435192845">
       <screen x="0" y="23" width="1440" height="822" />

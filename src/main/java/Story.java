@@ -12,6 +12,7 @@ public class Story {
     private HashMap<Integer, ArrayList<Integer>> nodeConnections;
     private HashMap<Integer, ArrayList<String>> nodeConditions;
     LinkedList<String> tags;
+    public int count;
 
     //used by Json
     public Story(){
@@ -132,6 +133,7 @@ public class Story {
         storyNodes.put(nodeID, sNode);
         nodeConditions.put(nodeID, new ArrayList<>());
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
+        count = count +1;
     }
 
     public void linkNodes(int parentID, int childID, String condition){
@@ -226,6 +228,9 @@ public class Story {
         tags.add(tagToAdd);
     }
 
+    public int getCount(){
+        return count;
+    }
     public Node getRoot(){
         return root;
     }

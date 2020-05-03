@@ -32,7 +32,7 @@ public class storyFileTest {
         assertEquals("You are walking down a dark, dingy hallway. Where would you like to go?",test1.importFile().getRootContent());
 
         //check how many children
-        assertEquals(10,test1.importFile().getChoiceVal());
+        assertEquals(10,test1.importFile().getCount());
 
         //check child
         //key
@@ -41,9 +41,9 @@ public class storyFileTest {
         assertEquals("test ten",test1.importFile().findNode(11).getStoryContent());
 
         //choice value
-        assertEquals("test ten",test1.importFile().getRoot().getNext(10).getStoryContent());
-        assertEquals("test seven",test1.importFile().getRoot().getNext(7).getStoryContent());
-        assertEquals("test four",test1.importFile().getRoot().getNext(4).getStoryContent());
+        assertEquals("test ten",test1.importFile().getNext(10).getStoryContent());
+        assertEquals("test seven",test1.importFile().getNext(7).getStoryContent());
+        assertEquals("test four",test1.importFile().getNext(4).getStoryContent());
 
         //check empty file
         assertThrows(FileNotFoundException.class, ()-> new storyFile("test_file","/main/java/test_file.txt").checkPath());
@@ -66,9 +66,9 @@ public class storyFileTest {
     public void outputFileTest() throws IOException,IllegalArgumentException {
         //create a story
         Story testStory = new Story(1,"Story", "This is test content for the root");
-        testStory.addNode("Content for the first child", 1, 1, "First choice");
-        testStory.addNode("additional content for another node", 1, 2, "Second choice");
-        testStory.addNode("more content", 1, 3, "Third choice");
+        testStory.addNode("Content for the first child", 1);
+        testStory.addNode("additional content for another node", 1);
+        testStory.addNode("more content", 1);
 
         //create a story file
         storyFile test1 = new storyFile("outputFile","src/main/java/testFilePackage/outputFile.txt");
