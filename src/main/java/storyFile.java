@@ -3,7 +3,7 @@ import java.nio.file.Path;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-public class storyFile extends Story{
+public class storyFile {
 
     String fileName;
     String path;
@@ -84,9 +84,8 @@ public class storyFile extends Story{
                 if(choice.isEmpty()==false && value.isEmpty()==false) {
                     //String storyContent, int parentID, int choiceValue, String condition
                     //ask for boolean endNode
-//                    newStory.addNode(value, parentID, Integer.parseInt(choice), value);
-                    newStory.addNode(value, parentID);
-
+                    newStory.addNode(value);
+                    newStory.linkNodes(parentID, newStory.getCurrNode().getId(), value);
                 }
             }
             return newStory;
@@ -107,19 +106,14 @@ public class storyFile extends Story{
         if(outputStory==null){
             throw new IllegalArgumentException("Can not find the story");
         }
-        Path checkPath = Paths.get(path);
-        if (Files.exists(checkPath)) {
-            throw new IllegalArgumentException("File already exist");
-        }
         //content
         FileWriter outputFile = new FileWriter(path);
         outputFile.write(outputStory.getRootContent());
         //count how many children
-        int count = outputStory.getCount();
+        int count = outputStory.nodeConnections.get(1).size();
 
         //write file
         for(int i = 1; i <= count; i++){
-//            outputFile.write("\n["+i+"]"+outputStory.getRoot().getNext(i).getStoryContent());
             outputFile.write("\n["+i+"]"+outputStory.getNext(i).getStoryContent());
         }
         outputFile.close();

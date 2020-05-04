@@ -119,7 +119,7 @@ public class DigressUI {
             System.out.println("Enter node content: ");
             content = in.nextLine();
 
-            story.addNode(content, id);
+            story.addNode(content);
             story.linkNodes(id, story.getCurrNode().getId(), condition);
         }
     }
@@ -204,44 +204,44 @@ public class DigressUI {
 
         Story testStory = new Story(44, "Labyrinth", node1);
 
-        testStory.addNode(node2,1);
+        testStory.addNode(node2);
         testStory.linkNodes(1, 2, "Continue straight");
 
-        testStory.addNode(node3, 1);
+        testStory.addNode(node3);
         testStory.linkNodes(1, 3,"Take a left");
 
-        testStory.addNode(node4, 1);
+        testStory.addNode(node4);
         testStory.linkNodes(1, 4, "Turn right");
 
-        testStory.addNode(node5, 2);
+        testStory.addNode(node5);
         testStory.linkNodes(2, 5, "Approach the figure");
 
         testStory.linkNodes(2, testStory.getRoot().getId(), "Retreat backwards");
 
-        testStory.addNode(node6, 3);
+        testStory.addNode(node6);
         testStory.linkNodes(3, 6, "Fight the spider");
         testStory.findNode(6).setEndNode();
 
-        testStory.addNode(node7, 3);
+        testStory.addNode(node7);
         testStory.linkNodes(3, 7, "Befriend the spider");
 
         testStory.linkNodes(3, testStory.getRoot().getId(), "Run back");
 
-        testStory.addNode(node8, 4);
+        testStory.addNode(node8);
         testStory.linkNodes(4, 8, "Pick it up for later");
 
-        testStory.addNode(node9, 4);
+        testStory.addNode(node9);
         testStory.linkNodes(4, 9, "Drink it");
         testStory.findNode(9).setEndNode();
 
-        testStory.addNode(node10, 4);
+        testStory.addNode(node10);
         testStory.linkNodes(4, 10, "Keep moving");
 
-        testStory.addNode(node11, 5);
+        testStory.addNode(node11);
         testStory.linkNodes(5, 11, "Shut up and fight me fool");
         testStory.findNode(11).setEndNode();
 
-        testStory.addNode(endNode, 5);
+        testStory.addNode(endNode);
         testStory.linkNodes(5, 12, "I am looking for the holy grail");
         testStory.findNode(12).setEndNode();;
 
@@ -331,7 +331,8 @@ public class DigressUI {
                                     String newContent = scanner.nextLine();
 
                                     //ask for end node condition
-                                    storySelected.addNode(newContent, parentID);
+                                    storySelected.addNode(newContent);
+                                    storySelected.linkNodes(parentID, storySelected.getCurrNode().getId(), "temp condition");
                                     System.out.println("You successfully added content to the story");
                                 } else {
                                     System.out.println("Enter node number you want to edit:");
@@ -390,7 +391,8 @@ public class DigressUI {
                                     String newContent = scanner.nextLine();
 
                                     //ask for end node condition
-                                    storySelected.addNode(newContent, parentID);
+                                    storySelected.addNode(newContent);
+                                    storySelected.linkNodes(parentID, storySelected.getCurrNode().getId(), "Temp condition");
                                     System.out.println("You successfully added content to the story");
                                 } else {
                                     System.out.println("Enter node number you want to edit:");
