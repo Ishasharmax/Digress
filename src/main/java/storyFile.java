@@ -46,6 +46,7 @@ public class storyFile {
             int parentID = 1;
 
             //create story node
+            //int id, String title, String rootCont
             Story newStory = new Story(parentID, fileName, line);
 
             //for loop check key
@@ -75,8 +76,10 @@ public class storyFile {
                         isOpen = false;
                     }else if(isClose==false && isOpen==true){
                         choice = choice + String.valueOf(line.charAt(j));
+
                     }else {
                         value = value + String.valueOf(line.charAt(j));
+
                     }
                 }
 
@@ -85,7 +88,7 @@ public class storyFile {
                     //String storyContent, int parentID, int choiceValue, String condition
                     //ask for boolean endNode
                     newStory.addNode(value);
-                    newStory.linkNodes(parentID, newStory.getCurrNode().getId(), value);
+                    newStory.linkNodes(parentID, Integer.parseInt(choice)+1, value);
                 }
             }
             return newStory;
