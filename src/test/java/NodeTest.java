@@ -13,16 +13,16 @@ public class NodeTest {
         assertThrows(IllegalArgumentException.class, ()-> new Node(-1, "testing"));
 
         //regular node with parent
-        Node testNode2 = new Node(2, "testing2", testNode);
+        Node testNode2 = new Node(2, "testing2");
 
         //check throws exception if id is not a positive number
-        assertThrows(IllegalArgumentException.class, ()-> new Node(-1, "testing", testNode));
+        assertThrows(IllegalArgumentException.class, ()-> new Node(-1, "testing"));
 
         //check throws exception if parent node is null
-        assertThrows(IllegalArgumentException.class, ()-> new Node(-1, "testing", null));
+//        assertThrows(IllegalArgumentException.class, ()-> new Node(-1, "testing"));
 
         //check throws exception if choiceValue is not a positive number
-        assertThrows(IllegalArgumentException.class, ()-> new Node(-1, "testing", testNode));
+        assertThrows(IllegalArgumentException.class, ()-> new Node(-1, "testing"));
     }
 
     @Test
