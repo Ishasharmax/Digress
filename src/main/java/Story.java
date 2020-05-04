@@ -9,7 +9,7 @@ public class Story {
     private Node root;
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
-    private HashMap<Integer, ArrayList<Integer>> nodeConnections;
+    protected HashMap<Integer, ArrayList<Integer>> nodeConnections;
     private HashMap<Integer, ArrayList<String>> nodeConditions;
     LinkedList<String> tags;
 
@@ -45,6 +45,7 @@ public class Story {
         currentNode = root;
         storyNodes = new HashMap();
         nodeConnections = new HashMap<>();
+        nodeConditions = new HashMap<>();
         storyNodes.put(1, root);
         nodeConnections.put(root.getId(), new ArrayList<>());
         nodeConditions.put(root.getId(), new ArrayList<>());
@@ -117,10 +118,7 @@ public class Story {
         }
     }
 
-    public void addNode(String storyContent, int parentID){
-        if (findNode(parentID) == null) {
-            throw new IllegalArgumentException("A node with this ID does not exist");
-        }
+    public void addNode(String storyContent){
         if (storyContent.equals("") || storyContent == " "){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
