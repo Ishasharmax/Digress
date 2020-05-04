@@ -80,12 +80,10 @@ public class Story {
             String choice = scanner.nextLine();
             System.out.print("Which # child? ");
             int nodeNum = scanner.nextInt();
-
         }
         else{
             throw new IllegalArgumentException("Invalid choice");
         }
-
     }
 
     public void editNodeStoryContent(int nodeID, String newStoryContent){
