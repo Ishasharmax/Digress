@@ -267,6 +267,7 @@ public class DigressUI {
         String title=null;
         Story storySelected=null;
         LinkedList<Story> storyCol=new LinkedList<Story>();
+        storyCol.add(getTestStory());
         do {
             System.out.println("What would you like to do?");
             System.out.println("1. Create a Story");

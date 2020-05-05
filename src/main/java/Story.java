@@ -204,7 +204,7 @@ public class Story {
         String node = currentNode.getStoryContent();
         ArrayList nextConditions = getNextConditions();
         for (int i = 1; i <= nextConditions.size(); i++){
-            node += "\n(" + i + ") " + nextConditions.get(i);
+            node += "\n(" + i + ") " + nextConditions.get(i-1);
         }
         return node;
     }
