@@ -39,7 +39,7 @@ public class DigressUI {
             } while(!inputValid);
 
             if(userIn.equalsIgnoreCase("c")){
-                enterCondition(story, currId, story.getNextConditions().size()+1);
+                enterCondition(story, currId, story.getNodeConditions().size()+1);
             }
             else if(userIn.equalsIgnoreCase("n")){
                 System.out.println(story.printAllNodes());
@@ -57,7 +57,7 @@ public class DigressUI {
 
                 currId = Integer.parseInt(userIn);
                 System.out.println(story.printCurrentNode());
-                enterCondition(story, currId, story.getNextConditions().size()+1);
+                enterCondition(story, currId, story.getNodeConditions().size()+1);
             }
 
             else { //if user selects quit
@@ -120,7 +120,7 @@ public class DigressUI {
             content = in.nextLine();
 
             story.addNode(content);
-            story.linkNodes(id, story.getCurrNode().getId(), condition);
+            story.linkNodes(id, story.getCurrentNode().getId(), condition);
         }
     }
 
@@ -142,13 +142,13 @@ public class DigressUI {
                         System.out.println("Please enter a valid number");
                     }
 
-                    if (Integer.parseInt(choice) > story.getNextConditions().size() || Integer.parseInt(choice) < 1) {
+                    if (Integer.parseInt(choice) > story.getNodeConditions().size() || Integer.parseInt(choice) < 1) {
                         System.out.println("Please enter a valid number");
                     }
-                } while (Integer.parseInt(choice) > story.getNextConditions().size() || Integer.parseInt(choice) < 1);
+                } while (Integer.parseInt(choice) > story.getNodeConditions().size() || Integer.parseInt(choice) < 1);
                 story.getNext(Integer.parseInt(choice));
-                if (story.getCurrNode().isEndNode()) {
-                    System.out.println(story.getCurrNode().getStoryContent());
+                if (story.getCurrentNode().isEndNode()) {
+                    System.out.println(story.getCurrentNode().getStoryContent());
                     playing = false;
                 }
             }
@@ -332,7 +332,7 @@ public class DigressUI {
 
                                     //ask for end node condition
                                     storySelected.addNode(newContent);
-                                    storySelected.linkNodes(parentID, storySelected.getCurrNode().getId(), "temp condition");
+                                    storySelected.linkNodes(parentID, storySelected.getCurrentNode().getId(), "temp condition");
                                     System.out.println("You successfully added content to the story");
                                 } else {
                                     System.out.println("Enter node number you want to edit:");
@@ -392,7 +392,7 @@ public class DigressUI {
 
                                     //ask for end node condition
                                     storySelected.addNode(newContent);
-                                    storySelected.linkNodes(parentID, storySelected.getCurrNode().getId(), "Temp condition");
+                                    storySelected.linkNodes(parentID, storySelected.getCurrentNode().getId(), "Temp condition");
                                     System.out.println("You successfully added content to the story");
                                 } else {
                                     System.out.println("Enter node number you want to edit:");
