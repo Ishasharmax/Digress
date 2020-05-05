@@ -34,11 +34,11 @@ public class Story {
 
     public Story(int id, String title, String rootCont){
         this.id = id;
-        if (title == " " || title == ""){
+        if (title.equals(" ") || title.equals("")){
             throw new IllegalArgumentException("Title cannot be empty");
         }
         this.title = title;
-        if (rootCont == " " || rootCont == ""){
+        if (rootCont.equals(" ") || rootCont.equals("")){
             throw new IllegalArgumentException("Root cannot be empty");
         }
         this.rootCont = rootCont; //holds the beginning content outside of node
@@ -70,12 +70,12 @@ public class Story {
 
     public void editNode(int nodeID, String editChoice){
         Scanner scanner = new Scanner(System.in);
-        if (editChoice == "story content"){
+        if (editChoice.equals("story content")){
             System.out.print("Enter what you would like the new story content to be: ");
             String newContent = scanner.nextLine();
             editNodeStoryContent(nodeID, newContent);
         }
-        if (editChoice == "children"){
+        else if (editChoice.equals("children")){
             System.out.print("Would you like to edit or delete a child? ");
             String choice = scanner.nextLine();
             System.out.print("Which # child? ");
@@ -91,7 +91,7 @@ public class Story {
         if (nodeToChange == null){
             throw new IllegalArgumentException("A node with this ID does not exist");
         }
-        if (newStoryContent == "" || newStoryContent == " "){
+        if (newStoryContent.equals("") || newStoryContent.equals(" ")){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
         nodeToChange.editStoryContent(newStoryContent);
@@ -99,26 +99,26 @@ public class Story {
 
     public void editNodeChildren(int nodeID, int childNum, String choice){
         Scanner scanner = new Scanner(System.in);
-        if (choice == "edit"){
+        if (choice.equals("edit")){
             System.out.print("Story content or children? ");
             choice = scanner.nextLine();
-            if (choice == "story content"){
+            if (choice.equals("story content")){
                 editNode(nodeConnections.get(nodeID).get(childNum-1), "story content");
             }
-            if (choice == "children"){
+            else if (choice.equals("children")){
                 editNode(nodeConnections.get(nodeID).get(childNum-1), "children");
             }
             else{
                 throw new IllegalArgumentException("Invalid choice");
             }
         }
-        if (choice == "delete"){
+        if (choice.equals("delete")){
             deleteNode(nodeConnections.get(nodeID).get(childNum-1));
         }
     }
 
     public void addNode(String storyContent){
-        if (storyContent.equals("") || storyContent == " "){
+        if (storyContent.equals("") || storyContent.equals(" ")){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
         int nodeID = storyNodes.size() + 1;
@@ -128,6 +128,7 @@ public class Story {
         Node sNode = new Node(nodeID, storyContent);
         storyNodes.put(nodeID, sNode);
         nodeConditions.put(nodeID, new ArrayList<>());
+        nodeConnections.put(nodeID, new ArrayList<>());
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
         count = count +1;
     }
@@ -155,7 +156,8 @@ public class Story {
         while (itr.hasNext()){
             Map.Entry<Integer, ArrayList<Integer>> entry = itr.next();
             if (entry.getValue().contains(nodeID)){
-                entry.getValue().remove(nodeID);
+                int idx = entry.getValue().indexOf(nodeID);
+                entry.getValue().remove(idx);
                 }
             }
         }
@@ -167,17 +169,19 @@ public class Story {
         }else{
             storyNodes.remove(nodeID);
             removeReferences(nodeID);
-            if (!nodeConnections.get(nodeID).isEmpty()) {
-                for (int i = 0; i < nodeConnections.get(nodeID).size(); i++) {
-                    System.out.print("Would you like to permanently delete or relink Node #" + nodeConnections.get(nodeID).get(i) + "? (delete or relink) ");
+
+            if (! (nodeConnections.get(nodeID).isEmpty())) {
+                int size = nodeConnections.get(nodeID).size();
+                for (int i = 0; i < size; i++) {
+                    System.out.print("Would you like to permanently delete or relink Node #" + nodeConnections.get(nodeID).get(0) + "? (delete or relink) ");
                     String choice = scanner.nextLine();
-                    if (choice == "delete") {
+                    if (choice.equals("delete")) {
                         deleteNode(nodeConnections.get(nodeID).get(i));
                     }
-                    if (choice == "relink") {
+                    if (choice.equals("relink")) {
                         System.out.print("What Node would you like to link it to? ");
                         int nodeChoice = scanner.nextInt();
-                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(i), nodeConditions.get(nodeID).get(i));
+                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(0), nodeConditions.get(nodeID).get(i));
                     }
                 }
             }
