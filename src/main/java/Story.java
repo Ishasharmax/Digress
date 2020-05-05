@@ -158,6 +158,7 @@ public class Story {
             if (entry.getValue().contains(nodeID)){
                 int idx = entry.getValue().indexOf(nodeID);
                 entry.getValue().remove(idx);
+                nodeConditions.get(entry.getKey()).remove(idx);
                 }
             }
         }
@@ -181,7 +182,7 @@ public class Story {
                     if (choice.equals("relink")) {
                         System.out.print("What Node would you like to link it to? ");
                         int nodeChoice = scanner.nextInt();
-                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(0), nodeConditions.get(nodeID).get(i));
+                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(0), nodeConditions.get(nodeID).get(0));
                     }
                 }
             }
