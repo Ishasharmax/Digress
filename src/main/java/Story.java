@@ -9,8 +9,10 @@ public class Story {
     private Node root;
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
-    private HashMap<Integer, ArrayList<Integer>> nodeConnections;
+    protected HashMap<Integer, ArrayList<Integer>> nodeConnections;
+    private HashMap<Integer, ArrayList<String>> nodeConditions;
     LinkedList<String> tags;
+    public int count;
 
     //used by Json
     public Story(){
@@ -44,8 +46,10 @@ public class Story {
         currentNode = root;
         storyNodes = new HashMap();
         nodeConnections = new HashMap<>();
+        nodeConditions = new HashMap<>();
         storyNodes.put(1, root);
         nodeConnections.put(root.getId(), new ArrayList<>());
+        nodeConditions.put(root.getId(), new ArrayList<>());
         tags = new LinkedList<>();
     }
 
@@ -76,12 +80,10 @@ public class Story {
             String choice = scanner.nextLine();
             System.out.print("Which # child? ");
             int nodeNum = scanner.nextInt();
-
         }
         else{
             throw new IllegalArgumentException("Invalid choice");
         }
-
     }
 
     public void editNodeStoryContent(int nodeID, String newStoryContent){
@@ -115,10 +117,7 @@ public class Story {
         }
     }
 
-    public void addNode(String storyContent, int parentID, int choiceValue, String condition){
-        if (findNode(parentID) == null) {
-            throw new IllegalArgumentException("A node with this ID does not exist");
-        }
+    public void addNode(String storyContent){
         if (storyContent.equals("") || storyContent == " "){
             throw new IllegalArgumentException("Story content cannot be empty");
         }
@@ -128,10 +127,12 @@ public class Story {
         }
         Node sNode = new Node(nodeID, storyContent);
         storyNodes.put(nodeID, sNode);
+        nodeConditions.put(nodeID, new ArrayList<>());
         currentNode = storyNodes.get(nodeID); //Every time a node gets added, it becomes the current node
+        count = count +1;
     }
 
-    public void linkNodes(int parentID, int childID){
+    public void linkNodes(int parentID, int childID, String condition){
         if (parentID == childID){
             throw new IllegalArgumentException("Cannot set Node as it's own child");
         }
@@ -145,6 +146,8 @@ public class Story {
             throw new IllegalArgumentException("This node is already a child");
         }
         nodeConnections.get(parentID).add(childID);
+        nodeConditions.get(parentID).add(condition);
+
     }
 
     public void removeReferences(int nodeID){
@@ -174,7 +177,7 @@ public class Story {
                     if (choice == "relink") {
                         System.out.print("What Node would you like to link it to? ");
                         int nodeChoice = scanner.nextInt();
-                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(i));
+                        linkNodes(nodeChoice, nodeConnections.get(nodeID).get(i), nodeConditions.get(nodeID).get(i));
                     }
                 }
             }
@@ -194,7 +197,7 @@ public class Story {
 
     public String printCurrentNode(){
         String node = currentNode.getStoryContent();
-        Map nextConditions = currentNode.getNextConditions();
+        ArrayList nextConditions = getNextConditions();
         for (int i = 1; i <= nextConditions.size(); i++){
             node += "\n(" + i + ") " + nextConditions.get(i);
         }
@@ -203,11 +206,16 @@ public class Story {
 
     public String printAllNodes(){
         String allNodes = "";
+        ArrayList nextConditions;
         for(int i = 1; i <= storyNodes.size(); i++){
             if(i > 1){
                 allNodes += "\n";
             }
             allNodes += "(" + i + ") " + storyNodes.get(i).getStoryContent();
+            nextConditions = getNextConditions();
+            for (int j = 1; j <= nextConditions.size(); j++){
+                allNodes += "\n(" + i + ") " + nextConditions.get(i);
+            }
         }
         return allNodes;
     }
@@ -216,6 +224,9 @@ public class Story {
         tags.add(tagToAdd);
     }
 
+    public int getCount(){
+        return count;
+    }
     public Node getRoot(){
         return root;
     }
@@ -246,6 +257,10 @@ public class Story {
 
     public LinkedList<String> getTags(){
         return tags;
+    }
+
+    public ArrayList<String> getNextConditions(){
+        return nodeConditions.get(currentNode.getId());
     }
 
 }

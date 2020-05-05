@@ -46,6 +46,7 @@ public class storyFile {
             int parentID = 1;
 
             //create story node
+            //int id, String title, String rootCont
             Story newStory = new Story(parentID, fileName, line);
 
             //for loop check key
@@ -75,8 +76,10 @@ public class storyFile {
                         isOpen = false;
                     }else if(isClose==false && isOpen==true){
                         choice = choice + String.valueOf(line.charAt(j));
+
                     }else {
                         value = value + String.valueOf(line.charAt(j));
+
                     }
                 }
 
@@ -84,7 +87,8 @@ public class storyFile {
                 if(choice.isEmpty()==false && value.isEmpty()==false) {
                     //String storyContent, int parentID, int choiceValue, String condition
                     //ask for boolean endNode
-                    newStory.addNode(value, parentID, Integer.parseInt(choice), value);
+                    newStory.addNode(value);
+                    newStory.linkNodes(parentID, Integer.parseInt(choice)+1, value);
                 }
             }
             return newStory;
@@ -109,11 +113,11 @@ public class storyFile {
         FileWriter outputFile = new FileWriter(path);
         outputFile.write(outputStory.getRootContent());
         //count how many children
-        int count = outputStory.getChoiceVal();
+        int count = outputStory.nodeConnections.get(1).size();
 
         //write file
         for(int i = 1; i <= count; i++){
-            outputFile.write("\n["+i+"]"+outputStory.getRoot().getNext(i).getStoryContent());
+            outputFile.write("\n["+i+"]"+outputStory.getNext(i).getStoryContent());
         }
         outputFile.close();
     }

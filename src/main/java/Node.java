@@ -32,24 +32,6 @@ public class Node {
         this.storyContent = storyContent;
     }
 
-
-    public boolean checkChoiceValueValid(int choiceValueIn){
-        if(nextNodes.isEmpty()){
-            return true;
-        }
-        //find max and make sure the new choiceValue is max+1
-        int max = 0;
-        for (Integer choiceValue: nextNodes.keySet()){
-            if (choiceValue > max){
-                max = choiceValue;
-            }
-        }
-        if(choiceValueIn != max+1){
-            return false;
-        }
-        return true;
-    }
-
     public static boolean checkConditionValid(String conditionIn){
         conditionIn = conditionIn.toLowerCase();
         char[] charArray = conditionIn.toCharArray();
