@@ -1,13 +1,11 @@
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Random;
 
 public class DigressUI {
@@ -73,21 +71,44 @@ public class DigressUI {
         return story;
     }
 
-    public static void importFile() {
+    public static void importUI() throws IOException {
 //        Scanner fileName = new Scanner(System.in);
 //        Scanner filePath = new Scanner(System.in);
         JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new File(System.getProperty("user.home")));
+        File directory = new File("user.home");
+        fc.setCurrentDirectory(new File(System.getProperty(String.valueOf(directory))));
         int result = fc.showOpenDialog((Component) JFrame);
+
+        fc.setFileFilter(new FileFilter() {
+            @Override
+            public String getDescription() {
+                return "JSON File (*.json)";
+            }
+
+            @Override
+            public boolean accept(File file) {
+                if (file.isDirectory()) {
+                    return true;
+                } else {
+                    String filename = file.getName().toLowerCase();
+                    return filename.endsWith(".txt");
+                }
+            }
+        });
+
         if (result == JFileChooser.APPROVE_OPTION) {
             // user selects a file
             File selectedFile = fc.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            storyFile newFile = (storyFile) selectedFile;
+            newFile.importFile();
         }
-
+//        else if (result == JFileChooser.ERROR_OPTION){
+//            // user selects a wrong file
+//        }
     }
 
-    public static void exportFile() {
+    public static void exportUI() {
 //        Scanner fileName = new Scanner(System.in);
 //        String filePath = "Desktop";
         JFileChooser fc = new JFileChooser();
@@ -454,14 +475,13 @@ public class DigressUI {
                 System.out.println("2. Export");
                 int fileChoice = scanner.nextInt();
                 if (fileChoice==1){
-                    importFile();
+                    importUI();
                 }
                 else if (fileChoice==2){
-                    exportFile();
+                    exportUI();
                 }
 //                else if (fileChoice==3){
-//                    Story tempStory = createStory();
-//                    storyCol.add(tempStory);
+//                    printFile();
 //                }
             }
             else if(userChoice == 4){
