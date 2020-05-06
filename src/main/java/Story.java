@@ -19,6 +19,9 @@ public class Story {
 
     }
 
+    public Story(int id, String name, byte[] readAllBytes) {
+    }
+
     public void setId(int id){
         this.id = id;
     }
