@@ -73,7 +73,7 @@ public class DigressUI {
         return story;
     }
 
-    public static void importUI() throws IOException, ClassCastException {
+    public static void importUI() throws IOException {
 //        Scanner fileName = new Scanner(System.in);
 //        Scanner filePath = new Scanner(System.in);
         JFileChooser fc = new JFileChooser();
@@ -139,9 +139,9 @@ public class DigressUI {
             // user selects a file
             File selectedFile = fc.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-            storyFile newStoryFile = (storyFile) selectedFile;
-            Story newStory = new Story(1, selectedFile.getName(), Files.readAllBytes(Paths.get(((storyFile) selectedFile).getFileName())));
-            newStoryFile.outputFile(newStory);
+//            storyFile newStoryFile = (storyFile) selectedFile;
+//            Story newStory = new Story(1, selectedFile.getName(), Files.readAllBytes(Paths.get(((storyFile) selectedFile).getFileName())));
+//            newStoryFile.outputFile(newStory);
         }
 
     }
@@ -339,7 +339,7 @@ public class DigressUI {
         }
     }
 
-    public static void main(String[] args) throws IOException, ClassCastException {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         int userChoice;
         String title=null;

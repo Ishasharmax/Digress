@@ -19,7 +19,7 @@ public class Story {
 
     }
 
-    public Story(int id, String name, byte[] readAllBytes) {
+    public Story(int id, String name) {
     }
 
     public void setId(int id){
