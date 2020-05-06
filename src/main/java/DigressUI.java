@@ -102,7 +102,7 @@ public class DigressUI {
             // user selects a file
             File selectedFile = fc.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-            storyFile newFile = (storyFile) selectedFile;
+            storyFile newFile = new storyFile(selectedFile.getName(), selectedFile.getAbsolutePath());
             newFile.importFile();
         }
 //        else if (result == JFileChooser.ERROR_OPTION){
