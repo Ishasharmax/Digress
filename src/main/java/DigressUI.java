@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
@@ -8,6 +11,8 @@ import java.io.FileReader;
 import java.util.Random;
 
 public class DigressUI {
+
+    private static Object JFrame;
 
     public static Story createStory (){
         Scanner in = new Scanner(System.in);
@@ -66,6 +71,34 @@ public class DigressUI {
             }
         } while(creating);
         return story;
+    }
+
+    public static void importFile() {
+//        Scanner fileName = new Scanner(System.in);
+//        Scanner filePath = new Scanner(System.in);
+        JFileChooser fc = new JFileChooser();
+        fc.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fc.showOpenDialog((Component) JFrame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            // user selects a file
+            File selectedFile = fc.getSelectedFile();
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+        }
+
+    }
+
+    public static void exportFile() {
+//        Scanner fileName = new Scanner(System.in);
+//        String filePath = "Desktop";
+        JFileChooser fc = new JFileChooser();
+        fc.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fc.showOpenDialog((Component) JFrame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            // user selects a file
+            File selectedFile = fc.getSelectedFile();
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+        }
+
     }
 
     public static void enterCondition(Story story, int id, int choiceVal) {
@@ -271,7 +304,8 @@ public class DigressUI {
             System.out.println("What would you like to do?");
             System.out.println("1. Create a Story");
             System.out.println("2. Load a Story");
-            System.out.println("3. Exit");
+            System.out.println("3. File Manager");
+            System.out.println("5. Exit");
             userChoice = scanner.nextInt();
             if (userChoice==1){
                 Story tempStory = createStory();
@@ -414,10 +448,26 @@ public class DigressUI {
                     //play or edit the story in function
                 }
             }
+            else if(userChoice == 3){
+                System.out.println("What would you like to do with you files?");
+                System.out.println("1. Import");
+                System.out.println("2. Export");
+                int fileChoice = scanner.nextInt();
+                if (fileChoice==1){
+                    importFile();
+                }
+                else if (fileChoice==2){
+                    exportFile();
+                }
+//                else if (fileChoice==3){
+//                    Story tempStory = createStory();
+//                    storyCol.add(tempStory);
+//                }
+            }
             else if(userChoice == 4){
                 playStory(getTestStory());
             }
-        }while (userChoice!=3);
+        }while (userChoice!=5);
     }
 }
 
