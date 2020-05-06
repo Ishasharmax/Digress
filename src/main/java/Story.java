@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class Story {
@@ -16,6 +15,7 @@ public class Story {
 
     //used by Json
     public Story(){
+
 
     }
 

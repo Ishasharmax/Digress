@@ -82,7 +82,7 @@ public class DigressUI {
         fc.setFileFilter(new FileFilter() {
             @Override
             public String getDescription() {
-                return "JSON File (*.json)";
+                return "TXT File (*.txt)";
             }
 
             @Override
@@ -114,10 +114,31 @@ public class DigressUI {
         JFileChooser fc = new JFileChooser();
         fc.setCurrentDirectory(new File(System.getProperty("user.home")));
         int result = fc.showOpenDialog((Component) JFrame);
+
+        fc.setFileFilter(new FileFilter() {
+            @Override
+            public String getDescription() {
+                return "JSON File (*.json)";
+            }
+
+            @Override
+            public boolean accept(File file) {
+                if (file.isDirectory()) {
+                    return true;
+                } else {
+                    String filename = file.getName().toLowerCase();
+                    return filename.endsWith(".json");
+
+                }
+            }
+        });
+
         if (result == JFileChooser.APPROVE_OPTION) {
             // user selects a file
             File selectedFile = fc.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+//            storyFile newStory = (storyFile) selectedFile;
+//            newStory.outputFile((storyFile) selectedFile);
         }
 
     }
