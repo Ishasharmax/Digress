@@ -182,8 +182,8 @@ public class DigressUI {
             File selectedFile = fc.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
             storyFile newFile = new storyFile(selectedFile.getName(), selectedFile.getAbsolutePath());
-            newFile.importFile();
             frame.setVisible(false);
+            newFile.importFile();
         }
 //        else if (result == JFileChooser.ERROR_OPTION){
 //            // user selects a wrong file
@@ -193,11 +193,14 @@ public class DigressUI {
     public static void exportUI() throws IOException {
 //        Scanner fileName = new Scanner(System.in);
 //        String filePath = "Desktop";
-        JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new File(System.getProperty("user.home")));
-        int result = fc.showOpenDialog((Component) JFrame);
+        JFileChooser fc1 = new JFileChooser();
+        fc1.setCurrentDirectory(new File(System.getProperty("user.home")));
+        JFrame frame = new JFrame();
+        frame.toFront();
+        frame.setVisible(true);
+        int result = fc1.showOpenDialog((Component) JFrame);
 
-        fc.setFileFilter(new FileFilter() {
+        fc1.setFileFilter(new FileFilter() {
             @Override
             public String getDescription() {
                 return "TXT File (*.txt)";
@@ -217,8 +220,20 @@ public class DigressUI {
 
         if (result == JFileChooser.APPROVE_OPTION) {
             // user selects a file
-            File selectedFile = fc.getSelectedFile();
+            File selectedFile = fc1.getSelectedFile();
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            frame.setVisible(false);
+            Story exFile = new Story(1, selectedFile.getName(), selectedFile.toString());
+
+            JFileChooser fc2 = new JFileChooser();
+            fc2.setDialogTitle("Specify a file to save");
+            int userSelection = fc2.showSaveDialog(frame);
+
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                File fileToSave = fc2.getSelectedFile();
+                System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+                exFile.exportStory(fileToSave.getAbsolutePath());
+            }
 //            storyFile newStoryFile = (storyFile) selectedFile;
 //            Story newStory = new Story(1, selectedFile.getName(), Files.readAllBytes(Paths.get(((storyFile) selectedFile).getFileName())));
 //            newStoryFile.outputFile(newStory);
@@ -696,7 +711,52 @@ public class DigressUI {
                 System.out.println("2. Export"); 
                 int fileChoice = scanner.nextInt(); 
                 if (fileChoice==1){ 
-                    importUI(); 
+                    importUI();
+                    System.out.println("What do you want to do with the story? (Play/Edit)");
+                    String storyChoice2 = scanner.nextLine();
+                    if (storyChoice2.equalsIgnoreCase("Play")) {
+                        playStory(storySelected);
+                        System.out.println("You want to play it again?(Y/N)");
+                        String choice = scanner.nextLine();
+                        do {
+                            playStory(storySelected);
+                        }
+                        while (choice.equalsIgnoreCase("N"));
+                    } else if (storyChoice2.equalsIgnoreCase("Edit")) {
+                        int editChoice;
+                        do {
+                            System.out.println("What you want to edit? ");
+                            System.out.println("1. Edit the title");
+                            System.out.println("2. Add new content");
+                            System.out.println("3. Edit existing content");
+                            System.out.println("4. Done editing");
+                            editChoice = scanner.nextInt();
+                            if (editChoice == 1){
+                                System.out.println("Enter new title:");
+                                String newTitle = scanner.next();
+                                editTitle(storySelected, newTitle);
+                                System.out.println("You successfully changed the title of the story");
+                            } else if (editChoice == 2) {
+                                System.out.println("Enter parent ID:");
+                                int parentID = scanner.nextInt();
+                                System.out.println("Enter new content:");
+                                String newContent = scanner.nextLine();
+
+                                //ask for end node condition
+                                storySelected.addNode(newContent);
+                                storySelected.linkNodes(parentID, storySelected.getCurrentNode().getId(), "temp condition");
+                                System.out.println("You successfully added content to the story");
+                            } else if (editChoice==3) {
+                                System.out.println(storySelected.printAllNodes());
+                                System.out.println("Enter node number you want to edit:");
+                                int numEntered = scanner.nextInt();
+                                System.out.println("Enter content for edit:");
+                                String editedContent = scanner.next();
+                                editStoryContent(storySelected, editedContent, numEntered);
+                                System.out.println("You successfully changed the content of the story");
+                            }
+                        } while (editChoice != 4);
+                    }else System.out.println("invalid input");
                 } 
                 else if (fileChoice==2){ 
                     exportUI(); 
