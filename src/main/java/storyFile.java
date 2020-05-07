@@ -114,7 +114,7 @@ public class storyFile extends File {
         FileWriter outputFile = new FileWriter(path);
         outputFile.write(outputStory.getRootContent());
         //count how many children
-        int count = outputStory.nodeConnections.get(1).size();
+        int count = outputStory.getNodeConnections().get(1).size();
 
         //write file
         for(int i = 1; i <= count; i++){

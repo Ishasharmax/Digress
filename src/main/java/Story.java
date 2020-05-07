@@ -1,14 +1,17 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Story {
 
     private int id;
     private String title;
-    private String rootCont;
+    private String rootContent;
     private Node root;
     private Node currentNode;
     private HashMap<Integer, Node> storyNodes;
-    protected HashMap<Integer, ArrayList<Integer>> nodeConnections;
+    private HashMap<Integer, ArrayList<Integer>> nodeConnections;
     private HashMap<Integer, ArrayList<String>> nodeConditions;
     LinkedList<String> tags;
     public int count;
@@ -16,10 +19,6 @@ public class Story {
     //used by Json
     public Story(){
 
-
-    }
-
-    public Story(int id, String name) {
     }
 
     public void setId(int id){
@@ -31,7 +30,15 @@ public class Story {
     }
 
     public void setRootCont(String rootCont){
-        this.rootCont = rootCont;
+        this.rootContent = rootCont;
+    }
+
+    public void setNodeConditions(HashMap<Integer, ArrayList<String>> nodeConditions){
+        this.nodeConditions = nodeConditions;
+    }
+
+    public void setNodeConnections(HashMap<Integer, ArrayList<Integer>> nodeConnections){
+        this.nodeConnections = nodeConnections;
     }
 
 
@@ -44,7 +51,7 @@ public class Story {
         if (rootCont.equals(" ") || rootCont.equals("")){
             throw new IllegalArgumentException("Root cannot be empty");
         }
-        this.rootCont = rootCont; //holds the beginning content outside of node
+        this.rootContent = rootCont; //holds the beginning content outside of node
         root = new Node(1, rootCont);
         currentNode = root;
         storyNodes = new HashMap();
@@ -207,7 +214,7 @@ public class Story {
         String node = currentNode.getStoryContent();
         ArrayList nextConditions = getNextConditions();
         for (int i = 1; i <= nextConditions.size(); i++){
-            node += "\n(" + i + ") " + nextConditions.get(i);
+            node += "\n(" + i + ") " + nextConditions.get(i-1);
         }
         return node;
     }
@@ -228,6 +235,14 @@ public class Story {
         return allNodes;
     }
 
+    //Json
+    public void exportStory(String filepath) throws IOException {
+        filepath += "/" + this.getTitle();
+        File file = new File(filepath);
+        file.mkdir();
+        JsonUtil.toJsonFile(filepath + "/" + this.getTitle() + ".json", this);
+    }
+
     public void addTag(String tagToAdd){
         tags.add(tagToAdd);
     }
@@ -239,7 +254,7 @@ public class Story {
         return root;
     }
 
-    public Node getCurrNode(){ //returns the currentNode as Node(numbers) as a location
+    public Node getCurrentNode(){ //returns the currentNode as Node(numbers) as a location
         return currentNode;
     }
 
@@ -260,11 +275,19 @@ public class Story {
     }
 
     public String getRootContent(){
-        return rootCont;
+        return rootContent;
     }
 
     public LinkedList<String> getTags(){
         return tags;
+    }
+
+    public HashMap<Integer, ArrayList<String>> getNodeConditions(){
+        return nodeConditions;
+    }
+
+    public HashMap<Integer, ArrayList<Integer>> getNodeConnections(){
+        return nodeConnections;
     }
 
     public ArrayList<String> getNextConditions(){
