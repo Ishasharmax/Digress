@@ -198,9 +198,9 @@ public class DigressUI {
         String node7 = "You charmed the spider with your great personality. He will now fight alongside you.";
         String node8 = "You picked up the vial and put it in your bag.";
         String node9 = "For some reason you decided to drink the weird liquid. You died. Whoops.";
-        String node10 = "You see a glowing door to your right.";
+        String node10 = "You continue down the hallway. You see a glowing door to your right.";
         String node11 = "He pulls out a dagger and slays you. Stronger than he looks!";
-        String endNode = "I don't feel like writing this story anymore lol";
+        String endNode = "I don't feel like writing this story anymore to tell you the truth";
 
         Story testStory = new Story(44, "Labyrinth", node1);
 
@@ -238,17 +238,99 @@ public class DigressUI {
         testStory.linkNodes(4, 10, "Keep moving");
 
         testStory.addNode(node11);
-        testStory.linkNodes(5, 11, "Shut up and fight me fool");
+        testStory.linkNodes(5, 11, "'Shut up and fight me fool'");
         testStory.findNode(11).setEndNode();
 
         testStory.addNode(endNode);
-        testStory.linkNodes(5, 12, "I am looking for the holy grail");
-        testStory.findNode(12).setEndNode();;
+        testStory.findNode(12).setEndNode();
 
-        testStory.linkNodes(7, 12, "Continue moving");
-        testStory.linkNodes(8, 12, "Continue down the hallway");
-        testStory.linkNodes(10, 12, "Try to enter the room");
+        String node13 = "'Well you've come to the right place. Allow me to aid you in your search.'";
+        testStory.addNode(node13);
+        testStory.linkNodes(5, 13, "'I am looking for the holy grail'");
 
+        String node14 = "You continue down the hallway with the mysterious stranger at your feet.";
+        testStory.addNode(node14);
+        testStory.linkNodes(13, 14, "'Let's do this thing!'");
+
+        String node15 = "'Well have it your way then.'";
+        testStory.addNode(node15);
+        testStory.linkNodes(13, 15, "'No way dude.'");
+
+        String node16 = "Suddenly he pulls a knife out of his pocket and lunges at you! You sense his attack and are able to parry and throw him onto the ground.";
+        testStory.addNode(node16);
+        testStory.linkNodes(14, 16, "Continue walking");
+
+        String node17 = "You spare the stranger. He thanks you, and offers you a potion as an apology. He claims it grants you super strength.";
+        testStory.addNode(node17);
+        testStory.linkNodes(16, 17, "Spare him");
+
+        String node18 = "You murder the stranger with his own knife. Karma shall get you soon...";
+        testStory.addNode(node18);
+        testStory.linkNodes(16, 18, "Kill him");
+
+        String n19 = "You drink the potion and immediately feel an unbelievable strength flowing through your veins.";
+        testStory.addNode(n19);
+        testStory.linkNodes(17, 19, "Drink the potion");
+
+        String n20 = "You shatter the vial in his face. He immediately grows super strong and rips through his shirt. He grabs your throat and strangles you.";
+        testStory.addNode(n20);
+        testStory.linkNodes(17, 20, "Shatter it in his face");
+        testStory.findNode(20).setEndNode();
+
+        String n21 = "It seems he cast some sort of curse on you. You find yourself getting weaker and weaker until you can hardly stand up. Soon you pass away in great agony.";
+        testStory.addNode(n21);
+        testStory.linkNodes(18, 21, "Continue walking");
+        testStory.findNode(21).setEndNode();
+
+        testStory.linkNodes(19, 12, "Continue");
+
+        testStory.linkNodes(15,10, "Continue walking");
+
+        String n22 = "It's locked.";
+        testStory.addNode(n22);
+        testStory.linkNodes(10, 22, "Try the handle to the door");
+
+        String n23 = "You kick down the door. There's a huge explosion- seems like you set off some sort of nuclear reaction. You died.";
+        testStory.addNode(n23);
+        testStory.linkNodes(10, 23, "Kick down the door");
+        testStory.findNode(23).setEndNode();
+
+        String n24 = "You round the corner and come across a strange.. bowling ball?";
+        testStory.addNode(n24);
+        testStory.linkNodes(10, 24, "Continue moving");
+
+        testStory.linkNodes(22, 23, "Kick down the door");
+        testStory.linkNodes(22, 24, "Continue moving");
+
+        testStory.linkNodes(24, 12, "Continue");
+
+        String n25 = "You and your new spider friend continue on your way. You run into a creepy-looking old man who offers you 4000 rupees for the spider.";
+        testStory.addNode(n25);
+        testStory.linkNodes(7, 25, "Continue moving");
+
+        String n26 = "'Well uhh.. I'll trade you this really cute puppy for him'";
+        testStory.addNode(n26);
+        testStory.linkNodes(25, 26, "'He's not for sale'");
+
+        String n27 = "The spider turns around and bites your head off for your betrayal.";
+        testStory.addNode(n27);
+        testStory.linkNodes(25, 27, "'Deal!");
+        testStory.findNode(27).setEndNode();
+
+        String n28 = "You trade the giant spider for a really cute puppy. Now the puppy accompanies you on your way. 'I get it,' says the spider";
+        testStory.addNode(n28);
+        testStory.linkNodes(26, 28, "'Okay you got yourself a trade.");
+
+        String n29 = "'Okay whatever man,' he says, and lets you on your way.";
+        testStory.addNode(n29);
+        testStory.linkNodes(26, 29, "No way Jose!");
+
+        String n30 = "A huge marshmallow appears in front of you and starts speaking Polish. You have no idea what he's saying because you don't speak Polish.";
+        testStory.addNode(n30);
+        testStory.linkNodes(8, 30, "Continue down the hallway");
+        testStory.linkNodes(29, 30, "Continue down the hallway");
+
+        testStory.linkNodes(30, 12, "um... what");
         return testStory;
     }
 
@@ -267,6 +349,7 @@ public class DigressUI {
         String title=null;
         Story storySelected=null;
         LinkedList<Story> storyCol=new LinkedList<Story>();
+        storyCol.add(getTestStory());
         do {
             System.out.println("What would you like to do?");
             System.out.println("1. Create a Story");
