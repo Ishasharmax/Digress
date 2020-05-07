@@ -4,8 +4,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.text.ParseException;
-import java.util.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.*;
@@ -149,7 +147,7 @@ public class DigressUI {
         }
     }
 
-    public static void importUI() throws IOException, NullPointerException {
+    public static Story importUI() throws IOException, NullPointerException {
 //        Scanner fileName = new Scanner(System.in);
 //        Scanner filePath = new Scanner(System.in);
         JFileChooser fc = new JFileChooser();
@@ -183,14 +181,15 @@ public class DigressUI {
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
             storyFile newFile = new storyFile(selectedFile.getName(), selectedFile.getAbsolutePath());
             frame.setVisible(false);
-            newFile.importFile();
+            return newFile.importFile();
         }
 //        else if (result == JFileChooser.ERROR_OPTION){
 //            // user selects a wrong file
 //        }
+        return null;
     }
 
-    public static void exportUI() throws IOException {
+    public static void exportUI() throws IOException, FileNotFoundException {
 //        Scanner fileName = new Scanner(System.in);
 //        String filePath = "Desktop";
         JFileChooser fc1 = new JFileChooser();
@@ -709,20 +708,20 @@ public class DigressUI {
                 System.out.println("What would you like to do with you files?"); 
                 System.out.println("1. Import"); 
                 System.out.println("2. Export"); 
-                int fileChoice = scanner.nextInt(); 
+                int fileChoice = scanner.nextInt();
                 if (fileChoice==1){ 
-                    importUI();
+                    Story importedFile = importUI();
                     System.out.println("What do you want to do with the story? (Play/Edit)");
-                    String storyChoice2 = scanner.nextLine();
-                    if (storyChoice2.equalsIgnoreCase("Play")) {
-                        playStory(storySelected);
+                    String storyChoice3 = scanner.nextLine();
+                    if (storyChoice3.equalsIgnoreCase("Play")) {
+                        playStory(importedFile);
                         System.out.println("You want to play it again?(Y/N)");
                         String choice = scanner.nextLine();
                         do {
-                            playStory(storySelected);
+                            playStory(importedFile);
                         }
                         while (choice.equalsIgnoreCase("N"));
-                    } else if (storyChoice2.equalsIgnoreCase("Edit")) {
+                    } else if (storyChoice3.equalsIgnoreCase("Edit")) {
                         int editChoice;
                         do {
                             System.out.println("What you want to edit? ");
@@ -734,7 +733,7 @@ public class DigressUI {
                             if (editChoice == 1){
                                 System.out.println("Enter new title:");
                                 String newTitle = scanner.next();
-                                editTitle(storySelected, newTitle);
+                                editTitle(importedFile, newTitle);
                                 System.out.println("You successfully changed the title of the story");
                             } else if (editChoice == 2) {
                                 System.out.println("Enter parent ID:");
@@ -743,16 +742,16 @@ public class DigressUI {
                                 String newContent = scanner.nextLine();
 
                                 //ask for end node condition
-                                storySelected.addNode(newContent);
-                                storySelected.linkNodes(parentID, storySelected.getCurrentNode().getId(), "temp condition");
+                                importedFile.addNode(newContent);
+                                importedFile.linkNodes(parentID, importedFile.getCurrentNode().getId(), "temp condition");
                                 System.out.println("You successfully added content to the story");
                             } else if (editChoice==3) {
-                                System.out.println(storySelected.printAllNodes());
+                                System.out.println(importedFile.printAllNodes());
                                 System.out.println("Enter node number you want to edit:");
                                 int numEntered = scanner.nextInt();
                                 System.out.println("Enter content for edit:");
                                 String editedContent = scanner.next();
-                                editStoryContent(storySelected, editedContent, numEntered);
+                                editStoryContent(importedFile, editedContent, numEntered);
                                 System.out.println("You successfully changed the content of the story");
                             }
                         } while (editChoice != 4);
