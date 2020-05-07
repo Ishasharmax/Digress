@@ -347,8 +347,9 @@ public class DigressUI {
         Iterator itr = story.getNodeConnections().entrySet().iterator();
         while(itr.hasNext()){
             Map.Entry thisNode = (Map.Entry)itr.next();
+            int thisId = (Integer)thisNode.getKey();
             ArrayList thisConns = (ArrayList)thisNode.getValue();
-            if(thisConns.size() == 0){
+            if(thisConns.size() == 0 && !story.findNode(thisId).isEndNode()){
                 missingConns.put(thisNode.getKey(), thisNode.getValue());
             }
         }
