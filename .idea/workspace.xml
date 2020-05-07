@@ -188,9 +188,9 @@
       <item itemvalue="Android JUnit.Unnamed" />
       <item itemvalue="Application.DigressUI" />
       <item itemvalue="Application.ManualTests" />
-      <item itemvalue="JUnit.storyFileTest.outputFileTest" />
       <item itemvalue="JUnit.storyFileTest" />
       <item itemvalue="JUnit.storyFileTest.importFileTest" />
+      <item itemvalue="JUnit.storyFileTest.outputFileTest" />
     </list>
     <recent_temporary>
       <list>
