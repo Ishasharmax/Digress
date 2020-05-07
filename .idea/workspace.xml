@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_46_PM__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_16_2020_5_46_PM__Default_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DigressUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DigressUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DigressUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DigressUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/storyFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/storyFile.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -651,7 +649,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Story.java</url>
           <line>109</line>
-          <properties class="Story">
+          <properties class="Story" method="editNodeChildren">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="6" />
@@ -659,7 +657,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Story.java</url>
           <line>80</line>
-          <properties class="Story">
+          <properties class="Story" method="editNode">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="9" />
@@ -667,7 +665,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Story.java</url>
           <line>98</line>
-          <properties class="Story">
+          <properties class="Story" method="editNodeStoryContent">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="10" />
