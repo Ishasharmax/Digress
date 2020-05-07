@@ -1,11 +1,8 @@
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Random;
 
 public class DigressUI {
 
@@ -340,6 +337,47 @@ public class DigressUI {
             throw new IllegalArgumentException("New title entered is same as previous title");
         else if (!storyChosen.getTitle().equalsIgnoreCase(newTitle)){
             storyChosen = new Story(storyChosen.getID(), newTitle, storyChosen.getRoot().getStoryContent());
+        }
+    }
+
+    public static void checkStoryComplete(Story story){
+        Scanner in = new Scanner(System.in);
+        int userIn;
+        Map missingConns = new HashMap<>();
+        Iterator itr = story.getNodeConnections().entrySet().iterator();
+        while(itr.hasNext()){
+            Map.Entry thisNode = (Map.Entry)itr.next();
+            int thisId = (Integer)thisNode.getKey();
+            ArrayList thisConns = (ArrayList)thisNode.getValue();
+            if(thisConns.size() == 0 && !story.findNode(thisId).isEndNode()){
+                missingConns.put(thisNode.getKey(), thisNode.getValue());
+            }
+        }
+        //if there are nodes with missing connections
+        if(missingConns.size() > 0) {
+            System.out.println("Each node must have at least one connection before the story can be complete.");
+            int i = missingConns.size();
+            while(i > 0) {
+                System.out.println("These nodes are still missing connections:");
+                itr = story.getNodeConnections().entrySet().iterator();
+                while (itr.hasNext()) {
+                    Map.Entry thisNode = (Map.Entry) itr.next();
+                    int thisId = (Integer) thisNode.getKey();
+                    if(thisNode.getValue()!= null) {
+                        System.out.println("(" + thisNode.getKey() + ") " + story.findNode(thisId).getStoryContent());
+                    }
+                }
+                System.out.println("Enter node to add connection: ");
+                do {
+                    userIn = in.nextInt();
+                    if (!missingConns.containsKey(userIn)) {
+                        System.out.println("Please enter a valid ID: ");
+                    }
+                } while(!missingConns.containsKey(userIn));
+                missingConns.remove(userIn);
+                enterCondition(story, userIn, story.getNodeConnections().get(userIn).size() + 1);
+                i--;
+            }
         }
     }
 
