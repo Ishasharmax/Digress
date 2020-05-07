@@ -611,7 +611,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/JsonUtil.java</url>
           <line>15</line>
-          <properties class="JsonUtil" method="toJsonFile">
+          <properties class="JsonUtil">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="2" />
@@ -619,7 +619,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar!/com/fasterxml/jackson/databind/ObjectMapper.class</url>
           <line>1350</line>
-          <properties class="com.fasterxml.jackson.databind.ObjectMapper" method="writeValue">
+          <properties class="com.fasterxml.jackson.databind.ObjectMapper">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="3" />
@@ -627,7 +627,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar!/com/fasterxml/jackson/databind/ObjectMapper.class</url>
           <line>1652</line>
-          <properties class="com.fasterxml.jackson.databind.ObjectMapper" method="_configAndWriteValue">
+          <properties class="com.fasterxml.jackson.databind.ObjectMapper">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="4" />
