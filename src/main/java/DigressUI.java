@@ -94,53 +94,52 @@ public class DigressUI {
                 condition = in.nextLine();
             }while(!Node.checkConditionValid(condition));
         }
-
-        System.out.println("Link this to an existing node (x) or a new node (n)?");
-        do{
-            inputValid = true;
-            userIn = in.nextLine();
-            if(!(userIn.equalsIgnoreCase("x") || userIn.equalsIgnoreCase("n"))){
-                System.out.println("Please enter a valid option");
-                inputValid = false;
-            }
-        } while(!inputValid);
-        if(userIn.equalsIgnoreCase("x")){
-            String nextId = "";
-            System.out.println(story.printAllNodes());
-
-            do{
-                System.out.print("Enter the ID of the node to link to: ");
+        if (id != 1) {
+            System.out.println("Link this to an existing node (x) or a new node (n)?");
+            do {
                 inputValid = true;
-                nextId = in.nextLine();
-
-                //todo: check to see about node
-
-                do{
-                    System.out.println("Can't choose the root ID");
-                    System.out.print("Enter the ID of the node to link to: ");
-                    nextId = in.nextLine();
-                }while(Integer.parseInt(nextId)==1);
-
-                try{
-                    Integer.parseInt(nextId);
-                }
-                catch(Exception e){
-                    System.out.println("Please enter a valid number");
-                }
-                if(story.findNode(Integer.parseInt(nextId)) == null){
-                    System.out.println("ID must exist in the story");
+                userIn = in.nextLine();
+                if (!(userIn.equalsIgnoreCase("x") || userIn.equalsIgnoreCase("n"))) {
+                    System.out.println("Please enter a valid option");
                     inputValid = false;
                 }
-            } while(!inputValid);
-            story.linkNodes(id, Integer.parseInt(nextId), condition);
-        }
-        else{
-            String content = "";
-            System.out.println("Enter node content: ");
-            content = in.nextLine();
+            } while (!inputValid);
+            if (userIn.equalsIgnoreCase("x")) {
+                String nextId = "";
+                System.out.println(story.printAllNodes());
 
-            story.addNode(content);
-            story.linkNodes(id, story.getCurrentNode().getId(), condition);
+                do {
+                    System.out.print("Enter the ID of the node to link to: ");
+                    inputValid = true;
+                    nextId = in.nextLine();
+
+                    //todo: check to see about node
+
+                    do {
+                        System.out.println("Can't choose the root ID");
+                        System.out.print("Enter the ID of the node to link to: ");
+                        nextId = in.nextLine();
+                    } while (Integer.parseInt(nextId) == 1);
+
+                    try {
+                        Integer.parseInt(nextId);
+                    } catch (Exception e) {
+                        System.out.println("Please enter a valid number");
+                    }
+                    if (story.findNode(Integer.parseInt(nextId)) == null) {
+                        System.out.println("ID must exist in the story");
+                        inputValid = false;
+                    }
+                } while (!inputValid);
+                story.linkNodes(id, Integer.parseInt(nextId), condition);
+            } else {
+                String content = "";
+                System.out.println("Enter node content: ");
+                content = in.nextLine();
+
+                story.addNode(content);
+                story.linkNodes(id, story.getCurrentNode().getId(), condition);
+            }
         }
     }
 
