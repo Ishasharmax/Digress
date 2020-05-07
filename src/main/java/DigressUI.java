@@ -153,7 +153,7 @@ public class DigressUI {
 //        Scanner fileName = new Scanner(System.in);
 //        Scanner filePath = new Scanner(System.in);
         JFileChooser fc = new JFileChooser();
-        File directory = new File("user.home.IdeaProjects.Digress.src.test");
+        File directory = new File("user.home");
         fc.setCurrentDirectory(new File(System.getProperty(String.valueOf(directory))));
         JFrame frame = new JFrame();
         frame.toFront();
@@ -163,16 +163,16 @@ public class DigressUI {
         fc.setFileFilter(new FileFilter() {
             @Override
             public String getDescription() {
-                return "TXT File (*.txt)";
-            }
 
+                return "json File (*.json)";
+            }
             @Override
             public boolean accept(File file) {
                 if (file.isDirectory()) {
                     return true;
                 } else {
                     String filename = file.getName().toLowerCase();
-                    return filename.endsWith(".txt");
+                    return filename.endsWith(".json");
                 }
             }
         });
@@ -183,6 +183,7 @@ public class DigressUI {
             System.out.println("Selected file: " + selectedFile.getAbsolutePath());
             storyFile newFile = new storyFile(selectedFile.getName(), selectedFile.getAbsolutePath());
             newFile.importFile();
+            frame.setVisible(false);
         }
 //        else if (result == JFileChooser.ERROR_OPTION){
 //            // user selects a wrong file
@@ -199,7 +200,7 @@ public class DigressUI {
         fc.setFileFilter(new FileFilter() {
             @Override
             public String getDescription() {
-                return "JSON File (*.json)";
+                return "TXT File (*.txt)";
             }
 
             @Override
@@ -208,7 +209,7 @@ public class DigressUI {
                     return true;
                 } else {
                     String filename = file.getName().toLowerCase();
-                    return filename.endsWith(".json");
+                    return filename.endsWith(".txt");
 
                 }
             }
@@ -529,7 +530,7 @@ public class DigressUI {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NullPointerException {
         Scanner scanner = new Scanner(System.in);
         int userChoice=0;
         String title=null;
