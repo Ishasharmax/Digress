@@ -1,3 +1,7 @@
+import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.text.ParseException;
@@ -7,6 +11,8 @@ import java.io.FileReader;
 import java.lang.*;
 
 public class DigressUI {
+
+    private static Object JFrame;
 
     /**
      * Creates a story
@@ -141,6 +147,82 @@ public class DigressUI {
                 story.linkNodes(id, story.getCurrentNode().getId(), condition);
             }
         }
+    }
+
+    public static void importUI() throws IOException, NullPointerException {
+//        Scanner fileName = new Scanner(System.in);
+//        Scanner filePath = new Scanner(System.in);
+        JFileChooser fc = new JFileChooser();
+        File directory = new File("user.home.IdeaProjects.Digress.src.test");
+        fc.setCurrentDirectory(new File(System.getProperty(String.valueOf(directory))));
+        JFrame frame = new JFrame();
+        frame.toFront();
+        frame.setVisible(true);
+        int result = fc.showOpenDialog(frame.getContentPane());
+
+        fc.setFileFilter(new FileFilter() {
+            @Override
+            public String getDescription() {
+                return "TXT File (*.txt)";
+            }
+
+            @Override
+            public boolean accept(File file) {
+                if (file.isDirectory()) {
+                    return true;
+                } else {
+                    String filename = file.getName().toLowerCase();
+                    return filename.endsWith(".txt");
+                }
+            }
+        });
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            // user selects a file
+            File selectedFile = fc.getSelectedFile();
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            storyFile newFile = new storyFile(selectedFile.getName(), selectedFile.getAbsolutePath());
+            newFile.importFile();
+        }
+//        else if (result == JFileChooser.ERROR_OPTION){
+//            // user selects a wrong file
+//        }
+    }
+
+    public static void exportUI() throws IOException {
+//        Scanner fileName = new Scanner(System.in);
+//        String filePath = "Desktop";
+        JFileChooser fc = new JFileChooser();
+        fc.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fc.showOpenDialog((Component) JFrame);
+
+        fc.setFileFilter(new FileFilter() {
+            @Override
+            public String getDescription() {
+                return "JSON File (*.json)";
+            }
+
+            @Override
+            public boolean accept(File file) {
+                if (file.isDirectory()) {
+                    return true;
+                } else {
+                    String filename = file.getName().toLowerCase();
+                    return filename.endsWith(".json");
+
+                }
+            }
+        });
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            // user selects a file
+            File selectedFile = fc.getSelectedFile();
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+//            storyFile newStoryFile = (storyFile) selectedFile;
+//            Story newStory = new Story(1, selectedFile.getName(), Files.readAllBytes(Paths.get(((storyFile) selectedFile).getFileName())));
+//            newStoryFile.outputFile(newStory);
+        }
+
     }
 
     /**
@@ -458,7 +540,8 @@ public class DigressUI {
             System.out.println("What would you like to do?");
             System.out.println("1. Create a Story");
             System.out.println("2. Load a Story");
-            System.out.println("3. Exit");
+            System.out.println("3. File Manager");
+            System.out.println("4. Exit");
             try{
                 userChoice = scanner.nextInt();
             }catch(InputMismatchException e){
@@ -606,7 +689,22 @@ public class DigressUI {
                     //todo: play or edit the story in function
                 }
             }
-        }while (userChoice!=3 || userChoice>3 || userChoice==0);
+            else if(userChoice == 3){ 
+                System.out.println("What would you like to do with you files?"); 
+                System.out.println("1. Import"); 
+                System.out.println("2. Export"); 
+                int fileChoice = scanner.nextInt(); 
+                if (fileChoice==1){ 
+                    importUI(); 
+                } 
+                else if (fileChoice==2){ 
+                    exportUI(); 
+                } 
+//                else if (fileChoice==3){ 
+//                    printFile(); 
+//                } 
+            }
+        }while (userChoice!=4 || userChoice>4 || userChoice==0);
     }
 }
 
