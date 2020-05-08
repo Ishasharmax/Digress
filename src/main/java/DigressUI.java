@@ -718,11 +718,12 @@ public class DigressUI {
                 System.out.println("1. Import"); 
                 System.out.println("2. Export"); 
                 int fileChoice = scanner.nextInt();
+                scanner.nextLine();
                 if (fileChoice==1){ 
                     Story importedFile = importUI();
                     System.out.println("What do you want to do with the story? (Play/Edit)");
                     String storyChoice3 = scanner.nextLine();
-                    if (storyChoice3.equalsIgnoreCase("Play")) {
+                    if (storyChoice3.equalsIgnoreCase("play")) {
                         playStory(importedFile);
                         System.out.println("You want to play it again?(Y/N)");
                         String choice = scanner.nextLine();
