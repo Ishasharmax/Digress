@@ -3,12 +3,13 @@ import java.nio.file.Path;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-public class storyFile {
+public class storyFile extends File {
 
     String fileName;
     String path;
     //constructor
     public storyFile(String fileNameIn, String pathIn) throws IllegalArgumentException{
+        super(fileNameIn);
         if(fileNameIn!=" " && pathIn!=" " && fileNameIn!="" && pathIn!=""){
             fileName = fileNameIn;
             path = pathIn;
@@ -113,11 +114,11 @@ public class storyFile {
         FileWriter outputFile = new FileWriter(path);
         outputFile.write(outputStory.getRootContent());
         //count how many children
-        int count = outputStory.getCount();
+        int count = outputStory.getNodeConnections().get(1).size();
 
         //write file
         for(int i = 1; i <= count; i++){
-            outputFile.write("\n["+i+"]"+outputStory.findNode(i+1).getStoryContent());
+            outputFile.write("\n["+i+"]"+outputStory.getNext(i).getStoryContent());
         }
         outputFile.close();
     }
