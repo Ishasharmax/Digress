@@ -86,10 +86,11 @@ public class Story {
             editNodeStoryContent(nodeID, newContent);
         }
         else if (editChoice.equals("children")){
-            System.out.print("Would you like to edit or delete a child? ");
+            System.out.print("Would you like to edit, assign, or delete a child? ");
             String choice = scanner.nextLine();
-            System.out.print("Which # child? ");
+            System.out.print("Which # child? (0 if assigning) ");
             int nodeNum = scanner.nextInt();
+            editNodeChildren(nodeID, nodeNum, choice);
         }
         else{
             throw new IllegalArgumentException("Invalid choice");
@@ -121,6 +122,14 @@ public class Story {
             else{
                 throw new IllegalArgumentException("Invalid choice");
             }
+        }
+        if (choice.equals("assign")){
+            System.out.print("Enter the ID of the node you want to add as a child: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Enter the condition: ");
+            String condition = scanner.nextLine();
+            linkNodes(nodeID, id, condition);
         }
         if (choice.equals("delete")){
             deleteNode(nodeConnections.get(nodeID).get(childNum-1));
@@ -175,8 +184,11 @@ public class Story {
 
     public void deleteNode(int nodeID) throws IllegalArgumentException{
         Scanner scanner = new Scanner(System.in);
+        if (nodeID == 1){
+            throw new IllegalArgumentException("Cannot delete root");
+        }
         if (findNode(nodeID)==null){
-            throw new IllegalArgumentException("Node is not exist");
+            throw new IllegalArgumentException("Node does not exist");
         }else{
             storyNodes.remove(nodeID);
             removeReferences(nodeID);
@@ -221,15 +233,15 @@ public class Story {
 
     public String printAllNodes(){
         String allNodes = "";
-        ArrayList nextConditions;
         for(int i = 1; i <= storyNodes.size(); i++){
             if(i > 1){
-                allNodes += "\n";
+                allNodes += "\n\n";
             }
             allNodes += "(" + i + ") " + storyNodes.get(i).getStoryContent();
-            nextConditions = getNextConditions();
-            for (int j = 1; j <= nextConditions.size(); j++){
-                allNodes += "\n(" + i + ") " + nextConditions.get(i);
+            if (!nodeConditions.get(i).isEmpty()) {
+                for (int j = 0; j < nodeConditions.get(i).size(); j++) {
+                    allNodes += "\n\t(" + (j+1) + ") " + nodeConditions.get(i).get(j);
+                }
             }
         }
         return allNodes;
