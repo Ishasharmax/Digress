@@ -3,6 +3,8 @@ import java.nio.file.Path;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+
 public class storyFile extends File {
 
     String fileName;
@@ -131,7 +133,41 @@ public class storyFile extends File {
         Files.deleteIfExists(Paths.get(path));
     }
 
-    public void editFile(String fileName, String content){
+    public void editFile(String content) throws IOException,IllegalArgumentException {
+        if(content=="" || content==" "){
+            throw new IllegalArgumentException("The content can not be empty");
+        }
+        FileInputStream readFile = checkPath();
+        System.setIn(readFile);
+        Scanner scanFile = new Scanner(System.in);
+        String line = scanFile.nextLine();
+
+        //print out old content
+        System.out.println("Current content: ");
+        while (scanFile.hasNextLine()) {
+            System.out.println(line);
+            line = scanFile.nextLine();
+        }
+
+        System.out.println("New content: ");
+        //Break content by line
+        String lines[] = content.split("\\r?\\n");
+
+        //rewrite file
+        FileWriter newContent = new FileWriter(path);
+        newContent.write(lines[0]);
+
+        //print out new content
+        System.out.println(lines[0]);
+        for (int i = 1; i < lines.length; i++){
+            newContent.write("\n"+lines[i]);
+            System.out.println(lines[i]);
+        }
+
+        newContent.close();
+
+        //import the file
+        importFile();
 
     }
 
