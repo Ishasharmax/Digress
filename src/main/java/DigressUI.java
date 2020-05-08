@@ -150,93 +150,102 @@ public class DigressUI {
     public static Story importUI() throws IOException, NullPointerException {
 //        Scanner fileName = new Scanner(System.in);
 //        Scanner filePath = new Scanner(System.in);
-        JFileChooser fc = new JFileChooser();
-        File directory = new File("user.home");
-        fc.setCurrentDirectory(new File(System.getProperty(String.valueOf(directory))));
-        JFrame frame = new JFrame();
-        frame.toFront();
-        frame.setVisible(true);
-        int result = fc.showOpenDialog(frame.getContentPane());
-
-        fc.setFileFilter(new FileFilter() {
-            @Override
-            public String getDescription() {
-
-                return "json File (*.json)";
-            }
-            @Override
-            public boolean accept(File file) {
-                if (file.isDirectory()) {
-                    return true;
-                } else {
-                    String filename = file.getName().toLowerCase();
-                    return filename.endsWith(".json");
-                }
-            }
-        });
-
-        if (result == JFileChooser.APPROVE_OPTION) {
-            // user selects a file
-            File selectedFile = fc.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-            storyFile newFile = new storyFile(selectedFile.getName(), selectedFile.getAbsolutePath());
-            frame.setVisible(false);
-            return newFile.importFile();
-        }
+//        JFileChooser fc = new JFileChooser();
+//        File directory = new File("user.home");
+//        fc.setCurrentDirectory(new File(System.getProperty(String.valueOf(directory))));
+//        JFrame frame = new JFrame();
+//        frame.toFront();
+//        frame.setVisible(true);
+//        int result = fc.showOpenDialog(frame.getContentPane());
+//
+//        fc.setFileFilter(new FileFilter() {
+//            @Override
+//            public String getDescription() {
+//
+//                return "json File (*.json)";
+//            }
+//            @Override
+//            public boolean accept(File file) {
+//                if (file.isDirectory()) {
+//                    return true;
+//                } else {
+//                    String filename = file.getName().toLowerCase();
+//                    return filename.endsWith(".json");
+//                }
+//            }
+//        });
+//
+//        if (result == JFileChooser.APPROVE_OPTION) {
+//            // user selects a file
+//            File selectedFile = fc.getSelectedFile();
+//            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+//            Story newJson = JsonUtil.fromJsonFile(selectedFile.getAbsolutePath(), Story.class);
+//            frame.setVisible(false);
+//            return newJson;
+//        }
 //        else if (result == JFileChooser.ERROR_OPTION){
 //            // user selects a wrong file
 //        }
-        return null;
+//        return null;
+        System.out.print("Enter the path of the file (EX: src/main/java/test.json): ");
+        Scanner scanner = new Scanner(System.in);
+        String fileName = scanner.nextLine();
+        return JsonUtil.fromJsonFile(fileName, Story.class);
     }
 
-    public static void exportUI() throws IOException, FileNotFoundException {
+    public static void exportUI(Story storyToExport) throws IOException, FileNotFoundException {
 //        Scanner fileName = new Scanner(System.in);
 //        String filePath = "Desktop";
-        JFileChooser fc1 = new JFileChooser();
-        fc1.setCurrentDirectory(new File(System.getProperty("user.home")));
-        JFrame frame = new JFrame();
-        frame.toFront();
-        frame.setVisible(true);
-        int result = fc1.showOpenDialog((Component) JFrame);
-
-        fc1.setFileFilter(new FileFilter() {
-            @Override
-            public String getDescription() {
-                return "TXT File (*.txt)";
-            }
-
-            @Override
-            public boolean accept(File file) {
-                if (file.isDirectory()) {
-                    return true;
-                } else {
-                    String filename = file.getName().toLowerCase();
-                    return filename.endsWith(".txt");
-
-                }
-            }
-        });
-
-        if (result == JFileChooser.APPROVE_OPTION) {
-            // user selects a file
-            File selectedFile = fc1.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-            frame.setVisible(false);
-            Story exFile = new Story(1, selectedFile.getName(), selectedFile.toString());
-
-            JFileChooser fc2 = new JFileChooser();
-            fc2.setDialogTitle("Specify a file to save");
-            int userSelection = fc2.showSaveDialog(frame);
-
-            if (userSelection == JFileChooser.APPROVE_OPTION) {
-                File fileToSave = fc2.getSelectedFile();
-                System.out.println("Save as file: " + fileToSave.getAbsolutePath());
-                exFile.exportStory(fileToSave.getAbsolutePath());
-            }
+//        JFileChooser fc1 = new JFileChooser();
+//        fc1.setCurrentDirectory(new File(System.getProperty("user.home")));
+//        JFrame frame = new JFrame();
+//        frame.toFront();
+//        frame.setVisible(true);
+//        int result = fc1.showOpenDialog((Component) JFrame);
+//
+//        fc1.setFileFilter(new FileFilter() {
+//            @Override
+//            public String getDescription() {
+//                return "TXT File (*.txt)";
+//            }
+//
+//            @Override
+//            public boolean accept(File file) {
+//                if (file.isDirectory()) {
+//                    return true;
+//                } else {
+//                    String filename = file.getName().toLowerCase();
+//                    return filename.endsWith(".txt");
+//
+//                }
+//            }
+//        });
+//
+//        if (result == JFileChooser.APPROVE_OPTION) {
+//            // user selects a file
+//            File selectedFile = fc1.getSelectedFile();
+//            System.out.println("Selected file: " + selectedFile.getCanonicalPath());
+//            frame.setVisible(false);
+//            Story exFile = new Story(1, selectedFile.getName(), selectedFile.toString());
+//
+//            JFileChooser fc2 = new JFileChooser();
+//            fc2.setDialogTitle("Specify a file to save");
+//            int userSelection = fc2.showSaveDialog(frame);
+//
+//            if (userSelection == JFileChooser.APPROVE_OPTION) {
+//                File fileToSave = fc2.getSelectedFile();
+//                System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+//                exFile.exportStory(fileToSave.getAbsolutePath());
+//            }
 //            storyFile newStoryFile = (storyFile) selectedFile;
 //            Story newStory = new Story(1, selectedFile.getName(), Files.readAllBytes(Paths.get(((storyFile) selectedFile).getFileName())));
 //            newStoryFile.outputFile(newStory);
-        }
+//        }
+
+        System.out.print("Enter the path of the file (EX: src/main/java): ");
+        Scanner scanner = new Scanner(System.in);
+        String filePath = scanner.nextLine();
+        storyToExport.exportStory(filePath);
 
     }
 
@@ -755,10 +764,10 @@ public class DigressUI {
                                 System.out.println("You successfully changed the content of the story");
                             }
                         } while (editChoice != 4);
-                    }else System.out.println("invalid input");
+                    }else System.out.println("invalid input////");
                 } 
                 else if (fileChoice==2){ 
-                    exportUI(); 
+                    exportUI(storySelected);
                 } 
 //                else if (fileChoice==3){ 
 //                    printFile(); 
