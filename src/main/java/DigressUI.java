@@ -704,7 +704,7 @@ public class DigressUI {
                             System.out.println("When creating a story, the first thing you must choose is a title.");
                             System.out.println("Then you must write the story content for the root (first) story node.");
                             System.out.println("Neither field can be blank.");
-                            System.out.println("You can then add a node (a), delete a node (d), edit a node(e), add tags (t), change title (ct), or finalize story(x).");
+                            System.out.println("You can then add a node (a), delete a node (d), edit a node(e), view all nodes (v), add tags (t), change title (ct), or finalize story(x).");
                         } else if (helpChoice == 2) {
                             System.out.println("When loading a story, you can load from the database or an external file.");
                             System.out.println("When loading from the database you can immediately play a story by providing the title.");
