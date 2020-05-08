@@ -145,7 +145,7 @@ public class Story {
 
     public void linkNodes(int parentID, int childID, String condition){
         if (parentID == childID){
-            throw new IllegalArgumentException("Cannot set Node as it's own child");
+            throw new IllegalArgumentException("Cannot set Node as its own child");
         }
         if (findNode(parentID) == null) {
             throw new IllegalArgumentException("Parent does not exist");
@@ -182,6 +182,7 @@ public class Story {
             removeReferences(nodeID);
 
             if (! (nodeConnections.get(nodeID).isEmpty())) {
+                System.out.println("Node #" + nodeID + "has children that need to be relinked or deleted.");
                 int size = nodeConnections.get(nodeID).size();
                 for (int i = 0; i < size; i++) {
                     System.out.print("Would you like to permanently delete or relink Node #" + nodeConnections.get(nodeID).get(0) + "? (delete or relink) ");
