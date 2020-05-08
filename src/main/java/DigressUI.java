@@ -106,6 +106,19 @@ public class DigressUI {
     }
 
     /**
+     * @post Check to see if story entered is valid
+     * @params storyCol, titleEntered, storySelected : Linked list of stories, title entered by the user
+     */
+    public static boolean isStoryValid(LinkedList<Story> storyCol, String titleEntered){
+        for (int i = 0; i < storyCol.size(); i++) {
+            if (storyCol.get(i).getTitle().equalsIgnoreCase(titleEntered)) {
+                return true;
+            }return false;
+        }return false;
+    }
+
+
+    /**
      * Enter the conditions for a story
      * @throws IllegalArgumentException if the invalid condition number is chosen
      * @post Enter the conditions for the story
@@ -532,13 +545,18 @@ public class DigressUI {
                     System.out.print("Enter title of the story: ");
                     String storyChoice = scanner.next();
 
+                    while (!isStoryValid(storyCol, storyChoice)){
+                        System.out.println("Invalid input!");
+                        System.out.print("Enter story title: ");
+                        storyChoice = scanner.next();
+                    }
+
                     for (int i = 0; i < storyCol.size(); i++) {
                         if (storyChoice.equalsIgnoreCase(storyCol.get(i).getTitle())) {
                             storySelected = storyCol.get(i);
                             break;
                         }
                     }
-                    //todo: check to see if the story doesn't exist
 
                     System.out.println("What do you want to do with the story? (Play/Edit)");
                     String storyChoice2 = scanner.next();
@@ -578,7 +596,7 @@ public class DigressUI {
                                 System.out.println("You successfully changed the content of the story");
                             }
                         } while (editChoice != 4);
-                    } else System.out.println("invalid input");
+                    }else System.out.println("invalid input");
                 } else if (userChoice2 == 2) {
                     uploadStory();
                     //todo: play or edit the story in function
