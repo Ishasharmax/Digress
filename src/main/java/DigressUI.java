@@ -565,7 +565,8 @@ public class DigressUI {
             System.out.println("1. Create a Story");
             System.out.println("2. Load a Story");
             System.out.println("3. File Manager");
-            System.out.println("4. Exit");
+            System.out.println("4. Help");
+            System.out.println("5. Exit");
             try{
                 userChoice = scanner.nextInt();
             }catch(InputMismatchException e){
@@ -771,12 +772,11 @@ public class DigressUI {
                     System.out.print("Enter the title of the story to export (case sensitive): ");
                     String exportTitle = scanner.nextLine();
                     exportUI(storyCol.get(exportTitle));
-                } 
-//                else if (fileChoice==3){ 
-//                    printFile(); 
-//                } 
+                }
             }
-        }while (userChoice!=4 || userChoice>4 || userChoice==0);
+            else if(userChoice == 4) {
+            }
+        }while (userChoice!=5 || userChoice>5 || userChoice==0);
     }
 }
 
