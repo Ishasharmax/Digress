@@ -1,7 +1,5 @@
 import java.io.IOException;
 import java.util.*;
-import java.text.ParseException;
-import java.util.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.*;
@@ -12,14 +10,12 @@ public class DigressUI {
 
     /**
      * Creates a story
-     *
      * @throws IllegalArgumentException if the title and content of the story is invalid
      * @post creates the story
      */
     public static void createStory() {
         Scanner in = new Scanner(System.in);
         String title = "", root = "", userIn = "";
-        int currId = 1;
         boolean inputValid = true;
         Random ran = new Random();
         int id = ran.nextInt(1000);
@@ -27,16 +23,64 @@ public class DigressUI {
         System.out.println("Enter story title: ");
         //todo: need error testing for invalid input here
         title = in.nextLine();
+        while (!isTitleValid(title)){
+            System.out.println("Invalid input!");
+            System.out.print("Enter story title: ");
+            title = in.nextLine();
+        }
         System.out.println("Enter root node content: ");
         root = in.nextLine();
 
+        while (!isContentValid(root)){
+            System.out.println("Invalid input!");
+            System.out.print("Enter root node content: ");
+            root = in.nextLine();
+        }
+
         Story story = new Story(id, title, root);
-        editStory(story);
+        story = editStory(story);
+        storyCol.put(story.getTitle(), story);
     }
 
     /**
+     * @post Check to see if title entered is valid
+     * @params title: title of the story
+     */
+    public static boolean isTitleValid(String titleIn){
+        if(titleIn.isEmpty())
+            return false;
+        if(titleIn.matches(".*\\s.*"))
+            return true;
+        return true;
+    }
+
+    /**
+     * @post Check to see if content entered is valid
+     * @params content: content of the story
+     */
+    public static boolean isContentValid(String content){
+        if(content.isEmpty()  || content.matches("\\d+") || content.matches(".*.*\\s\\d+") || content.matches(".*.*\\d+"))
+            return false;
+        if(content.matches(".*\\s.*"))
+            return true;
+        return true;
+    }
+
+    /**
+     * @post Check to see if story entered is valid
+     * @params storyCol, titleEntered, storySelected : Linked list of stories, title entered by the user
+     */
+    public static boolean isStoryValid(LinkedList<Story> storyCol, String titleEntered){
+        for (int i = 0; i < storyCol.size(); i++) {
+            if (storyCol.get(i).getTitle().equalsIgnoreCase(titleEntered)) {
+                return true;
+            }return false;
+        }return false;
+    }
+
+
+    /**
      * Enter the conditions for a story
-     *
      * @throws IllegalArgumentException if the invalid condition number is chosen
      * @post Enter the conditions for the story
      * @params story, id, choiceVal : story to add more conditions to, id of the node,choice value of the node to connect to
@@ -75,7 +119,7 @@ public class DigressUI {
         story.linkNodes(parentId, id, condition);
     }
 
-    public static void editStory(Story storyToEdit) {
+    public static Story editStory(Story storyToEdit) {
         boolean creating = true;
         boolean inputValid = true;
         Scanner in = new Scanner(System.in);
@@ -158,34 +202,34 @@ public class DigressUI {
                 }
             }
         } while (creating);
-        storyCol.put(storyToEdit.getTitle(), storyToEdit);
+        return storyToEdit;
     }
 
-        public static void editNodes(Story storyToEdit, String editChoice){
-            Scanner scanner = new Scanner(System.in);
-            if (editChoice.equalsIgnoreCase("n")) {
-                System.out.print("Enter the ID of the node to edit: ");
-                int nodeID = scanner.nextInt();
-                scanner.nextLine();
-                System.out.print("Would you like to edit the 'story content' or the 'children'?: ");
-                String choice = scanner.nextLine();
-                storyToEdit.editNode(nodeID, choice);
-            } else if (editChoice.equalsIgnoreCase("t")) {
-                System.out.print("Enter a new title: ");
-                String newTitle = scanner.nextLine();
-                editTitle(storyToEdit, newTitle);
-            } else if (editChoice.equalsIgnoreCase("d")) {
-                System.out.print("Enter the ID of the node you'd like to delete: ");
-                int nodeId = scanner.nextInt();
-                scanner.nextLine();
-                storyToEdit.deleteNode(nodeId);
-            } else if (editChoice.equalsIgnoreCase("s")) {
-                System.out.print("Enter the ID of the node you'd like to set as an end node: ");
-                int nodeId = scanner.nextInt();
-                scanner.nextLine();
-                storyToEdit.findNode(nodeId).setEndNode();
-            }
+    public static void editNodes(Story storyToEdit, String editChoice){
+        Scanner scanner = new Scanner(System.in);
+        if (editChoice.equalsIgnoreCase("n")) {
+            System.out.print("Enter the ID of the node to edit: ");
+            int nodeID = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Would you like to edit the 'story content' or the 'children'?: ");
+            String choice = scanner.nextLine();
+            storyToEdit.editNode(nodeID, choice);
+        } else if (editChoice.equalsIgnoreCase("t")) {
+            System.out.print("Enter a new title: ");
+            String newTitle = scanner.nextLine();
+            editTitle(storyToEdit, newTitle);
+        } else if (editChoice.equalsIgnoreCase("d")) {
+            System.out.print("Enter the ID of the node you'd like to delete: ");
+            int nodeId = scanner.nextInt();
+            scanner.nextLine();
+            storyToEdit.deleteNode(nodeId);
+        } else if (editChoice.equalsIgnoreCase("s")) {
+            System.out.print("Enter the ID of the node you'd like to set as an end node: ");
+            int nodeId = scanner.nextInt();
+            scanner.nextLine();
+            storyToEdit.findNode(nodeId).setEndNode();
         }
+    }
 
     public static Story importUI() throws IOException, NullPointerException {
 //        Scanner fileName = new Scanner(System.in);
@@ -292,7 +336,6 @@ public class DigressUI {
 
     /**
      * Plays a story
-     *
      * @throws IllegalArgumentException if the title and content of the story is invalid
      * @post Plays the story
      * @params story : story user chose to play
@@ -342,20 +385,19 @@ public class DigressUI {
 
     /**
      * Uploads a story to play or edit
-     *
      * @throws IllegalArgumentException if the title and content of the story is invalid
      * @post creates the story
      * @params fileForUpload : file name user wants to play or edit
      */
-    public static void uploadStory() throws IOException {
+    public static void uploadStory () throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter file name");
         String fileName = in.next();
         int count;
-        FileReader fileEx = null;
+        FileReader fileEx=null;
         try {
             fileEx = new FileReader(fileName);
-        } catch (FileNotFoundException e) {
+        }catch (FileNotFoundException e) {
             System.out.println("File not found");
             System.out.println("Enter valid file name:");
             fileName = in.next();
@@ -367,13 +409,11 @@ public class DigressUI {
         fileEx.close();
     }
 
-
     /**
      * Creates a test story for the UI
-     *
      * @post creates the test story
      */
-    public static Story getTestStory() {
+    public static Story getTestStory(){
         String node1 = "You are walking down a dark, dingy hallway. Where would you like to go?";
         String node2 = "You see cobwebs in front of you and a dark shadowy figure. What would you like to do next?";
         String node3 = "There is a giant spider coming down the hallway towards you.";
@@ -393,7 +433,7 @@ public class DigressUI {
         testStory.linkNodes(1, 2, "Continue straight");
 
         testStory.addNode(node3);
-        testStory.linkNodes(1, 3, "Take a left");
+        testStory.linkNodes(1, 3,"Take a left");
 
         testStory.addNode(node4);
         testStory.linkNodes(1, 4, "Turn right");
@@ -469,7 +509,7 @@ public class DigressUI {
 
         testStory.linkNodes(19, 12, "Continue");
 
-        testStory.linkNodes(15, 10, "Continue walking");
+        testStory.linkNodes(15,10, "Continue walking");
 
         String n22 = "It's locked.";
         testStory.addNode(n22);
@@ -522,55 +562,53 @@ public class DigressUI {
 
     /**
      * Edits title of the story
-     *
      * @throws IllegalArgumentException if the title of the story is invalid
      * @post edits title of the story
      * @params storyChosen, newTitle  : story chosen by user to alter title and the new title
      */
-    public static void editTitle(Story storyChosen, String newTitle) throws IllegalArgumentException {
+    public static void editTitle (Story storyChosen, String newTitle) throws IllegalArgumentException {
         if (newTitle == " " || newTitle == "") throw new IllegalArgumentException("Title cannot be empty");
         else if (storyChosen.getTitle().equalsIgnoreCase(newTitle))
             throw new IllegalArgumentException("New title entered is same as previous title");
-        else if (!storyChosen.getTitle().equalsIgnoreCase(newTitle)) {
+        else if (!storyChosen.getTitle().equalsIgnoreCase(newTitle)){
             storyChosen.setTitle(newTitle);
         }
     }
 
-    public static void checkStoryComplete(Story story) {
+    public static void checkStoryComplete(Story story){
         Scanner in = new Scanner(System.in);
         int userIn;
         Map missingConns = new HashMap<>();
         Iterator itr = story.getNodeConnections().entrySet().iterator();
-        while (itr.hasNext()) {
-            Map.Entry thisNode = (Map.Entry) itr.next();
-            int thisId = (Integer) thisNode.getKey();
-            ArrayList thisConns = (ArrayList) thisNode.getValue();
-            if (thisConns.size() == 0 && !story.findNode(thisId).isEndNode()) {
+        while(itr.hasNext()){
+            Map.Entry thisNode = (Map.Entry)itr.next();
+            int thisId = (Integer)thisNode.getKey();
+            ArrayList thisConns = (ArrayList)thisNode.getValue();
+            if(thisConns.size() == 0 && !story.findNode(thisId).isEndNode()){
                 missingConns.put(thisNode.getKey(), thisNode.getValue());
             }
         }
         //if there are nodes with missing connections
-        if (missingConns.size() > 0) {
+        if(missingConns.size() > 0) {
             System.out.println("Each node must have at least one connection before the story can be complete.");
             int i = missingConns.size();
-            while (i > 0) {
+            while(i > 0) {
                 System.out.println("These nodes are still missing connections:");
                 itr = story.getNodeConnections().entrySet().iterator();
                 while (itr.hasNext()) {
                     Map.Entry thisNode = (Map.Entry) itr.next();
                     int thisId = (Integer) thisNode.getKey();
-                    if (thisNode.getValue() != null) {
+                    if(thisNode.getValue()!= null) {
                         System.out.println("(" + thisNode.getKey() + ") " + story.findNode(thisId).getStoryContent());
                     }
                 }
                 System.out.println("Enter node to add connection: ");
                 do {
                     userIn = in.nextInt();
-                    in.nextLine();
                     if (!missingConns.containsKey(userIn)) {
                         System.out.println("Please enter a valid ID: ");
                     }
-                } while (!missingConns.containsKey(userIn));
+                } while(!missingConns.containsKey(userIn));
                 missingConns.remove(userIn);
                 enterCondition(story, userIn);
                 i--;
@@ -580,7 +618,10 @@ public class DigressUI {
 
 
     public static void main(String[] args) throws IOException {
+        System.out.println("-------------------------------------------------------------------");
         System.out.println("Welcome to Digress!");
+        System.out.println("A software for reading and writing non-linear text-based stories.");
+        System.out.println("-------------------------------------------------------------------");
         Scanner scanner = new Scanner(System.in);
         int userChoice = 0;
         Story storySelected = null;
@@ -588,13 +629,15 @@ public class DigressUI {
         Story hellscape = JsonUtil.fromJsonFile("src/main/java/HELLSCAPE/HELLSCAPE.json", Story.class);
         storyCol.put(hellscape.getTitle(), hellscape);
         do {
-            System.out.println("What would you like to do?");
+            System.out.println("╔.★. .══════════════════════════════════════╗");
+            System.out.println(" What would you like to do? (Choose a #)");
             System.out.println("1. Create a Story");
             System.out.println("2. Load a Story (2 already included!)");
             System.out.println("3. File Manager");
             System.out.println("4. Help");
             System.out.println("5. Exit");
-            try {
+            System.out.println("╚════════════════════════════════════════. .★.╝");
+            try{
                 userChoice = scanner.nextInt();
                 scanner.nextLine();
             } catch (InputMismatchException e) {
@@ -609,6 +652,7 @@ public class DigressUI {
                 System.out.println("How you want to read the story?");
                 System.out.println("1. Read a story already in the database");
                 System.out.println("2. Read an uploaded story");
+                System.out.print("--> ");
                 int userChoice2 = scanner.nextInt();
                 scanner.nextLine();
                 if (userChoice2 == 1) {
@@ -692,30 +736,30 @@ public class DigressUI {
                 }
 
             }else if (userChoice == 4) {
-                    int helpChoice = 0;
-                    while (helpChoice != 4) {
-                        System.out.println("What would you like to learn more about?");
-                        System.out.println("1. Creating Stories");
-                        System.out.println("2. Loading Stories");
-                        System.out.println("3. Editing Stories");
-                        System.out.println("4. Exit to Main Menu");
-                        helpChoice = scanner.nextInt();
-                        if (helpChoice == 1) {
-                            System.out.println("When creating a story, the first thing you must choose is a title.");
-                            System.out.println("Then you must write the story content for the root (first) story node.");
-                            System.out.println("Neither field can be blank.");
-                            System.out.println("You can then add a node (a), delete a node (d), edit a node(e), view all nodes (v), add tags (t), change title (ct), or finalize story(x).");
-                        } else if (helpChoice == 2) {
-                            System.out.println("When loading a story, you can load from the database or an external file.");
-                            System.out.println("When loading from the database you can immediately play a story by providing the title.");
-                            System.out.println("If you're not sure of the title, you can display all the available titles to play.");
-                            System.out.println("When loading from an external file, providing the file path of the story will load it in.");
-                        } else if (helpChoice == 3) {
-                            System.out.println("When editing a story, you can edit nodes or change the title of the story.");
-                            System.out.println("Editing nodes allows you to change story content, rearrange nodes and children, set end nodes, or delete nodes.");
-                        }
+                int helpChoice = 0;
+                while (helpChoice != 4) {
+                    System.out.println("What would you like to learn more about?");
+                    System.out.println("1. Creating Stories");
+                    System.out.println("2. Loading Stories");
+                    System.out.println("3. Editing Stories");
+                    System.out.println("4. Exit to Main Menu");
+                    helpChoice = scanner.nextInt();
+                    if (helpChoice == 1) {
+                        System.out.println("When creating a story, the first thing you must choose is a title.");
+                        System.out.println("Then you must write the story content for the root (first) story node.");
+                        System.out.println("Neither field can be blank.");
+                        System.out.println("You can then add a node (a), delete a node (d), edit a node(e), view all nodes (v), add tags (t), change title (ct), or finalize story(x).");
+                    } else if (helpChoice == 2) {
+                        System.out.println("When loading a story, you can load from the database or an external file.");
+                        System.out.println("When loading from the database you can immediately play a story by providing the title.");
+                        System.out.println("If you're not sure of the title, you can display all the available titles to play.");
+                        System.out.println("When loading from an external file, providing the file path of the story will load it in.");
+                    } else if (helpChoice == 3) {
+                        System.out.println("When editing a story, you can edit nodes or change the title of the story.");
+                        System.out.println("Editing nodes allows you to change story content, rearrange nodes and children, set end nodes, or delete nodes.");
                     }
                 }
+            }
 
 
 
