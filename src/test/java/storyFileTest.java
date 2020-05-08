@@ -73,7 +73,7 @@ public class storyFileTest {
         //create a story file
         storyFile test1 = new storyFile("outputFile","src/main/java/testFilePackage/outputFile.txt");
         test1.outputFile(testStory);
-        
+
     }
     @Test
     public void editFileTest(){

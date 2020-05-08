@@ -114,11 +114,11 @@ public class storyFile extends File {
         FileWriter outputFile = new FileWriter(path);
         outputFile.write(outputStory.getRootContent());
         //count how many children
-        int count = outputStory.getNodeConnections().get(1).size();
+        int count = outputStory.getCount();
 
         //write file
         for(int i = 1; i <= count; i++){
-            outputFile.write("\n["+i+"]"+outputStory.getNext(i).getStoryContent());
+            outputFile.write("\n["+i+"]"+outputStory.findNode(i+1).getStoryContent());
         }
         outputFile.close();
     }
