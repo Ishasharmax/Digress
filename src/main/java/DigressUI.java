@@ -8,17 +8,18 @@ import java.lang.*;
 
 public class DigressUI {
 
+    private static HashMap<String, Story> storyCol = new HashMap<>();
+
     /**
      * Creates a story
      *
      * @throws IllegalArgumentException if the title and content of the story is invalid
      * @post creates the story
      */
-    public static Story createStory() {
+    public static void createStory() {
         Scanner in = new Scanner(System.in);
         String title = "", root = "", userIn = "";
         int currId = 1;
-        boolean creating = true;
         boolean inputValid = true;
         Random ran = new Random();
         int id = ran.nextInt(1000);
@@ -30,75 +31,7 @@ public class DigressUI {
         root = in.nextLine();
 
         Story story = new Story(id, title, root);
-        do {
-            System.out.println("Add a node (a), delete a node (d), edit a node(e), view all nodes (v), add tags (t), change title (ct), or finalize story(x)?");
-            do {
-                inputValid = true;
-                userIn = in.nextLine();
-                if (!(userIn.equalsIgnoreCase("a") || userIn.equalsIgnoreCase("d") || userIn.equalsIgnoreCase("v") || userIn.equalsIgnoreCase("e") || userIn.equalsIgnoreCase("t") || userIn.equalsIgnoreCase("ct") || userIn.equalsIgnoreCase("x"))) {
-                    System.out.println("Please enter a valid option");
-                    inputValid = false;
-                }
-            } while (!inputValid);
-
-            if (userIn.equalsIgnoreCase("a")) {
-                System.out.print("Enter the story content for this node: ");
-                String storyContent = in.nextLine();
-                story.addNode(storyContent);
-                currId = story.getCurrentNode().getId();
-                enterCondition(story, currId);
-            } else if (userIn.equalsIgnoreCase("d")) {
-                System.out.print("Enter the ID of the node you'd like to delete: ");
-
-                do {
-                    inputValid = true;
-                    userIn = in.nextLine();
-
-                    if (!story.getStoryNodes().containsKey(Integer.parseInt(userIn))) {
-                        System.out.print("Please enter a valid ID:");
-                        inputValid = false;
-                    }
-                } while (!inputValid);
-
-                currId = Integer.parseInt(userIn);
-                story.deleteNode(currId);
-            } else if (userIn.equalsIgnoreCase("e")) {
-                String editChoice;
-                System.out.println("Would you like to edit nodes (n), delete a node (d), set an end node (s), or change the title of the story (t)? ");
-                editChoice = in.nextLine();
-                editStory(story, editChoice);
-            }
-            else if (userIn.equalsIgnoreCase("v")) {
-                System.out.println(story.printAllNodes());
-            }
-            else if (userIn.equalsIgnoreCase("s")) {
-                System.out.print("Enter the ID of the node you'd like to set as an end node: ");
-                int nodeId = in.nextInt();
-                story.findNode(nodeId).setEndNode();
-            }
-            else if (userIn.equalsIgnoreCase("t")) {
-                System.out.print("Enter individual tags here (or enter 'q' to quit): ");
-                String tag = "";
-                while (!tag.equalsIgnoreCase("q")) {
-                    tag = in.nextLine();
-                    if (!tag.equalsIgnoreCase("q")) {
-                        story.addTag(tag);
-                        System.out.print("Tags: ");
-                        for (int i = 0; i < story.tags.size(); i++) {
-                            System.out.print(story.tags.get(i) + " ");
-                        }
-                    }
-                }
-            } else if (userIn.equalsIgnoreCase("ct")) {
-                System.out.print("Enter a new title: ");
-                String newTitle = in.nextLine();
-                editTitle(story, newTitle);
-            } else { //if user selects quit
-                //todo: Should call a helper function here to make sure every node has at least one child
-                creating = false;
-            }
-        } while (creating);
-        return story;
+        editStory(story);
     }
 
     /**
@@ -142,32 +75,117 @@ public class DigressUI {
         story.linkNodes(parentId, id, condition);
     }
 
-    public static void editStory(Story storyToEdit, String editChoice) {
-        Scanner scanner = new Scanner(System.in);
-        if (editChoice.equalsIgnoreCase("n")) {
-            System.out.print("Enter the ID of the node to edit: ");
-            int nodeID = scanner.nextInt();
-            scanner.nextLine();
-            System.out.print("Would you like to edit the 'story content' or the 'children'?: ");
-            String choice = scanner.nextLine();
-            storyToEdit.editNode(nodeID, choice);
-        } else if (editChoice.equalsIgnoreCase("t")) {
-            System.out.print("Enter a new title: ");
-            String newTitle = scanner.nextLine();
-            editTitle(storyToEdit, newTitle);
-        } else if (editChoice.equalsIgnoreCase("d")) {
-            System.out.print("Enter the ID of the node you'd like to delete: ");
-            int nodeId = scanner.nextInt();
-            scanner.nextLine();
-            storyToEdit.deleteNode(nodeId);
-        }
-        else if (editChoice.equalsIgnoreCase("s")) {
-            System.out.print("Enter the ID of the node you'd like to set as an end node: ");
-            int nodeId = scanner.nextInt();
-            scanner.nextLine();
-            storyToEdit.findNode(nodeId).setEndNode();
-        }
+    public static void editStory(Story storyToEdit) {
+        boolean creating = true;
+        boolean inputValid = true;
+        Scanner in = new Scanner(System.in);
+        String userIn;
+        int currId = 1;
+        do {
+            System.out.println("Add a node (a), delete a node (d), edit a node(e), view all nodes (v), add tags (t), change title (ct), or finalize story(x)?");
+            do {
+                inputValid = true;
+                userIn = in.nextLine();
+                if (!(userIn.equalsIgnoreCase("a") || userIn.equalsIgnoreCase("d") || userIn.equalsIgnoreCase("v") || userIn.equalsIgnoreCase("e") || userIn.equalsIgnoreCase("t") || userIn.equalsIgnoreCase("ct") || userIn.equalsIgnoreCase("x"))) {
+                    System.out.println("Please enter a valid option");
+                    inputValid = false;
+                }
+            } while (!inputValid);
+
+            if (userIn.equalsIgnoreCase("a")) {
+                System.out.print("Enter the story content for this node: ");
+                String storyContent = in.nextLine();
+                storyToEdit.addNode(storyContent);
+                currId = storyToEdit.getCurrentNode().getId();
+                enterCondition(storyToEdit, currId);
+            } else if (userIn.equalsIgnoreCase("d")) {
+                System.out.print("Enter the ID of the node you'd like to delete: ");
+
+                do {
+                    inputValid = true;
+                    userIn = in.nextLine();
+
+                    if (!storyToEdit.getStoryNodes().containsKey(Integer.parseInt(userIn))) {
+                        System.out.print("Please enter a valid ID:");
+                        inputValid = false;
+                    }
+                } while (!inputValid);
+
+                currId = Integer.parseInt(userIn);
+                storyToEdit.deleteNode(currId);
+            } else if (userIn.equalsIgnoreCase("e")) {
+                String editChoice;
+                System.out.println("Would you like to edit nodes (n), delete a node (d), set an end node (s), or change the title of the story (t)? ");
+                editChoice = in.nextLine();
+                editNodes(storyToEdit, editChoice);
+            } else if (userIn.equalsIgnoreCase("v")) {
+                System.out.println(storyToEdit.printAllNodes());
+            } else if (userIn.equalsIgnoreCase("s")) {
+                System.out.print("Enter the ID of the node you'd like to set as an end node: ");
+                int nodeId = in.nextInt();
+                storyToEdit.findNode(nodeId).setEndNode();
+            } else if (userIn.equalsIgnoreCase("t")) {
+                System.out.print("Enter individual tags here (or enter 'q' to quit): ");
+                String tag = "";
+                while (!tag.equalsIgnoreCase("q")) {
+                    tag = in.nextLine();
+                    if (!tag.equalsIgnoreCase("q")) {
+                        storyToEdit.addTag(tag);
+                        System.out.print("Tags: ");
+                        for (int i = 0; i < storyToEdit.tags.size(); i++) {
+                            System.out.print(storyToEdit.tags.get(i) + " ");
+                        }
+                    }
+                }
+            } else if (userIn.equalsIgnoreCase("ct")) {
+                System.out.print("Enter a new title: ");
+                String newTitle = in.nextLine();
+                editTitle(storyToEdit, newTitle);
+            } else { //if user selects quit
+                //todo: Should call a helper function here to make sure every node has at least one child
+                creating = false;
+                //makes sure story ends somewhere
+                boolean end = false;
+                Iterator<Map.Entry<Integer, Node>> itr = storyToEdit.getStoryNodes().entrySet().iterator();
+                while (!end) {
+                    if (itr.next().getValue().isEndNode()) {
+                        end = true;
+                    }
+                }
+                if (!end) {
+                    System.out.println("You must have a node that ends the story before finalization");
+                    creating = true;
+                }
+            }
+        } while (creating);
+        storyCol.put(storyToEdit.getTitle(), storyToEdit);
     }
+
+        public static void editNodes(Story storyToEdit, String editChoice){
+            Scanner scanner = new Scanner(System.in);
+            if (editChoice.equalsIgnoreCase("n")) {
+                System.out.print("Enter the ID of the node to edit: ");
+                int nodeID = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Would you like to edit the 'story content' or the 'children'?: ");
+                String choice = scanner.nextLine();
+                storyToEdit.editNode(nodeID, choice);
+            } else if (editChoice.equalsIgnoreCase("t")) {
+                System.out.print("Enter a new title: ");
+                String newTitle = scanner.nextLine();
+                editTitle(storyToEdit, newTitle);
+            } else if (editChoice.equalsIgnoreCase("d")) {
+                System.out.print("Enter the ID of the node you'd like to delete: ");
+                int nodeId = scanner.nextInt();
+                scanner.nextLine();
+                storyToEdit.deleteNode(nodeId);
+            } else if (editChoice.equalsIgnoreCase("s")) {
+                System.out.print("Enter the ID of the node you'd like to set as an end node: ");
+                int nodeId = scanner.nextInt();
+                scanner.nextLine();
+                storyToEdit.findNode(nodeId).setEndNode();
+            }
+        }
 
     public static Story importUI() throws IOException, NullPointerException {
 //        Scanner fileName = new Scanner(System.in);
@@ -214,6 +232,7 @@ public class DigressUI {
         String fileName = scanner.nextLine();
         return JsonUtil.fromJsonFile(fileName, Story.class);
     }
+
 
     public static void exportUI(Story storyToExport) throws IOException, FileNotFoundException {
 //        Scanner fileName = new Scanner(System.in);
@@ -565,8 +584,9 @@ public class DigressUI {
         Scanner scanner = new Scanner(System.in);
         int userChoice = 0;
         Story storySelected = null;
-        HashMap<String, Story> storyCol = new HashMap<>();
         storyCol.put(getTestStory().getTitle(), getTestStory());
+        Story hellscape = JsonUtil.fromJsonFile("src/main/java/HELLSCAPE/HELLSCAPE.json", Story.class);
+        storyCol.put(hellscape.getTitle(), hellscape);
         do {
             System.out.println("What would you like to do?");
             System.out.println("1. Create a Story");
@@ -584,8 +604,7 @@ public class DigressUI {
             }
 
             if (userChoice == 1) {
-                Story tempStory = createStory();
-                storyCol.put(tempStory.getTitle(), tempStory);
+                createStory();
             } else if (userChoice == 2) {
                 System.out.println("How you want to read the story?");
                 System.out.println("1. Read a story already in the database");
@@ -613,18 +632,8 @@ public class DigressUI {
                         String storyChoice2 = scanner.nextLine();
                         if (storyChoice2.equalsIgnoreCase("Play")) {
                             playStory(storySelected);
-                            System.out.println("You want to play it again?(Y/N)");
-                            String choice = scanner.nextLine();
-                            do {
-                                playStory(storySelected);
-                            }
-                            while (choice.equalsIgnoreCase("N"));
                         } else if (storyChoice2.equalsIgnoreCase("Edit")) {
-                            String editChoice;
-                            System.out.println("Would you like to edit nodes (n), delete a node (d), set an end node (s), or change the title of the story (t)? ");
-                            editChoice = scanner.nextLine();
-                            editStory(storySelected, editChoice);
-
+                            editStory(storySelected);
                         }
                     } else if (storyChoice1 == 2) {
                         Iterator<Map.Entry<String, Story>> itr = storyCol.entrySet().iterator();
@@ -644,17 +653,8 @@ public class DigressUI {
                         String storyChoice2 = scanner.nextLine();
                         if (storyChoice2.equalsIgnoreCase("Play")) {
                             playStory(storySelected);
-                            System.out.println("You want to play it again?(Y/N)");
-                            String choice = scanner.nextLine();
-                            do {
-                                playStory(storySelected);
-                            }
-                            while (choice.equalsIgnoreCase("N"));
                         } else if (storyChoice2.equalsIgnoreCase("Edit")) {
-                            String editChoice;
-                            System.out.println("Would you like to edit nodes (n), delete a node (d), set an end node (s), or change the title of the story (t)? ");
-                            editChoice = scanner.nextLine();
-                            editStory(storySelected, editChoice);
+                            editStory(storySelected);
                         }
                     }
                 }
@@ -665,17 +665,8 @@ public class DigressUI {
                     String storyChoice2 = scanner.nextLine();
                     if (storyChoice2.equalsIgnoreCase("Play")) {
                         playStory(storySelected);
-                        System.out.println("You want to play it again?(Y/N)");
-                        String choice = scanner.nextLine();
-                        do {
-                            playStory(storySelected);
-                        }
-                        while (choice.equalsIgnoreCase("N"));
                     } else if (storyChoice2.equalsIgnoreCase("Edit")) {
-                        String editChoice;
-                        System.out.println("Would you like to edit nodes (n), delete a node (d), set an end node (s), or change the title of the story (t)? ");
-                        editChoice = scanner.nextLine();
-                        editStory(storySelected, editChoice);
+                        editStory(storySelected);
                     }
                 }
 
@@ -691,17 +682,8 @@ public class DigressUI {
                     String storyChoice3 = scanner.nextLine();
                     if (storyChoice3.equalsIgnoreCase("play")) {
                         playStory(storySelected);
-                        System.out.println("You want to play it again?(Y/N)");
-                        String choice = scanner.nextLine();
-                        do {
-                            playStory(storySelected);
-                        }
-                        while (choice.equalsIgnoreCase("N"));
                     } else if (storyChoice3.equalsIgnoreCase("Edit")) {
-                        String editChoice;
-                        System.out.println("Would you like to edit nodes (n), delete a node (d), set an end node (s), or change the title of the story (t)? ");
-                        editChoice = scanner.nextLine();
-                        editStory(storySelected, editChoice);
+                        editStory(storySelected);
                     }
                 } else if (fileChoice == 2) {
                     System.out.print("Enter the title of the story to export (case sensitive): ");
