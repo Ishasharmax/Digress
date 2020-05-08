@@ -73,10 +73,7 @@ public class storyFileTest {
         //create a story file
         storyFile test1 = new storyFile("outputFile","src/main/java/testFilePackage/outputFile.txt");
         test1.outputFile(testStory);
-
-        //check if the file already exist
-        storyFile test2 = new storyFile("repeatFile","src/main/java/testFilePackage/repeatFile.txt");
-//        assertThrows(IllegalArgumentException.class, ()-> test2.outputFile(testStory));
+        
     }
     @Test
     public void editFileTest(){
