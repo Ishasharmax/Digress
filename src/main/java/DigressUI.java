@@ -5,6 +5,7 @@ import java.util.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.*;
+import java.util.regex.Pattern;
 
 public class DigressUI {
 
@@ -13,7 +14,7 @@ public class DigressUI {
      * @throws IllegalArgumentException if the title and content of the story is invalid
      * @post creates the story
      */
-    public static Story createStory (){
+    public static Story createStory() {
         Scanner in = new Scanner(System.in);
         String title = "", root = "", userIn = "";
         int currId = 1, parentId;
@@ -23,53 +24,85 @@ public class DigressUI {
         Random ran = new Random();
         int id = ran.nextInt(1000);
 
-        System.out.println("Enter story title: ");
-        //todo: need error testing for invalid input here
+        System.out.print("Enter story title: ");
         title = in.nextLine();
-        System.out.println("Enter first story content: ");
+        while (!isTitleValid(title)){
+            System.out.println("Invalid input!");
+            System.out.print("Enter story title: ");
+            title = in.nextLine();
+        }
+
+        System.out.print("Enter first story content: ");
         root = in.nextLine();
+
+        while (!isContentValid(root)){
+            System.out.println("Invalid input!");
+            System.out.print("Enter first story content: ");
+            root = in.nextLine();
+        }
 
         Story story = new Story(id, title, root);
         enterCondition(story, 1, 1);
         do {
             System.out.println("Add another condition(c), work on a different node(n), or finalize story(x)?");
-            do{
+            do {
                 inputValid = true;
                 userIn = in.nextLine();
-                if(!(userIn.equalsIgnoreCase("c")||userIn.equalsIgnoreCase("n")||userIn.equalsIgnoreCase("x"))){
+                if (!(userIn.equalsIgnoreCase("c") || userIn.equalsIgnoreCase("n") || userIn.equalsIgnoreCase("x"))) {
                     System.out.println("Please enter a valid option");
                     inputValid = false;
                 }
-            } while(!inputValid);
+            } while (!inputValid);
 
-            if(userIn.equalsIgnoreCase("c")){
-                enterCondition(story, currId, story.getNodeConditions().size()+1);
-            }
-            else if(userIn.equalsIgnoreCase("n")){
+            if (userIn.equalsIgnoreCase("c")) {
+                enterCondition(story, currId, story.getNodeConditions().size() + 1);
+            } else if (userIn.equalsIgnoreCase("n")) {
                 System.out.println(story.printAllNodes());
                 System.out.println("Select a node by entering an ID: ");
 
-                do{
+                do {
                     inputValid = true;
                     userIn = in.nextLine();
 
-                    if(!story.getStoryNodes().containsKey(Integer.parseInt(userIn))){
+                    if (!story.getStoryNodes().containsKey(Integer.parseInt(userIn))) {
                         System.out.println("Please enter a valid ID");
                         inputValid = false;
                     }
-                } while(!inputValid);
+                } while (!inputValid);
 
                 currId = Integer.parseInt(userIn);
-                System.out.println(story.printCurrentNode());
-                enterCondition(story, currId, story.getNodeConditions().size()+1);
-            }
-
-            else { //if user selects quit
-                //todo: Should call a helper function here to make sure every node has at least one child
+                System.out.println("You have chosen "+ "'" +story.printCurrentNode()+ "'" +" to work on. Now enter conditions.");
+                enterCondition(story, currId, story.getNodeConditions().size() + 1);
+            } else { //if user selects quit
+                checkStoryComplete(story);
                 creating = false;
             }
-        } while(creating);
+        } while (creating);
         return story;
+    }
+
+    /**
+     * @post Check to see if title entered is valid
+     * @params title: title of the story
+     */
+    public static boolean isTitleValid(String titleIn){
+        if(titleIn.isEmpty())
+            return false;
+        if(titleIn.matches(".*\\s.*"))
+            return true;
+        return true;
+    }
+
+    /**
+     * @post Check to see if content entered is valid
+     * @params content: content of the story
+     */
+    public static boolean isContentValid(String content){
+        if(content.isEmpty()  || content.matches("\\d+") || content.matches(".*.*\\s\\d+") || content.matches(".*.*\\d+"))
+            return false;
+        if(content.matches(".*\\s.*"))
+            return true;
+        return true;
     }
 
     /**
@@ -78,7 +111,7 @@ public class DigressUI {
      * @post Enter the conditions for the story
      * @params story, id, choiceVal : story to add more conditions to, id of the node,choice value of the node to connect to
      */
-    public static void enterCondition(Story story, int id, int choiceVal) throws IllegalArgumentException{
+    public static void enterCondition(Story story, int id, int choiceVal) throws IllegalArgumentException {
         String condition = "", userIn = "";
         boolean inputValid;
         Scanner in = new Scanner(System.in);
@@ -87,12 +120,12 @@ public class DigressUI {
         System.out.print("Condition " + choiceVal + ": ");
         condition = in.nextLine();
 
-        if(!Node.checkConditionValid(condition)){
+        if (!Node.checkConditionValid(condition)) {
             do {
                 System.out.println("Please enter only letters.");
                 System.out.print("Condition " + choiceVal + ": ");
                 condition = in.nextLine();
-            }while(!Node.checkConditionValid(condition));
+            } while (!Node.checkConditionValid(condition));
         }
         if (id != 1) {
             System.out.println("Link this to an existing node (x) or a new node (n)?");
@@ -106,20 +139,14 @@ public class DigressUI {
             } while (!inputValid);
             if (userIn.equalsIgnoreCase("x")) {
                 String nextId = "";
+                System.out.println("-------------------------------------------------------------------");
                 System.out.println(story.printAllNodes());
+                System.out.println("-------------------------------------------------------------------");
 
                 do {
                     System.out.print("Enter the ID of the node to link to: ");
                     inputValid = true;
-                    nextId = in.nextLine();
-
-                    //todo: check to see about node
-
-                    do {
-                        System.out.println("Can't choose the root ID");
-                        System.out.print("Enter the ID of the node to link to: ");
-                        nextId = in.nextLine();
-                    } while (Integer.parseInt(nextId) == 1);
+                    nextId = in.next();
 
                     try {
                         Integer.parseInt(nextId);
@@ -149,7 +176,7 @@ public class DigressUI {
      * @post Plays the story
      * @params story : story user chose to play
      */
-    public static void playStory (Story story){
+    public static void playStory(Story story) {
         String choice;
         String userIn = "y";
         Scanner in = new Scanner(System.in);
@@ -175,9 +202,9 @@ public class DigressUI {
                         choice = in.nextLine();
                     }*/
                 } while (Integer.parseInt(choice) > story.getNodeConditions().size() || Integer.parseInt(choice) < 1);
-                if(Integer.parseInt(choice)>story.getNodeConditions().size()){
+                if (Integer.parseInt(choice) > story.getNodeConditions().size()) {
                     System.out.println("This condition number doesn't exist.");
-                }else{
+                } else {
                     story.getNext(Integer.parseInt(choice));
                 }
                 if (story.getCurrentNode().isEndNode()) {
@@ -188,7 +215,7 @@ public class DigressUI {
             System.out.println("Done with story");
             System.out.println("Play again? (Y/N)");
             userIn = in.nextLine();
-        } while(!userIn.equalsIgnoreCase("n"));
+        } while (!userIn.equalsIgnoreCase("n"));
     }
 
     /**
@@ -198,20 +225,8 @@ public class DigressUI {
      * @params storyChosen, newContent, contentToEdit : the story chosen by the user,
      * the edited content for the story, the older content of the story node
      */
-    public static void editStoryContent(Story storyChosen, String newContent, int contentToEdit) throws IllegalArgumentException{
+    public static void editStoryContent(Story storyChosen, String newContent, int contentToEdit) throws IllegalArgumentException {
         storyChosen.editNodeStoryContent(contentToEdit, newContent);
-
-        /*if (newContent == " " || newContent == "") throw new IllegalArgumentException("New content cannot be empty");
-        /*else if (storyChosen.getTitle().equalsIgnoreCase(newContent))
-            throw new IllegalArgumentException("New content entered is same as previous content");
-        else{
-            for (int i=0;i<storyChosen.)
-            storyChosen.getRoot();
-        }
-        else if (!storyChosen.getTitle().equalsIgnoreCase(newContent)){
-            storyChosen.getRoot();
-            editStoryContent
-        }*/
     }
 
     /**
@@ -220,31 +235,55 @@ public class DigressUI {
      * @post creates the story
      * @params fileForUpload : file name user wants to play or edit
      */
-    public static void uploadStory () throws IOException {
+    public static void uploadStory() throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter file name");
         String fileName = in.next();
         int count;
-        FileReader fileEx=null;
+        FileReader fileEx = null;
         try {
             fileEx = new FileReader(fileName);
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
             System.out.println("Enter valid file name:");
             fileName = in.next();
             fileEx = new FileReader(fileName);
         }
-        //assert fileEx != null;
-        while ((count=fileEx.read())!=-1)
-            System.out.print((char)count);
+
+        while ((count = fileEx.read()) != -1)
+            System.out.print((char) count);
         fileEx.close();
+    }
+
+    /**
+     * Adds new condition in the story
+     * @post adds new condition in the story
+     * @params story : story to add more conditions to
+     */
+    public static void newCont(Story story){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the new story content: ");
+        String newContent = in.next();
+
+        while (!isContentValid(newContent)){
+            System.out.println("Invalid input!");
+            System.out.print("Enter the new story content: ");
+            newContent = in.next();
+        }
+
+        enterCondition(story, story.getCount(), 1);
+
+//        //ask for end node condition
+//        storySelected.addNode(newContent);
+//        storySelected.linkNodes(parentID, storySelected.getCurrentNode().getId(), "Temp condition");
+
     }
 
     /**
      * Creates a test story for the UI
      * @post creates the test story
      */
-    public static Story getTestStory(){
+    public static Story getTestStory() {
         String node1 = "You are walking down a dark, dingy hallway. Where would you like to go?";
         String node2 = "You see cobwebs in front of you and a dark shadowy figure. What would you like to do next?";
         String node3 = "There is a giant spider coming down the hallway towards you.";
@@ -264,7 +303,7 @@ public class DigressUI {
         testStory.linkNodes(1, 2, "Continue straight");
 
         testStory.addNode(node3);
-        testStory.linkNodes(1, 3,"Take a left");
+        testStory.linkNodes(1, 3, "Take a left");
 
         testStory.addNode(node4);
         testStory.linkNodes(1, 4, "Turn right");
@@ -340,7 +379,7 @@ public class DigressUI {
 
         testStory.linkNodes(19, 12, "Continue");
 
-        testStory.linkNodes(15,10, "Continue walking");
+        testStory.linkNodes(15, 10, "Continue walking");
 
         String n22 = "It's locked.";
         testStory.addNode(n22);
@@ -397,39 +436,44 @@ public class DigressUI {
      * @post edits title of the story
      * @params storyChosen, newTitle  : story chosen by user to alter title and the new title
      */
-    public static void editTitle (Story storyChosen, String newTitle) throws IllegalArgumentException {
+    public static void editTitle(Story storyChosen, String newTitle) throws IllegalArgumentException {
         if (newTitle == " " || newTitle == "") throw new IllegalArgumentException("Title cannot be empty");
         else if (storyChosen.getTitle().equalsIgnoreCase(newTitle))
             throw new IllegalArgumentException("New title entered is same as previous title");
-        else if (!storyChosen.getTitle().equalsIgnoreCase(newTitle)){
+        else if (!storyChosen.getTitle().equalsIgnoreCase(newTitle)) {
             storyChosen.setTitle(newTitle);
         }
     }
 
-    public static void checkStoryComplete(Story story){
+    /**
+     * Checks if the story is complete or not
+     * @post checks if the story is complete or not
+     * @params story: story to be completed by user
+     */
+    public static void checkStoryComplete(Story story) {
         Scanner in = new Scanner(System.in);
         int userIn;
         Map missingConns = new HashMap<>();
         Iterator itr = story.getNodeConnections().entrySet().iterator();
-        while(itr.hasNext()){
-            Map.Entry thisNode = (Map.Entry)itr.next();
-            int thisId = (Integer)thisNode.getKey();
-            ArrayList thisConns = (ArrayList)thisNode.getValue();
-            if(thisConns.size() == 0 && !story.findNode(thisId).isEndNode()){
+        while (itr.hasNext()) {
+            Map.Entry thisNode = (Map.Entry) itr.next();
+            int thisId = (Integer) thisNode.getKey();
+            ArrayList thisConns = (ArrayList) thisNode.getValue();
+            if (thisConns.size() == 0 && !story.findNode(thisId).isEndNode()) {
                 missingConns.put(thisNode.getKey(), thisNode.getValue());
             }
         }
         //if there are nodes with missing connections
-        if(missingConns.size() > 0) {
+        if (missingConns.size() > 0) {
             System.out.println("Each node must have at least one connection before the story can be complete.");
             int i = missingConns.size();
-            while(i > 0) {
+            while (i > 0) {
                 System.out.println("These nodes are still missing connections:");
                 itr = story.getNodeConnections().entrySet().iterator();
                 while (itr.hasNext()) {
                     Map.Entry thisNode = (Map.Entry) itr.next();
                     int thisId = (Integer) thisNode.getKey();
-                    if(thisNode.getValue()!= null) {
+                    if (thisNode.getValue() != null) {
                         System.out.println("(" + thisNode.getKey() + ") " + story.findNode(thisId).getStoryContent());
                     }
                 }
@@ -439,7 +483,7 @@ public class DigressUI {
                     if (!missingConns.containsKey(userIn)) {
                         System.out.println("Please enter a valid ID: ");
                     }
-                } while(!missingConns.containsKey(userIn));
+                } while (!missingConns.containsKey(userIn));
                 missingConns.remove(userIn);
                 enterCondition(story, userIn, story.getNodeConnections().get(userIn).size() + 1);
                 i--;
@@ -448,165 +492,101 @@ public class DigressUI {
     }
 
     public static void main(String[] args) throws IOException {
+        System.out.println("-------------------------------------------------------------------");
+        System.out.println("Welcome to Digress!");
+        System.out.println("A software for reading and writing non-linear text-based stories.");
+        System.out.println("-------------------------------------------------------------------");
         Scanner scanner = new Scanner(System.in);
-        int userChoice=0;
-        String title=null;
-        Story storySelected=null;
-        LinkedList<Story> storyCol=new LinkedList<Story>();
+        int userChoice = 0;
+        Story storySelected = null;
+        LinkedList<Story> storyCol = new LinkedList<Story>();
         storyCol.add(getTestStory());
         do {
-            System.out.println("What would you like to do?");
-            System.out.println("1. Create a Story");
-            System.out.println("2. Load a Story");
-            System.out.println("3. Exit");
-            try{
+            System.out.println("╔.★. .══════════════════════════════════════╗");
+            System.out.println(" What would you like to do? (Choose a #)");
+            System.out.println(" 1. Create a Story");
+            System.out.println(" 2. Load a Story");
+            System.out.println(" 3. Exit");
+            System.out.println("╚════════════════════════════════════════. .★.╝");
+            try {
+                System.out.print("--> ");
                 userChoice = scanner.nextInt();
-            }catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input");
                 userChoice = scanner.nextInt();
             }
 
-            if (userChoice==1){
+            if (userChoice == 1) {
                 Story tempStory = createStory();
                 storyCol.add(tempStory);
-            }
-            else if (userChoice==2){
+            } else if (userChoice == 2) {
                 System.out.println("How you want to read the story?");
                 System.out.println("1. Read a story already in the database");
                 System.out.println("2. Read an uploaded story");
-                int userChoice2= scanner.nextInt();
+                System.out.print("--> ");
+                int userChoice2 = scanner.nextInt();
                 if (userChoice2 == 1) {
-                    System.out.println("How you want to find the story");
-                    System.out.println("1. Search through the name");
-                    System.out.println("2. Search through database");
-                    int storyChoice1 = scanner.nextInt();
-                    if(storyChoice1==1) {
-                        System.out.println("Enter title of the story:");
-                        String titleEntered = scanner.nextLine();
-                        for(int i=0;i<storyCol.size();i++) {
-                            try {
-                                if (titleEntered.equalsIgnoreCase(storyCol.get(i).getTitle())){
-                                    storySelected=storyCol.get(i);
-                                }
-                            }catch (IllegalArgumentException e) {
-                                System.out.println("No story exist with that title");
-                                System.out.println("Please Enter a valid story title: ");
-                                titleEntered = scanner.nextLine();                             }
-                        }
-                        System.out.println("What do you want to do with the story? (Play/Edit)");
-                        String storyChoice2 = scanner.nextLine();
-                        if (storyChoice2.equalsIgnoreCase("Play")) {
-                            playStory(storySelected);
-                            System.out.println("You want to play it again?(Y/N)");
-                            String choice = scanner.nextLine();
-                            do {
-                                playStory(storySelected);
-                            }
-                            while (choice.equalsIgnoreCase("N"));
-                        } else if (storyChoice2.equalsIgnoreCase("Edit")) {
-                            int editChoice;
-                            do {
-                                System.out.println("What you want to edit? ");
-                                System.out.println("1. Edit the title");
-                                System.out.println("2. Add new content");
-                                System.out.println("3. Edit existing content");
-                                System.out.println("4. Done editing");
-                                editChoice = scanner.nextInt();
-                                if (editChoice == 1){
-                                    System.out.println("Enter new title:");
-                                    String newTitle = scanner.next();
-                                    editTitle(storySelected, newTitle);
-                                    System.out.println("You successfully changed the title of the story");
-                                } else if (editChoice == 2) {
-                                    System.out.println("Enter parent ID:");
-                                    int parentID = scanner.nextInt();
-                                    System.out.println("Enter new content:");
-                                    String newContent = scanner.nextLine();
-
-                                    //ask for end node condition
-                                    storySelected.addNode(newContent);
-                                    storySelected.linkNodes(parentID, storySelected.getCurrentNode().getId(), "temp condition");
-                                    System.out.println("You successfully added content to the story");
-                                } else if (editChoice==3) {
-                                    System.out.println(storySelected.printAllNodes());
-                                    System.out.println("Enter node number you want to edit:");
-                                    int numEntered = scanner.nextInt();
-                                    System.out.println("Enter content for edit:");
-                                    String editedContent = scanner.next();
-                                    editStoryContent(storySelected, editedContent, numEntered);
-                                    System.out.println("You successfully changed the content of the story");
-                                }
-                            } while (editChoice != 4);
-                        }else System.out.println("invalid input");
+                    for (int i = 0; i < storyCol.size(); i++) {
+                        System.out.println((i + 1) + ". " + storyCol.get(i).getTitle());
                     }
-                    else if (storyChoice1==2) {
-                        for (int i = 0; i < storyCol.size(); i++) {
-                            System.out.println((i+1)+ ". "+ storyCol.get(i).getTitle());
+                    System.out.print("Enter title of the story: ");
+                    String storyChoice = scanner.next();
+
+                    for (int i = 0; i < storyCol.size(); i++) {
+                        if (storyChoice.equalsIgnoreCase(storyCol.get(i).getTitle())) {
+                            storySelected = storyCol.get(i);
+                            break;
                         }
-                        System.out.println("Enter title of the story:");
-                        String storyChoice = scanner.next();
-
-                        for (int i = 0; i < storyCol.size(); i++) {
-                            if (storyChoice.equalsIgnoreCase(storyCol.get(i).getTitle())){
-                                storySelected = storyCol.get(i);
-                                break;
-                            }
-                        }
-
-                        //todo: check to see if the story doesnt exist
-
-                        System.out.println("What do you want to do with the story? (Play/Edit)");
-                        String storyChoice2 = scanner.next();
-                        if (storyChoice2.equalsIgnoreCase("Play")) {
-                            playStory(storySelected);
-                            System.out.println("You want to play it again?(Y/N)");
-                            String choice = scanner.next();
-                            do {
-                                playStory(storySelected);
-                            }
-                            while (choice.equalsIgnoreCase("N"));
-                        } else if (storyChoice2.equalsIgnoreCase("Edit")) {
-                            int editChoice;
-                            do {
-                                System.out.println("What you want to edit? ");
-                                System.out.println("1. Edit the title");
-                                System.out.println("2. Add new content");
-                                System.out.println("3. Edit existing content");
-                                System.out.println("4. Done editing");
-                                editChoice = scanner.nextInt();
-                                if (editChoice == 1) {
-                                    System.out.println("Enter new title:");
-                                    String newTitle = scanner.next();
-                                    editTitle(storySelected, newTitle);
-                                    System.out.println("You successfully changed the title of the story");
-                                } else if (editChoice == 2) {
-                                    System.out.println("Enter ID:");
-                                    int parentID = scanner.nextInt();
-                                    System.out.println("Enter new content:");
-                                    String newContent = scanner.nextLine();
-
-                                    //ask for end node condition
-                                    storySelected.addNode(newContent);
-                                    storySelected.linkNodes(parentID, storySelected.getCurrentNode().getId(), "Temp condition");
-                                    System.out.println("You successfully added content to the story");
-                                } else if (editChoice==3){
-                                    System.out.println(storySelected.printAllNodes());
-                                    System.out.println("Enter node number you want to edit:");
-                                    int numEntered = scanner.nextInt();
-                                    System.out.println("Enter content for edit:");
-                                    String editedContent = scanner.next();
-                                    editStoryContent(storySelected, editedContent, numEntered);
-                                    System.out.println("You successfully changed the content of the story");
-                                }
-                            } while (editChoice != 4);
-                        } else System.out.println("invalid input");
                     }
-                }else if (userChoice2 == 2) {
+                    //todo: check to see if the story doesn't exist
+
+                    System.out.println("What do you want to do with the story? (Play/Edit)");
+                    String storyChoice2 = scanner.next();
+                    if (storyChoice2.equalsIgnoreCase("Play")) {
+                        playStory(storySelected);
+                    } else if (storyChoice2.equalsIgnoreCase("Edit")) {
+                        int editChoice;
+                        do {
+                            System.out.println("What you want to edit? ");
+                            System.out.println("1. Edit the title");
+                            System.out.println("2. Add new content");
+                            System.out.println("3. Edit existing content");
+                            System.out.println("4. Done editing");
+                            editChoice = scanner.nextInt();
+                            if (editChoice == 1) {
+                                System.out.println("Enter new title:");
+                                String newTitle = scanner.next();
+                                editTitle(storySelected, newTitle);
+                                System.out.println("You successfully changed the title of the story");
+                            } else if (editChoice == 2) {
+                                newCont(storySelected);
+                                System.out.println("You successfully added content to the story");
+                                System.out.println("Do you still want to add new content? (Y/N)");
+                                String addContStill = scanner.next();
+                                while(addContStill.equalsIgnoreCase("Y")){
+                                    newCont(storySelected);
+                                    System.out.println("Do you still want to add new content? (Y/N)");
+                                    addContStill = scanner.next();
+                                }
+                            } else if (editChoice == 3) {
+                                System.out.println(storySelected.printAllNodes());
+                                System.out.println("Enter node number you want to edit:");
+                                int numEntered = scanner.nextInt();
+                                System.out.println("Enter content for edit:");
+                                String editedContent = scanner.next();
+                                editStoryContent(storySelected, editedContent, numEntered);
+                                System.out.println("You successfully changed the content of the story");
+                            }
+                        } while (editChoice != 4);
+                    } else System.out.println("invalid input");
+                } else if (userChoice2 == 2) {
                     uploadStory();
                     //todo: play or edit the story in function
                 }
             }
-        }while (userChoice!=3 || userChoice>3 || userChoice==0);
+        } while (userChoice != 3 || userChoice > 3 || userChoice == 0) ;
     }
 }
+
+
 
