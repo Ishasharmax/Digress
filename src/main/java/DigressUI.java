@@ -558,8 +558,8 @@ public class DigressUI {
         int userChoice=0;
         String title=null;
         Story storySelected=null;
-        LinkedList<Story> storyCol=new LinkedList<Story>();
-        storyCol.add(getTestStory());
+        HashMap<String, Story> storyCol=new HashMap<>();
+        storyCol.put(getTestStory().getTitle(), getTestStory());
         do {
             System.out.println("What would you like to do?");
             System.out.println("1. Create a Story");
@@ -575,7 +575,7 @@ public class DigressUI {
 
             if (userChoice==1){
                 Story tempStory = createStory();
-                storyCol.add(tempStory);
+                storyCol.put(tempStory.getTitle(), tempStory);
             }
             else if (userChoice==2){
                 System.out.println("How you want to read the story?");
@@ -767,8 +767,10 @@ public class DigressUI {
                         } while (editChoice != 4);
                     }else System.out.println("invalid input////");
                 } 
-                else if (fileChoice==2){ 
-                    exportUI(storySelected);
+                else if (fileChoice==2){
+                    System.out.print("Enter the title of the story to export (case sensitive): ");
+                    String exportTitle = scanner.nextLine();
+                    exportUI(storyCol.get(exportTitle));
                 } 
 //                else if (fileChoice==3){ 
 //                    printFile(); 
