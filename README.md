@@ -7,6 +7,7 @@
 ### Sprint 3
 
 #### Goal: Finalize restructuring of codebase and implement import/export file feature, as well as ensure create and play story are working properly and the user can delete nodes.
+##### Sprint Retrospective: https://docs.google.com/document/d/1_OnKSu7m5lktTtQUT0ZYqUmCBbigxKNTR4VvrFBIrLM/edit?usp=sharing
 ##### Use Case Planning: https://docs.google.com/document/d/1qQCpFYhUXw0H2gPLOR3jnIta8dcHPC3CsjUzz-Fmafs/edit?usp=sharing
 ##### ---------------------------------------------
 ### Sprint 2
