@@ -1,10 +1,10 @@
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class storyFileTest {
     @Test
@@ -76,7 +76,16 @@ public class storyFileTest {
 
     }
     @Test
-    public void editFileTest(){
+    public void editFileTest() throws IOException,IllegalArgumentException {
+        storyFile test1 = new storyFile("editFile","src/main/java/testFilePackage/editFile.txt");
+        test1.editFile("Test onw two or three?\n" +
+                "[1]one\n" +
+                "[2]two\n" +
+                "[3]three");
+
+        //check error
+        assertThrows(IllegalArgumentException.class, ()->  test1.editFile(""));
+        assertThrows(IllegalArgumentException.class, ()->  test1.editFile(" "));
 
     }
 
